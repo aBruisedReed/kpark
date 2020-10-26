@@ -38,7 +38,42 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="common/{pageName}")
-	public String hello(@PathVariable("pageName")String pageName) {
+	public String comm(@PathVariable("pageName")String pageName) {
 		return "/common/"+pageName;
+	}
+
+	@RequestMapping(value="buy/{pageName}")
+	public String buy(@PathVariable("pageName")String pageName) {
+		return "/buy/"+pageName;
+	}
+	
+	@RequestMapping(value="admin/{pageName}")
+	public String adm(@PathVariable("pageName")String pageName) {
+		return "/admin/"+pageName;
+	}
+	
+	@RequestMapping(value="community/{pageName}")
+	public String community(@PathVariable("pageName")String pageName) {
+		return "/community/"+pageName;
+	}
+	
+	@RequestMapping(value="info/{pageName}")
+	public String info(@PathVariable("pageName")String pageName) {
+		return "/info/"+pageName;
+	}
+	
+	@RequestMapping(value="member/{pageName}")
+	public String member(@PathVariable("pageName")String pageName) {
+		return "/member/"+pageName;
+	}
+	
+	@RequestMapping(value="mypage/{pageName}")
+	public String mypage(@PathVariable("pageName")String pageName) {
+		return "/mypage/"+pageName;
+	}
+	
+	@RequestMapping(value="sell/{pageName}")
+	public String sell(@PathVariable("pageName")String pageName) {
+		return "/sell/"+pageName;
 	}
 }
