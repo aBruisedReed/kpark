@@ -1,6 +1,7 @@
 #all {
 	/* background-color: pink; */
 	width: 1280px;
+	overflow: hidden;
 	text-align: center;
 }
 #title { 
