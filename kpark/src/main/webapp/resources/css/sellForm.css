@@ -1,0 +1,89 @@
+#all {
+	/* background-color: pink; */
+	width: 1280px;
+	text-align: center;
+}
+#title { 
+/* background-color: lavender; */
+ }
+#sell_title_img {
+	width: 100%;
+}
+table {
+	border-collapse: collapse;
+	border-color: lightgray;
+	margin: 40px 0px;
+	margin-left: auto; 
+	margin-right: auto
+}
+table tr,td {
+	padding: 0px 15px;
+}
+table input { 
+width: 120px;
+height: 20px;
+ }
+table select {
+width: 130px;
+height: 30px;
+margin-right: 5px;
+}
+table span {
+	margin-left: 5px;
+	color: gray;
+}
+.formKey {
+	text-align: right;
+}
+.formValue {
+	text-align: left;
+}
+input[type="checkbox"] {
+	width: 10px;
+	margin: 0px 10px;
+}
+#optionCheckbox {
+	padding-top: 10px;
+}
+#optionCheckbox label {
+	display: inline-block;
+	width: 120px;
+	height: 35px;
+}
+#explanation {
+	margin-bottom: 20px;
+	resize: none;
+}
+#selectedImg img {
+	display: inline-block;
+	width: 200px;
+	height: 150px;
+	margin: 0px 5px;
+}
+#imgBtnLine {
+	text-align: right;
+	padding: 10px 75%;
+}
+#imgBtn {
+	border: none;
+	width: 100px;
+	height: 30px;
+	background-color: gray;
+	color: white;
+}
+#buttons {
+	padding: 30px 0px;
+}
+#buttons input {
+	margin: 5px 10px;
+	border: none;
+	display: inline-block;
+	width: 110px;
+	height: 35px;
+	font-size: 18px;
+	background-color: black;
+	color: white;
+}
+#buttons #submit {
+	background-color: #401C5A;
+}
