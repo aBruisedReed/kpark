@@ -113,7 +113,7 @@
 	<div id="all">
 		<div id="title">
 			<h1>차량 판매 상담 신청</h1>
-			<p>빠르고 간편하게<br>원하는 가격으로 판매하세요.</p>
+			<p style="color: gray">빠르고 간편하게<br>원하는 가격으로 판매하세요.</p>
 			<img id="sell_title_img" src="${contextPath }/resources/image/sell_title_img.png">
 		</div>
 		<div id="sellTable">
