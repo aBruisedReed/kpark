@@ -9,26 +9,26 @@
 #sell_title_img {
 	width: 100%;
 }
-table {
+#sellTable table {
 	border-collapse: collapse;
 	border-color: lightgray;
 	margin: 40px 0px;
 	margin-left: auto; 
-	margin-right: auto
+	margin-right: auto;
 }
-table tr,td {
+#sellTable table tr,td {
 	padding: 0px 15px;
 }
-table input { 
-width: 120px;
-height: 20px;
+#sellTable table input { 
+	width: 120px;
+	height: 20px;
  }
-table select {
-width: 130px;
-height: 30px;
-margin-right: 5px;
+#sellTable table select {
+	width: 130px;
+	height: 30px;
+	margin-right: 5px;
 }
-table span {
+#sellTable table span {
 	margin-left: 5px;
 	color: gray;
 }
@@ -38,7 +38,7 @@ table span {
 .formValue {
 	text-align: left;
 }
-input[type="checkbox"] {
+#all input[type="checkbox"] {
 	width: 10px;
 	margin: 0px 10px;
 }
