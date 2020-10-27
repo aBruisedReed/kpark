@@ -1,85 +1,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<%@ page contentType = "text/html;charset=utf-8" %>
+<%@ page contentType = "text/html; charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<title>Home</title>
-	<link rel="stylesheet" href="resources/css/reset.css">
-	<style>
-		header:before {
-			position: absolute;
-			left: 0;
-			top: 80px;
-			width: 100%;
-			height: 1px;
-			background: #CDCDCD;
-			content: "";
-		}
-		header {
-			position: relative;
-			margin: 0;
-			padding: 0;
-		}		
-		.header_content {
-			position: relative;
-			width: 1280px;
-			height: 141px;
-			margin: 0 auto;
-		}
-		header h1.logo {
-			height: 80px;
-			width: 111px;
-			position: absolute;
-			left: 0;
-			top: 0;
-			background: #FFE4F3;
-			margin: 0;
-		}
-		.searchbox {
-			width: 405px; height: 40px;
-			border: 3px solid #9E7BFF;
-			background: white;
-			margin: 20px auto;
-		}
-		.searchbox .search_text {
-			width: 365px; height: 40px;
-			margin-left: 5px;
-			border: 0;
-			line-height: 21px;
-			font-weight: bold;
-			font-size: 14px;
-			outline: none;
-		}
-		.searchbox .search_button {
-			height: 30px;
-			width: 30px;
-			background: url("resources/image/search.png") no-repeat;
-			background-size: contain;
-			border: 0;
-			outline: none;
-			float: right;
-			margin: 5px 5px 5px 0;
-		}
-		.header_nav {
-			position: absolute;
-			right: 5px;
-			top: 20px;
-		}
-		.header_nav ul {
-			float: left;
-			margin-top: 14px;
-		}
-		.header_nav li {
-			position: relative;
-			float: left;
-		}
-	</style>
+	<title>header</title>
+	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/header.css" />" rel="stylesheet">
+	
 </head>
 <body>
 <header>
 	<div class="header_content">
 		<h1 class="logo">
-			<a href="home">LOGO</a>
+			<a href="home"></a>
 		</h1>
 		<div class="searchbox">
 			<input class="search_text" type="text" placeholder="모델명을 검색해주세요.">
@@ -94,8 +28,33 @@
 				<li><a href="login">관리자메뉴</a></li> -->
 			</ul>
 		</nav>
+		<nav class="main_nav">
+			<li class="nav1"><a href="buy">차량구매</a>
+				<ul class="nav1_over">
+					<li class="buy_1"><a href="all">전체차량</a></li>
+					<li class="buy_2"><a href="search">조건검색</a></li>
+					<li class="buy_3"><a href="buyConsult">구매상담</a></li>
+				</ul>
+			</li>
+			<li class="nav2"><a href="sell">차량판매</a>
+				<ul class="nav2_over">
+					<li class="sell_1"><a href="buyConsult">판매상담</a></li>
+				</ul>
+			</li>
+			<li class="nav3"><a href="info">차량정보</a>
+				<ul class="nav3_over">
+					<li class="info_1"><a href="infoCar">차량정보</a></li>
+				</ul>
+			</li>
+			<li class="nav4"><a href="community">커뮤니티</a>
+				<ul class="nav4_over">
+					<li class="comm_1"><a href="review">거래후기</a></li>
+					<li class="comm_2"><a href="news">자동차뉴스</a></li>
+					<li class="comm_3"><a href="board">자유게시판</a></li>
+				</ul>
+			</li>
+		</nav>
 	</div>
-	
 </header>
 </body>
 </html>
