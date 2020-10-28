@@ -14,8 +14,6 @@
 <title>kpark 공식 사이트</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
 <div class="wrap">
    
       <section class="recommand">
@@ -165,6 +163,5 @@
     </div>
   </section>
 </div>
-<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
