@@ -76,4 +76,6 @@ public class HomeController {
 	public String sell(@PathVariable("pageName")String pageName) {
 		return "/sell/"+pageName;
 	}
+	
+	
 }
