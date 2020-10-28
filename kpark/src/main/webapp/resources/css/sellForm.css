@@ -3,6 +3,7 @@
 	width: 1280px;
 	overflow: hidden;
 	text-align: center;
+	margin: 0 auto;
 }
 #title { 
 /* background-color: lavender; */
@@ -12,13 +13,24 @@
 }
 #sellTable table {
 	border-collapse: collapse;
-	border-color: lightgray;
-	margin: 40px 0px;
-	margin-left: auto; 
-	margin-right: auto;
+	margin: 40px auto;
+	border: 1px solid white;
+}
+#sellTable table * {
+	border: 1px solid lightgray;
+}
+.formKey * {
+	border: none;
+}
+#sellTable input {
+	border: 1px soild lightgray;
 }
 #sellTable table tr,td {
-	padding: 0px 15px;
+	padding-right: 5px;
+	text-align: right;
+}
+#sellTable table td, th {
+	padding: 10px;
 }
 #sellTable table input { 
 	width: 120px;
@@ -87,4 +99,7 @@
 }
 #buttons #submit {
 	background-color: #401C5A;
+}
+.formValue * {
+	border: none !important;
 }

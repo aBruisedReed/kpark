@@ -2,16 +2,14 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
-	<style>
-		footer {
-			color: white;
-			background-color: black;
-			height: 142px;
-		}
-	</style>
+	<title>footer</title>
+	<link href="<c:url value="/resources/css/footer.css" />" rel="stylesheet">
 </head>
 <body>
-<footer>THIS IS FOOTER</footer>
+<footer>
+	<div class="footer_content">
+	
+	</div>
+</footer>
 </body>
 </html>

@@ -49,7 +49,8 @@ header h1.logo a {
 	margin: 20px auto;
 }
 .searchbox .search_text {
-	width: 365px; height: 40px;
+	width: 360px;
+	height: 38px;
 	margin-left: 5px;
 	border: 0;
 	line-height: 21px;
