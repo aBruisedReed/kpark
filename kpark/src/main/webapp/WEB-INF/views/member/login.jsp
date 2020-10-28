@@ -24,7 +24,7 @@
 				<div class="login_upper">
 				<h1 class="login_logo"><a href="home"></a></h1>	
 				<div class="check_remember">
-					<input type="checkbox" id="rememberId" name="rememberId" value="아이디 저장" checked>
+					<input type="checkbox" id="rememberId" name="rememberId" value="아이디 저장" >
 					<label>아이디 저장</label>
 				</div>
 				</div>
