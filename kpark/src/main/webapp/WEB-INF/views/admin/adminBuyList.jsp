@@ -17,8 +17,6 @@
 	</script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
 	<div id="all">
 		<div id="title">
 			<h1>구매 상담 목록</h1>
@@ -71,6 +69,5 @@
 			<h3>페이지 번호</h3>
 		</div>
 	</div>
-<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
