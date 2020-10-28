@@ -1,9 +1,10 @@
 .wrap{
     width: 1280px;
     margin: 0 auto;
+ 
 }
 
-
+/* 구매 판매  상담 게시판 css */
 
 .t-label{
      font-size: 40px;
@@ -31,4 +32,26 @@
 .b-table2{
 	display:flex;
 	justify-content: space-around;
+}
+/* 수정  탈퇴 css */
+.edit{
+   display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  padding: 100px 500px;
+   text-align: left;
+}
+.edit input{
+	width:350px;
+}
+
+.title{
+	font-size:20px;
+}
+.edit_btn{
+	display:flex;
+	justify-content: space-around;
+}
+.edit_btn input{
+	width:150px;
 }

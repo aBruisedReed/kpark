@@ -10,6 +10,7 @@
 <head>
 <link rel="stylesheet" href="${contextPath }/resources/css/reset.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/main.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwlNqAEil52XRPHmSVb4Luk18qQG9GqcM&sensor=false&language=en"></script> 
 <meta charset="UTF-8">
 <title>kpark 공식 사이트</title>
 </head>
@@ -156,13 +157,32 @@
 
   </section>
   <br>
+  <script> 
+  function initialize() { 
+var myLatlng = new google.maps.LatLng(37.571034, 126.992643); // 좌표값
+  var mapOptions = { 
+        zoom: 14, // 지도 확대레벨 조정
+        center: myLatlng, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP 
+  } 
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions); 
+  var marker = new google.maps.Marker({ 
+position: myLatlng, 
+map: map, 
+title: "kpark" // 마커에 마우스를 올렸을때 간략하게 표기될 설명글
+}); 
+  } 
+window.onload = initialize;
+</script>
+
   <section class="kpark_loc">
       <div class="kpark_loc1">
       <label>kpark 오시는길</label>
     </div>
-    <div class="kpark_img">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202428.62092795392!2d126.95542179643708!3d37.55630769978137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3eb0ea1ac35%3A0x29ca1c926a027bff!2z7JWE7J207Yuw67GF7YGs!5e0!3m2!1sko!2skr!4v1603852008424!5m2!1sko!2skr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    </div>
+    <div id="map_canvas" style="width: 100%; height: 400px; margin:0px;"></div>
+<!--     <div class="kpark_img"> -->
+
+<!--     </div> -->
   </section>
 </div>
 <%@include file="/WEB-INF/views/common/footer.jsp" %>
