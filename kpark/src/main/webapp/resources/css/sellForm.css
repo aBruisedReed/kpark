@@ -1,24 +1,33 @@
 #all {
 	/* background-color: pink; */
 	width: 1280px;
-	overflow: hidden;
 	text-align: center;
 }
 #title { 
-/* background-color: lavender; */
+	width: 80%;
+	margin: auto;
+	margin-top: 50px;
  }
+#title h1 {
+	font-weight: bold;
+}
 #sell_title_img {
 	width: 100%;
 }
-#sellTable table {
-	border-collapse: collapse;
-	border-color: lightgray;
-	margin: 40px 0px;
-	margin-left: auto; 
-	margin-right: auto;
+#sellTable {
+	width: 80%;
+	margin: auto;
 }
-#sellTable table tr,td {
-	padding: 0px 15px;
+#sellTable table {
+	width: 90%;
+	border-collapse: collapse;
+	margin: 40px auto;
+	border-style: hidden;
+}
+#sellTable table tr, #sellTable table td {
+	padding: 20px 15px;
+	vertical-align: middle;
+	border: 1px solid lightgray;
 }
 #sellTable table input { 
 	width: 120px;
@@ -35,16 +44,17 @@
 }
 .formKey {
 	text-align: right;
+	padding-right: 15px;
 }
 .formValue {
 	text-align: left;
 }
-#all input[type="checkbox"] {
+#sellTable input[type="checkbox"] {
 	width: 10px;
 	margin: 0px 10px;
 }
 #optionCheckbox {
-	padding-top: 10px;
+	padding: auto;
 }
 #optionCheckbox label {
 	display: inline-block;
