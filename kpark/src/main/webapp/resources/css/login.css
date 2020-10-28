@@ -1,0 +1,121 @@
+body {
+	background-color: lightgray;
+}
+
+.login_wrap {
+	width: 600px;
+	height: 100vh;
+	background-color: white;
+	border: 1px solid #cdcdcd;
+	margin: 0 auto;
+}
+.login_inner {
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 18vh;
+	text-align: center;
+}
+
+.login_upper {
+	position: relative;
+	text-align: justify;
+}
+.login_upper h1 {
+	display: inline-block;
+}
+.login_upper .login_logo {
+	
+}
+
+.login_upper .login_logo a {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: inline-block;
+	height: 60px;
+	width: 131px;
+	background: url("../image/kpark_logo.png") center no-repeat;
+	background-size: contain;
+}
+.login_upper .check_remember {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: inline-block;
+}
+.login_inner .input_id, .input_pw {
+	display:block;
+	width: 430px;
+	height: 50px;
+	margin: 10px auto;
+	padding: 0 10px;
+	font-size: 15px;
+}
+.login_inner .login_button {
+	width: 454px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 50px;
+	color: white;
+	background-color: #401C5A;
+	border: none;
+	font-weight: bold;
+	font-size: 18px;
+}
+.login_inner .login_button:hover {
+	background-color: #9E7BFF;
+}
+.login_option, .login_other {
+	margin: 0 auto;
+}
+.login_option ul, .login_other ul {
+	text-align: center;
+}
+.login_option ul li, .login_other ul li {
+	display: inline-block;
+	margin: 10px;
+}
+.login_option ul li:hover {
+	text-decoration: underline;
+}
+.login_option ul li a,.login_other a {
+	color: #292420;
+	text-decoration: none;
+}
+.login_other {
+	margin: 20px auto;
+}
+.login_other h3 {
+	font-weight: bold;
+	margin: 10px 0;
+}
+.icon_wrap{
+	display: inline-block;
+	height: 80px;
+	width: 80px;
+	border: 1px solid #292420;
+	border-radius: 50%;
+}
+.icon_wrap .naver_icon {
+	height: 30px;
+	width: 30px;
+	margin: 25px auto;
+	background: url("../image/naverIcon.png") center no-repeat;
+	background-size: contain;
+}
+.icon_wrap .kakao_icon {
+	height: 30px;
+	width: 30px;
+	margin: 25px auto;
+	background: url("../image/kakaoIcon.png") center no-repeat;
+	background-size: contain;
+}
+.icon_wrap .google_icon {
+	height: 30px;
+	width: 30px;
+	margin: 25px auto;
+	background: url("../image/googleIcon.png") center no-repeat;
+	background-size: contain;
+}
