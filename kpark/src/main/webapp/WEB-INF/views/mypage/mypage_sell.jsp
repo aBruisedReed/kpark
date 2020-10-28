@@ -15,8 +15,6 @@
 <title>판매 상담 목록</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
   <div class="wrap">
     <div class="t-label">  <label>판매 상담 내역</label></div>
 <table class="b-table1">
@@ -61,6 +59,5 @@
     </tr>
 </table>
     </div>
-     <%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

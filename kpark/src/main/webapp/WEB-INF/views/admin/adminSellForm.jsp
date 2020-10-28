@@ -26,7 +26,7 @@
 		</div>
 		<div id="sellTable">
 			<form name="sellForm" method="post" action="#" enctype="multipart/form-data">
-				<table frame="void" width="70%" height="500">
+				<tabl height="500">
 				  <tr>
 				    <td width="15%" class="formKey">차량 선택</td>
 				    <td width="35%" class="formValue">
