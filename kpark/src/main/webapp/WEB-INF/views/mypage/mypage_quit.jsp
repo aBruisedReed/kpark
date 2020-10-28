@@ -14,8 +14,7 @@
 <title>회원 탈퇴</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
+
  <div class="wrap">
  <div class="edit">
  <label><h1>회원 탈퇴</h1></label>
@@ -35,6 +34,6 @@
  </div>
  </div>
  </div>
- <%@include file="/WEB-INF/views/common/footer.jsp" %>
+
 </body>
 </html>

@@ -22,8 +22,7 @@
 <title>회원정보 수정</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
+
  <div class="wrap">
  <div class="edit">
  <label><h1>회원정보 수정</h1></label>
@@ -150,6 +149,6 @@
 
  
  </div>
- <%@include file="/WEB-INF/views/common/footer.jsp" %>
+ 
 </body>
 </html>

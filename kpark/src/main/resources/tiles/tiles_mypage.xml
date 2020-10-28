@@ -14,4 +14,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_sell.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/mypage/mypage_quit" extends="baseLayout">
+		<put-attribute name="title" value="회원 탈퇴"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_quit.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/mypage_edit" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 수정"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_edit.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
