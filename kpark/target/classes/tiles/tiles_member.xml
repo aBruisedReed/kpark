@@ -3,8 +3,12 @@
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-
-	<definition name="/member/login" extends="baseLayout">
+	<definition name="baseLayout_only" template="/WEB-INF/views/common/layout_only.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+	
+	<definition name="/member/login" extends="baseLayout_only">
 		<put-attribute name="title" value="로그인"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/member/login.jsp"></put-attribute>
 	</definition>
