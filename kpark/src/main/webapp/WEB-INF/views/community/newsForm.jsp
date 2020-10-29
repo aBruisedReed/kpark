@@ -25,7 +25,7 @@
       }
   }  
   function backToList(obj){
-    obj.action="${contextPath}/board/listArticles.do";
+    obj.action="${contextPath}/community/boardList.do";
     obj.submit();
   }
   
@@ -43,9 +43,9 @@
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <li>자유게시판</li>
-	    <li class='active'>자동차뉴스</li>
-	    <li>거래후기</li>
+	    <a href="boardList"><li>자유게시판</li></a>
+	    <a href="newsList"><li class='active'>자동차뉴스</li></a>
+	    <a href="reviewList"><li>거래후기</li></a>
 	 </ul>
 	 </div>
 
@@ -57,7 +57,7 @@
     <div class="ttl-sm">자동자뉴스를 작성하세요.</div><br><br>
 
 	<div class="formboard">
-    <form name="boardForm" method="post" action="${contextPath}/board/addNewArticle.do"   enctype="multipart/form-data">
+    <form name="boardForm" method="post" action="${contextPath}/community/addNewArticle.do"   enctype="multipart/form-data">
       <tr>
 	<td align="right">작성자 : </td>
 	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.name }" readonly/> </td>
@@ -86,6 +86,7 @@
     </tr>
     </div>
     </table>
+    <div class="a_paging" style="margin-top: 40px"></div>
 	</div>
   </form>
 </body>

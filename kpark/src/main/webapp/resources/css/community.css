@@ -196,9 +196,18 @@ h2{
 
 /*formbaoard*/
 .formboard{
-	margin: auto;
+  min-width: 400px;
+  margin: auto;
+  overflow: hidden;
+  word-break: break-all;
 }
-
+.review{
+	width: 80%;
+}
+#i_content{
+	resize: none;
+	width: 80%;
+}
 /*자유게시판*/            
 .boardlist {
 	width:100%;
