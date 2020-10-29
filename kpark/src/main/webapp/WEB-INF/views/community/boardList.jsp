@@ -17,15 +17,13 @@
 </head>
 
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
 	
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <li class='active'>자유게시판</li>
-	    <li>자동차뉴스</li>
-	    <li>거래후기</li>
+	    <a href="boardList"><li class='active'>자유게시판</li></a>
+	    <a href="newsList"><li>자동차뉴스</li></a>
+	    <a href="reviewList"><li>거래후기</li></a>
 	 </ul>
 	 </div>
 
@@ -91,6 +89,5 @@
 	</table>
 	</div>
 	
-<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
