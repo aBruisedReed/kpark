@@ -21,9 +21,9 @@
 		</div>
 		<nav class="header_nav">
 			<ul>
-				<li><a href="member/login">로그인</a></li>
-				<li><a href="member/join_1">회원가입</a></li>
-				<li><a href="common/helpCenter">고객센터</a></li>
+				<li><a href="${contextPath }/kpark/member/login">로그인</a></li>
+				<li><a href="${contextPath }/kpark/member/join_1">회원가입</a></li>
+				<li><a href="${contextPath }/kpark/common/helpCenter">고객센터</a></li>
 				<!-- <li><a href="login">마이페이지</a></li>
 				<li><a href="login">관리자메뉴</a></li> -->
 			</ul>
