@@ -20,6 +20,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/community/newsForm.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/community/newsList" extends="baseLayout">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/community/newsList.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="/community/reviewForm" extends="baseLayout">
 		<put-attribute name="title" value=""></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/community/reviewForm.jsp"></put-attribute>

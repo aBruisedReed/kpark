@@ -13,7 +13,7 @@
 <header>
 	<div class="header_content">
 		<h1 class="logo">
-			<a href="home"></a>
+			<a href="${contextPath }"></a>
 		</h1>
 		<div class="searchbox">
 			<input class="search_text" type="text" placeholder="모델명을 검색해주세요.">
@@ -21,9 +21,9 @@
 		</div>
 		<nav class="header_nav">
 			<ul>
-				<li><a href="login">로그인</a></li>
-				<li><a href="login">회원가입</a></li>
-				<li><a href="login">고객센터</a></li>
+				<li><a href="member/login">로그인</a></li>
+				<li><a href="member/join_1">회원가입</a></li>
+				<li><a href="common/helpCenter">고객센터</a></li>
 				<!-- <li><a href="login">마이페이지</a></li>
 				<li><a href="login">관리자메뉴</a></li> -->
 			</ul>
@@ -36,9 +36,9 @@
 					<li class="buy_3"><a href="buyConsult">구매상담</a></li>
 				</ul>
 			</li>
-			<li class="nav2"><a href="sell">차량판매</a>
+			<li class="nav2"><a href="${contextPath }/kpark/sell/sellForm">차량판매</a>
 				<ul class="nav2_over">
-					<li class="sell_1"><a href="buyConsult">판매상담</a></li>
+					<li class="sell_1"><a href="${contextPath }/kpark/sell/sellForm">판매상담</a></li>
 				</ul>
 			</li>
 			<li class="nav3"><a href="info">차량정보</a>
@@ -46,11 +46,11 @@
 					<li class="info_1"><a href="infoCar">차량정보</a></li>
 				</ul>
 			</li>
-			<li class="nav4"><a href="community">커뮤니티</a>
+			<li class="nav4"><a href="${contextPath }/kpark/community/reviewList">커뮤니티</a>
 				<ul class="nav4_over">
-					<li class="comm_1"><a href="review">거래후기</a></li>
-					<li class="comm_2"><a href="news">자동차뉴스</a></li>
-					<li class="comm_3"><a href="board">자유게시판</a></li>
+					<li class="comm_1"><a href="${contextPath }/kpark/community/reviewList">거래후기</a></li>
+					<li class="comm_2"><a href="${contextPath }/kpark/community/newsList">자동차뉴스</a></li>
+					<li class="comm_3"><a href="${contextPath }/kpark/community/boardList">자유게시판</a></li>
 				</ul>
 			</li>
 		</nav>
