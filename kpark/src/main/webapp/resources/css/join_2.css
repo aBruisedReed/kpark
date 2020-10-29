@@ -10,6 +10,7 @@ body {
 	background-color: white;
 	border: 1px solid #cdcdcd;
  	margin: 0 auto;
+ 	height: 100vh;
 }
 .join_inner {
 	width: 450px;
@@ -85,19 +86,49 @@ body {
 }
 .join_inner>p{
 	color: lightgray;
+	width: 100%;
+	text-align: left;
 }
 .join_inner .authen {
-	border: 1px soild #cdcdcd;
-	border-radius: 10%;
-	width: 450px;
+	border: 1px solid #cdcdcd;
+	border-radius: 20px;
+	width: 200px;
+	height: 80px;
+	margin: 10px auto;
+	
 }
 .join_inner .authen .phoneIcon {
 	display: inline-block;
 	height: 50px;
-	width: 50px;
+	width: auto;
 	background: url("../image/phoneIcon.png") center no-repeat;
 	background-size: contain;
+	margin: 0 auto;
 }
-join_inner .authen div {
-	font-weight: bold;	
+/* .phoneIconText {
+	color: lightgray;
+	text-decoration: none !important;
+	font-weight: bold;
+	margin: 0 auto;
+} */
+.authen h4 {
+	font-weight: bold;
+	text-decoration: none;
+	color: lightgray;
+}
+.j2_h2 {
+	width:100%;
+	text-align: left;
+}
+.phoneBtn {
+	margin: 20px auto;
+	background-color: white;
+	border: 1px solid #cdcdcd;
+	border-radius: 20px;
+	width: 200px;
+	height: 80px;
+}
+.phoneBtn:hover {
+	background-color: #cdcdcd;
+	color: white;
 }

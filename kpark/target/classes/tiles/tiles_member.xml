@@ -13,4 +13,19 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/login.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/member/join_1" extends="baseLayout_only">
+		<put-attribute name="title" value="회원가입"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/join_1.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/member/join_2" extends="baseLayout_only">
+		<put-attribute name="title" value="회원가입"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/join_2.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/member/join_3" extends="baseLayout_only">
+		<put-attribute name="title" value="회원가입"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/join_3.jsp"></put-attribute>
+	</definition>	
+	
 </tiles-definitions>
