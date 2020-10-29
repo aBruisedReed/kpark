@@ -17,8 +17,6 @@
 </head>
 
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>
-<%@include file="/WEB-INF/views/common/sidebar.jsp" %>
 	
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
@@ -91,6 +89,5 @@
 	</table>
 	</div>
 	
-<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
