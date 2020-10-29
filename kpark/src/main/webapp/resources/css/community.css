@@ -114,8 +114,9 @@ h2{
 /*공통테이블*/
 .common{
 	width:80%;
-  min-width: 400px;
-  margin: 0 auto;
+	height:auto;
+  	min-width: 400px;
+  	margin: 0 auto;
 	height:auto;
 	table-layout: fixed;
 	word-wrap: break-word;
@@ -192,7 +193,12 @@ h2{
 	width:100%;
 	line-height:14px;
 }
-           
+
+/*formbaoard*/
+.formboard{
+	margin: auto;
+}
+
 /*자유게시판*/            
 .boardlist {
 	width:100%;
@@ -453,4 +459,84 @@ h2{
 	cursor: default;
 	font-weight:700;
 	background-color:transparent;
+}
+
+/*상세보기*/
+.read .ttl{
+	height:110px;
+	padding:25px 30px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+.read .ttl p{
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;
+	margin:0;
+	float:left;
+	width:100%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	vertical-align: middle;
+	margin-bottom:20px;
+}
+.read .ttl p span{
+	margin-right:10px;
+}
+.read .ttl .date{
+	width:auto;
+	float:left;
+	font-size:15px;
+	color:#999;
+}
+.read .ttl .view{
+	width:auto;
+	float:right;
+	font-size:15px;
+	color:#999;
+}
+.read .ttl .view span{
+	margin-left:7px;
+	float:right;
+	display:inline-block;
+	font-size:inherit;
+	font-size:15px;
+	color:#999;
+}
+.read .read-txt-wrap{
+	padding:30px 30px 40px;
+	white-space:pre-line;
+	word-wrap:break-word;
+	word-break:break-all;
+	vertical-align: middle;
+	line-height:26px;
+	font-size:16px;
+	border-bottom:1px solid #ccc;
+}
+.read .read-link{
+	padding:20px 0;
+	border-bottom:1px solid #ccc;
+}
+.read .read-link span{
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	font-size:14px;
+	line-height:20px;
+	color:#999;
+	float:left;
+}
+.read .read-link a{
+	display:inline-block;
+	width:1000px;
+	height:20px;
+	line-height:20px;
+	font-size:15px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
 }

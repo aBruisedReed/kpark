@@ -56,8 +56,8 @@
     <div class="ttl">커뮤니티 <strong>자동차뉴스</strong></div>
     <div class="ttl-sm">자동자뉴스를 작성하세요.</div><br><br>
 
+	<div class="formboard">
     <form name="boardForm" method="post" action="${contextPath}/board/addNewArticle.do"   enctype="multipart/form-data">
-    <table border="0" align="center">
       <tr>
 	<td align="right">작성자 : </td>
 	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.name }" readonly/> </td>
@@ -84,7 +84,10 @@
 	<input type="submit" value="글쓰기" />
 	<input type=button value="목록보기"onClick="backToList(this.form)" />
 	</td>
+    </tr>
+    </div>
     </table>
+	</div>
   </form>
 </body>
 </html>
