@@ -24,4 +24,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_edit.jsp"></put-attribute>
 	</definition>
 	
+	
+	<definition name="/mypage/buy_counsel" extends="baseLayout">
+		<put-attribute name="title" value="구매 상담"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/buy_counsel.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
