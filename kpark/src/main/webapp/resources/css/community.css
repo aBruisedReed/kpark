@@ -4,7 +4,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #E8ECEF;
+  /* background: #E8ECEF; */
   text-align: center;
   box-sizing: border-box;
 }
@@ -261,6 +261,9 @@ h2{
 	width:100%;
 	height:auto;
 }
+.newslist * {
+	text-decoration: none;
+}
 .newslist li{
 	width:340px;
 	height:260px;
@@ -304,6 +307,7 @@ h2{
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
+	color: #434343;
 }
 .newslist .preview{
 	height:98px;
@@ -326,6 +330,9 @@ h2{
 .reviewlist {
 	width:100%;
 	height:auto;
+}
+.reviewlist * {
+	text-decoration: none;
 }
 .reviewlist li{
 	width:340px;
@@ -375,6 +382,7 @@ h2{
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+	color: #434343;
 }
 .reviewlist .preview{
 	height:98px;
