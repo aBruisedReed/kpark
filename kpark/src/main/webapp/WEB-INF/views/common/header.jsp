@@ -13,7 +13,7 @@
 <header>
 	<div class="header_content">
 		<h1 class="logo">
-			<a href="${contextPath }"></a>
+			<a href="${contextPath }/kpark/"></a>
 		</h1>
 		<div class="searchbox">
 			<input class="search_text" type="text" placeholder="모델명을 검색해주세요.">
