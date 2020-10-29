@@ -3,7 +3,9 @@ body {
 }
 .login_copyright {
 	color: lightgray;
-	margin: 20px;
+	margin: 10px;;
+	width: 430px;
+	text-align: center;
 }
 .join_wrap {
 	width: 600px;
@@ -16,7 +18,7 @@ body {
  	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0;
-	text-align: center;
+	text-align: left;
 }
 .logo_container{
 	width: 100%;
@@ -37,12 +39,16 @@ body {
 	font-size: 22px;
 	float: left;
 	margin: 10px 0;
+	width: 100%;
+	text-align: left;
 }
 .join_inner h3 {
 	display: block;
 	font-size: 18px;
 	float: left;
-	margin: 5px 0;
+	margin: 10px 0;
+	width: 100%;
+	text-align: left;
 }
 .join_inner textarea {
 	width: 100%;
@@ -83,21 +89,57 @@ body {
 .btns .next:hover {
 	background-color: #9E7BFF;
 }
-.join_inner>p{
-	color: lightgray;
-}
-.join_inner .authen {
-	border: 1px soild #cdcdcd;
-	border-radius: 10%;
-	width: 450px;
-}
-.join_inner .authen .phoneIcon {
-	display: inline-block;
+/* .join_inner input {
+	width: 430px;
 	height: 50px;
-	width: 50px;
-	background: url("../image/phoneIcon.png") center no-repeat;
-	background-size: contain;
+} */
+.input_id {
+	width: 335px;
+	height: 40px;
 }
-join_inner .authen div {
-	font-weight: bold;	
+.input_id_check {
+	width: 100px;
+	height: 46px;
+}
+.input_id_check, .button_address_find {
+	background-color: #cdcdcd;
+	color: white;
+	border: 0px;
+	border-radius: 3px;
+}
+.input_id_check:hover {
+	background-color: white;
+	border: 1px solid #cdcdcd;
+	color: #cdcdcd;
+}
+.button_address_find:hover {
+	background-color: white;
+	border: 1px solid #cdcdcd;
+	color: #cdcdcd;
+}
+.input_pw, .input_pw_check, .input_name, .input_phone, .input_address_2, .input_address_3 {
+	width: 439px;
+	height: 40px;
+	margin: 5px 0;
+}
+.input_email_1, .input_email_2 {
+	width: 204px;
+	height: 40px;
+}
+.at {
+	display: inline-block;
+	height: 40px;
+	text-align: center;
+}
+.input_address_1 {
+	width: 217px;
+	height: 40px;
+}
+.button_address_find {
+	width: 217px;
+	height: 46px;
+}
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
