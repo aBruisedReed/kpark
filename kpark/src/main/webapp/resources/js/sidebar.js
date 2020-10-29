@@ -23,4 +23,10 @@ $(function() {
         }
     });
     
+	$('.topBtn').click(function () {
+	         $('body,html').animate({
+	             scrollTop: 0  //탑 설정 클수록 덜올라간다
+	         }, 300);  // 탑 이동 스크롤 속도를 조절할 수 있다.
+	         return false;
+	     });
 });

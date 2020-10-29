@@ -2,8 +2,71 @@
 #sidebar {
 	position: absolute;
 	right: 10px;
-	color: white;
-	background-color: black;
 	height: 433px;
 	width: 122px;
+	z-index: 100;
+}
+.quickMenu {
+	border: 1px solid #cdcdcd;
+	height: 400px;;
+	width:122px;
+	border-radius: 30px;
+	background-color: white;
+	text-align: center;
+}
+.mpBtn {
+	
+}
+.mpBtnIcon {
+	height: 40px;
+	width: 40px;
+	background: url("../image/quickIcon1.png") center no-repeat;
+	background-size: contain;
+	margin: 30px auto 5px auto;
+}
+.rvBtnIcon {
+	height: 40px;
+	width: 40px;
+	background: url("../image/quickIcon2.png") center no-repeat;
+	background-size: contain;
+	margin: 5px auto;
+}
+.fcBtnIcon {
+	height: 40px;
+	width: 40px;
+	background: url("../image/quickIcon3.png") center no-repeat;
+	background-size: contain;
+	margin: 5px auto;
+}
+.ccBtnIcon {
+	height: 40px;
+	width: 40px;
+	background: url("../image/quickIcon4.png") center no-repeat;
+	background-size: contain;
+	margin: 5px auto;
+}
+.quickMenu h3 {
+	margin-bottom: 30px;
+}
+.topBtn {
+	position: absolute;
+	left: 33px;
+	bottom: 0;
+	height: 50px;
+	width: 55px;
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.topBtnIcon {
+	height: 20px;
+	width: 20px;
+	background: url("../image/quickIcon5.png") center no-repeat;
+	background-size: contain;
+	margin: 0 auto;
+}
+.topBtn h3 {
+	text-align: center;
 }
