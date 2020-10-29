@@ -79,8 +79,7 @@
 		<div id="d_file" colspan="3"></div></td>
      </tr>
      <tr>
-	<td align="right"> </td>
-	<td colspan="2">
+		<td align="center" colspan=3>
 	<input type="submit" value="글쓰기" />
 	<input type=button value="목록보기"onClick="backToList(this.form)" />
 	</td>
