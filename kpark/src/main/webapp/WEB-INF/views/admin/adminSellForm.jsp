@@ -9,8 +9,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>차량 판매 상담 신청</title>
-	<link rel="stylesheet" href="${contextPath }/resources/css/sellForm.css">
+	<title></title>
+	<link rel="stylesheet" href="${contextPath }/resources/css/adminSellForm.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
 		/* methods */
@@ -20,13 +20,13 @@
 
 	<div id="all">
 		<div id="title">
-			<h1>차량 판매 상담 신청</h1>
-			<p style="color: gray">빠르고 간편하게<br>원하는 가격으로 판매하세요.</p>
+			<h1>차량 판매 글 등록</h1>
+			<p style="color: gray">관리자 페이지</p>
 			<img id="sell_title_img" src="${contextPath }/resources/image/sell_title_img.png">
 		</div>
 		<div id="sellTable">
 			<form name="sellForm" method="post" action="#" enctype="multipart/form-data">
-				<tabl height="500">
+				<table frame="void" width="70%" height="500">
 				  <tr>
 				    <td width="15%" class="formKey">차량 선택</td>
 				    <td width="35%" class="formValue">
