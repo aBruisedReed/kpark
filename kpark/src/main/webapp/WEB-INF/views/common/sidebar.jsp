@@ -14,7 +14,7 @@
 <div id="sidebar">
 	<div class="quickMenu">
 		<div>
-			<a class="mpBtn" href="mypage">
+			<a class="mpBtn" href="${contextPath }/kpark/mypage/mypage_select">
 			<div class="mpBtnIcon"></div>
 			<h3>마이페이지</h3>
 			</a>
