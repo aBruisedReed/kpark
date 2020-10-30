@@ -20,19 +20,19 @@
 			</a>
 		</div>
 		<div>
-			<a class="rvBtn" href="${contextPath }/kpark/mypage/recentView">
+			<a class="rvBtn" href="${contextPath }/kpark/mypage/recentView" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
 			<div class="rvBtnIcon"></div>
 			<h3>최근본차량</h3>
 			</a>
 		</div>
 		<div>
-			<a class="fcBtn" href="${contextPath }/kpark/mypage/favoriteCar">
+			<a class="fcBtn" href="${contextPath }/kpark/mypage/favoriteCar" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
 			<div class="fcBtnIcon"></div>
 			<h3>관심차량</h3>
 			</a>
 		</div>
 		<div>
-			<a class="ccBtn" href="${contextPath }/kpark/mypage/compareCar">
+			<a class="ccBtn" href="${contextPath }/kpark/mypage/compareCar" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
 			<div class="ccBtnIcon"></div>
 			<h3>차량비교</h3>
 			</a>
