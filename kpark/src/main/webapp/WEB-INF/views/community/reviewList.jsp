@@ -32,12 +32,7 @@
     <table class="common">
     <!-- 거래후기 -->
     <div class="ttl">커뮤니티 <strong>거래후기</strong></div>
-	<div class="ttl-sm">고객님의 거래후기를 확인하세요.</div><br>
-	 	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
-	<!-- <a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
-	                                                    '${contextPath}/member/loginForm.do')"> <!-- 로그인 상태가 아닐 경우 로그인창 요청 URL을 전달
-	                                                    <p class="cls2">글쓰기</p></a><br> -->
-	
+	<div class="ttl-sm">고객님의 거래후기를 확인하세요.</div><br>	  	
     
     <div class="reviewlist">
     <ul class="reviewlist">
@@ -73,16 +68,33 @@
 				</div>
 			</a>
 		</li>
-
+		
 	<div class="a_paging" style="margin-top: 40px">
 		<ul class="pagination">
 			<li class="active"><a href="javascript:;">1</a></li>
 			<li><a href="/center/review?page=2" data-ci-pagination-page="2">2</a></li>
 			<li><a href="/center/review?page=3" data-ci-pagination-page="3">3</a></li>
 			<li><a href="/center/review?page=2" data-ci-pagination-page="2" rel="next"><i class="fas fa-chevron-right"></i></a></li>
-		</ul>
-	
+
     <div class="a_paging" style="margin-top: 40px"></div>
+	
+	<div>
+	    <tr>
+		<td id="buttons" align="right" colspan=3>
+		<input type="submit" value="글쓰기" id="submit"/>
+		</td>
+		</tr>
+<!--  	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
+	<a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
+	                                                    '${contextPath}/member/loginForm.do')"> <!-- 로그인 상태가 아닐 경우 로그인창 요청 URL을 전달
+	                                                 <p class="cls2">글쓰기</p></a><br> -->
+	
+	
+	</div>
+	</ul>
+	</div>
+	
+	</ul>
 	</div>
 	</table>
 	</div>

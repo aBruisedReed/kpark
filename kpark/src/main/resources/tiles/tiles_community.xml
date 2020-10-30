@@ -21,6 +21,12 @@
 	    <put-attribute name="title" value="글상세창" />
 	    <put-attribute name="body" value="/WEB-INF/views/community/boardView.jsp" />
 	</definition>
+	
+	<!-- /community/boardReply 요청에 대해 글상세창을 구현 -->
+	<definition name="/community/boardReply" extends="baseLayout">
+	    <put-attribute name="title" value="글상세창" />
+	    <put-attribute name="body" value="/WEB-INF/views/community/boardReply.jsp" />
+	</definition>
 	    
 	<!-- /community/newsList 요청에 대해 글목록창을 구현 -->
 	<definition name="/community/newsList" extends="baseLayout">

@@ -201,6 +201,7 @@ h2{
   overflow: hidden;
   word-break: break-all;
 }
+
 .review{
 	width: 80%;
 }
@@ -208,6 +209,61 @@ h2{
 	resize: none;
 	width: 80%;
 }
+/* boardList 버튼 */
+#listbuttons {
+	margin: 15px 10px;
+}
+#listbuttons input {
+	margin: 5px 10px;
+	border: none;
+	display: inline-block;
+	width: 110px;
+	height: 35px;
+	font-size: 18px;
+	background-color: black;
+	color: white;
+}
+#listbuttons #submit {
+	background-color: #401C5A;
+}
+
+
+/* Form 버튼 */
+#buttons {
+	padding: 30px 0px;
+}
+#buttons input {
+	margin: 5px 10px;
+	border: none;
+	display: inline-block;
+	width: 110px;
+	height: 35px;
+	font-size: 18px;
+	background-color: black;
+	color: white;
+}
+#buttons #submit {
+	background-color: #401C5A;
+}
+
+/* View 버튼 */
+.buttons {
+	padding: 30px 0px;
+}
+.buttons input {
+	margin: 5px 10px;
+	border: none;
+	display: inline-block;
+	width: 110px;
+	height: 35px;
+	font-size: 18px;
+	background-color: black;
+	color: white;
+}
+.buttons .submit {
+	background-color: #401C5A;
+}
+
 /*자유게시판*/            
 .boardlist {
 	width:100%;
@@ -265,6 +321,7 @@ h2{
 	vertical-align: middle;
 	font-weight:400;
 }
+
 /*뉴스*/
 .newslist {
 	width:100%;

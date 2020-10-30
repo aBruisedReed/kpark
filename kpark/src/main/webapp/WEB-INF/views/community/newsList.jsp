@@ -33,11 +33,16 @@
     <!-- 자동차뉴스 -->
     <div class="ttl">커뮤니티 <strong>자동차뉴스</strong></div>
     <div class="ttl-sm">언론과 미디어를 확인하세요.</div><br>
- 	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
-	<!-- <a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
+    <tr>
+		<td id="buttons" align="right" colspan=3>
+		<input type="submit" value="글쓰기" id="submit"/>
+		</td>
+	</tr>
+<!--  	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
+	<a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
 	                                                    '${contextPath}/member/loginForm.do')"> <!-- 로그인 상태가 아닐 경우 로그인창 요청 URL을 전달
 	                                                    <p class="cls2">글쓰기</p></a><br> -->
-	
+	  
     <!-- 자동차뉴스 리스트 -->
     <div class="newslist">
   	<ul class="newslist">
