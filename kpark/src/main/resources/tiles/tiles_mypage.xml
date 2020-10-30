@@ -4,6 +4,11 @@
 
 <tiles-definitions>
 
+	<definition name="/mypage/mypage_select" extends="baseLayout">
+		<put-attribute name="title" value="마이페이지"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_select.jsp"></put-attribute>
+	</definition>
+
 	<definition name="/mypage/mypage_buy" extends="baseLayout">
 		<put-attribute name="title" value="나의 구매 상담 내역"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_buy.jsp"></put-attribute>
