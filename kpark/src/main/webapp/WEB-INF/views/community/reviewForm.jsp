@@ -11,7 +11,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>boardAticleForm</title>
+	<title>reviewAticleForm</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
@@ -43,9 +43,9 @@
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <li>자유게시판</li>
-	    <li>자동차뉴스</li>
-	    <li class='active'>거래후기</li>
+	    <a href="boardList"><li>자유게시판</li></a>
+	    <a href="newsList"><li>자동차뉴스</li></a>
+	    <a href="reviewList"><li class='active'>거래후기</li></a>
 	 </ul>
 	 </div>
 
@@ -86,6 +86,7 @@
     </tr>
     </div>
     </table>
+    <div class="a_paging" style="margin-top: 40px"></div>
 	</div>
   </form>
 </body>

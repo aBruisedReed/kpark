@@ -34,7 +34,7 @@
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
     <div class="ttl-sm">자유게시판을 확인하세요.</div>
  	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
-	<!-- <a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
+	<!-- <a  class="cls1"  href="javascript:fn_boardForm('${isLogOn}','${contextPath}/community/boardForm.do', 
 	                                                    '${contextPath}/member/loginForm.do')"> <!-- 로그인 상태가 아닐 경우 로그인창 요청 URL을 전달
 	                                                    <p class="cls2">글쓰기</p></a><br> -->
 	                                                    
@@ -70,10 +70,10 @@
 		              <span style="padding-left:20px"></span>    
 		         </c:forEach>
 		         <span style="font-size:12px;">[답변]</span>
-	                   <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title}</a>
+	                   <a class='cls1' href="${contextPath}/community/boardView.do?articleNO=${article.articleNO}">${article.title}</a>
 		          </c:when>
 		          <c:otherwise>
-		            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
+		            <a class='cls1' href="${contextPath}/community/boardView.do?articleNO=${article.articleNO}">${article.title }</a>
 		          </c:otherwise>
 		        </c:choose>
 		  </td>
