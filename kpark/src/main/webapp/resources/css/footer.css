@@ -1,5 +1,19 @@
-footer {
-	background-color: #1F1A12;
-	height: 142px;
-	width: 100%;
-}
+footer {position:relative;background:#292929;z-index:10;}
+footer:before {position:absolute;left:0;top:0;width:100%;height:46px;background:#333;content:"";}
+footer .footer_cont {position:relative;width:1280px;min-height:200px;margin:0 auto;background:url(../images/layout/footer_logo.png) 50px 80px no-repeat;}
+
+/** footer_nav **/
+.footer_nav {position:relative;height:46px;margin-left:40px;}
+.footer_nav li {position:relative;float:left;padding-left:1px;}
+.footer_nav li:before {position:absolute;left:0;top:18px;width:1px;height:12px;background:#555;content:"";}
+.footer_nav li:first-child:before {display:none;}
+.footer_nav li a {display:block;padding:0 10px;color:#999;font-size:14px;font-weight:100;line-height:46px;transition:all 0.4s;}
+.footer_nav li a:hover, .footer_nav li a:focus {color:#fff;}
+.footer_nav ul:after {display:block;clear:both;height:0;content:"";overflow:hidden;}
+.footer_nav .btn_footer_hk {display:block;position:absolute;right:0;top:0;width:180px;height:46px;background:#3e3e3e url(../images/layout/btn_footer_hk.png) no-repeat;text-indent:-9999px;overflow:hidden;}
+
+
+/** footer_area **/
+.footer_area {position:relative;padding:28px 0 0 196px;color:#999;font-size:13px;font-weight:100;line-height:22px;}
+.footer_area address {position:relative;font-style:normal;}
+.footer_area .copyright {margin-top:5px;opacity:0.5;}
