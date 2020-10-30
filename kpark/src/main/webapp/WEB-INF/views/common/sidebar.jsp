@@ -20,7 +20,7 @@
 			</a>
 		</div>
 		<div>
-			<a class="rvBtn" href="recentView">
+			<a class="rvBtn" href="${contextPath }/kpark/mypage/recentView">
 			<div class="rvBtnIcon"></div>
 			<h3>최근본차량</h3>
 			</a>
