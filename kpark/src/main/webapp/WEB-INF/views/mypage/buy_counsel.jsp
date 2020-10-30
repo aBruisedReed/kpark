@@ -22,16 +22,20 @@
  <h2>원하는 중고차를 구하기 어려우신가요?</h2>
  <h2>케이파크가 인증딜러를 통해 차량구매를 책임지고 도와드립니다.</h2>
  </div>
- <div class="buy_img">
- <p class="txt">
- "사고 싶은 내차,"
- <br>
- "편하고 안전하게"
- <br>
- "인증딜러에게 구매!"
- </p>
- <img src="http://www.m-park.co.kr/2018_renew/images/contents/img_info_ico_txt_cont01.png" alt="">
- </div>
+<!--  <div class="buy_img"> -->
+<!--  <p class="txt"> -->
+<!--  "사고 싶은 내차," -->
+<!--  <br> -->
+<!--  "편하고 안전하게" -->
+<!--  <br> -->
+<!--  "인증딜러에게 구매!" -->
+<!--  </p> -->
+<!--  <img src="http://www.m-park.co.kr/2018_renew/images/contents/img_info_ico_txt_cont01.png" alt=""> -->
+<!--  </div> -->
+ <div class="info_ico_txt">
+                    <p class="img"><img src="http://www.m-park.co.kr/2018_renew/images/contents/img_info_ico_txt_cont01.png" alt=""></p>
+                    <p class="txt">사고 싶은 내차,<br>편하고 안전하게<br>인증딜러에게 구매!</p>
+                </div>
  
  <ul class="info_ico_txt_cont">
                     <li class="li">
@@ -136,7 +140,7 @@
                     <legend>구매상담 신청하기</legend>
                     <!-- 신청자 정보 -->
                     <div class="cont_s">
-                        <h5 class="tit_t02 mb">신청자 정보</h5>
+                        <h5 class="tit_t02 mb">신청자  정보</h5>
                         <div class="table_t_desc"><p class="ico_es_area"><em class="ico_es"></em>필수 입력사항입니다.</p></div>
                         <!-- table_ty -->
                         <div class="table_ty">

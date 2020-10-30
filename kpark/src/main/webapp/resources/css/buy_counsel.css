@@ -35,6 +35,21 @@ text-align:center;
  
     text-align:left;
 }
+.info_ico_txt {
+    position: relative;
+    height: 225px;
+    border-bottom: 3px solid #1c1c1c;
+    text-align: center;
+}.info_ico_txt .txt {
+    position: absolute;
+    left: 310px;
+    bottom: 20px;
+    color: #1c1c1c;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 38px;
+    text-align: left;
+}
 .info_ico_txt_cont {
     display: table;
     table-layout: fixed;
@@ -82,6 +97,7 @@ dl {
     margin-top:80px;
   
 }
+
 .tit_t {
     position: relative;
     margin: -2px 0 25px 0;
@@ -129,15 +145,17 @@ dl {
     margin: 10px 0 -2px 0;
     font-size: 14px;
     line-height: 22px;
-}.info_step_ty .li:before {
-    position: absolute;
-    left: -13px;
-    top: 115px;
-    width: 26px;
-    height: 27px;
-    background: url(http://www.m-park.co.kr/2018_renew/images/contents/ico_info_step_ty_arrow.png) no-repeat;
-    content: "";
 }
+/* .info_step_ty .li: { */
+/*     position: absolute; */
+/*     left: -13px; */
+/*     top: 115px; */
+/*     width: 26px; */
+/*     height: 27px; */
+/*     background: url(http://www.m-park.co.kr/2018_renew/images/contents/ico_info_step_ty_arrow.png) no-repeat; */
+/*     content: ""; */
+/* } */
+
 .cont:last-child {
     margin-bottom: 0;
 }.table_t_info {
@@ -183,7 +201,7 @@ legend {
     position: relative;
     margin: -2px 0 30px 0;
     color: #1c1c1c;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     line-height: 22px;
     letter-spacing: -0.5px;
@@ -203,7 +221,7 @@ legend {
 }.ico_es:before {
     position: absolute;
     left: 5px;
-    top: 9px;
+    top: 4px;
     color: #ff8400;
     font-size: 15px;
     line-height: 15px;
@@ -228,13 +246,13 @@ legend {
     border-color: inherit;
 }.table_ty .left {
     text-align: left;
- 
+ 	
 }.table_ty tbody th {
     background: #f5f5f5;
     color: #1c1c1c;
     font-weight: 800;
     letter-spacing: -0.5px;
-}table_ty th, .table_ty td {
+} .table_ty td {
     height: 40px;
     padding: 15px 30px;
     border-bottom: 1px solid #ddd;
@@ -242,7 +260,17 @@ legend {
     vertical-align: middle;
     
     word-break: break-all;
-}.table_ty .input_ty:first-child, .table_ty .select_ty:first-child {
+}.table_ty th{
+	padding: 0 25px;
+	vertical-align: middle;
+}.bt {
+    float: left;
+    
+    font-size: 16px;
+    font-weight: 600;
+    margin: 11px 0;
+}
+.table_ty .input_ty:first-child, .table_ty .select_ty:first-child {
     margin-left: 0;
 }.table_ty .input_ty, .table_ty .select_ty, .table_ty .btn_s {
     float: left;
@@ -259,7 +287,7 @@ legend {
 }
 .table_ty .input_ty:first-child, .table_ty .select_ty:first-child {
     margin-left: 0;
-}.table_ty .input_ty, .table_ty .select_ty, .table_ty .btn_s {
+}.table_ty .input_ty, .table_ty .select_ty, .n_s {
     float: left;
    
 }.select_ty {
@@ -554,4 +582,13 @@ li {
 	
     background: url(http://www.m-park.co.kr/2018_renew/images/template/ico_paginate_next02.png) center no-repeat;
       text-indent: -9999px;
-} 
+} fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
