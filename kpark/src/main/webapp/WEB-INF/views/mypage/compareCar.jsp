@@ -54,7 +54,7 @@
 		<!-- 까지 동적 구현 -->
 		
 		<div id="buttons">
-			<a href="${contextPath }/mypage/pop_compare"><input type="button" id="compare" value="비교하기"></a>
+			<a onClick="window.open(this.href, '', 'width=900, height=900'); return false;" href="${contextPath }/mypage/pop_compare"><input type="button" id="compare" value="비교하기"></a>
 			<input type="button" id="remove" value="삭제">
 		</div>
 	</div>
