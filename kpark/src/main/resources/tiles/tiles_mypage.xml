@@ -35,6 +35,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/mypage/buy_counsel.jsp"></put-attribute>
 	</definition>
 	
+	<!-- 헤더푸터가 없는 레이아웃 (팝업창 전용) -->
 	<definition name="empty" template="/WEB-INF/views/common/empty.jsp">
 		<put-attribute name="title" value=""></put-attribute>
 		<put-attribute name="body" value=""></put-attribute>
@@ -43,6 +44,21 @@
 	<definition name="/mypage/recentView" extends="empty">
 		<put-attribute name="title" value=""></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/mypage/recentView.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/favoriteCar" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/favoriteCar.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/compareCar" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/compareCar.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/pop_compare" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/pop_compare.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

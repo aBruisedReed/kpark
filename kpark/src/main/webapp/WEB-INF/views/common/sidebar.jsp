@@ -26,13 +26,13 @@
 			</a>
 		</div>
 		<div>
-			<a class="fcBtn" href="favoriteCar">
+			<a class="fcBtn" href="${contextPath }/kpark/mypage/favoriteCar">
 			<div class="fcBtnIcon"></div>
 			<h3>관심차량</h3>
 			</a>
 		</div>
 		<div>
-			<a class="ccBtn" href="compareCar">
+			<a class="ccBtn" href="${contextPath }/kpark/mypage/compareCar">
 			<div class="ccBtnIcon"></div>
 			<h3>차량비교</h3>
 			</a>
