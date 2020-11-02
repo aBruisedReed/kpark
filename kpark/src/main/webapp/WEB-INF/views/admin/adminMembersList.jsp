@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>관리자 - 구매 상담 목록</title>
+	<title>관리자 - 회원 정보 목록</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/adminMembersList.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">

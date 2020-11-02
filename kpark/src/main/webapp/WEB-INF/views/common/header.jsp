@@ -41,9 +41,9 @@
 					<li class="sell_1"><a href="${contextPath }/kpark/sell/sellForm.do">판매상담</a></li>
 				</ul>
 			</li>
-			<li class="nav3"><a href="info">차량정보</a>
+			<li class="nav3"><a href="${contextPath }/kpark/info/brandList">차량정보</a>
 				<ul class="nav3_over">
-					<li class="info_1"><a href="infoCar">차량정보</a></li>
+					<li class="info_1"><a href="${contextPath }/kpark/info/brandList">차량정보</a></li>
 				</ul>
 			</li>
 			<li class="nav4"><a href="${contextPath }/kpark/community/reviewList.do">커뮤니티</a>
