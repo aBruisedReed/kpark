@@ -1,4 +1,4 @@
-package com.kgit.kpark.community.controller;
+package com.kgit.kpark.info.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value="/community/*")
-public class communityControllerImpl implements communityController {
-	@RequestMapping(value = {"/community/*"}, method = RequestMethod.GET)
+@RequestMapping(value = "/info/*")
+public class infoControllerImpl implements infoController {
+	@RequestMapping(value = {"/info/*"}, method = RequestMethod.GET)
 	private ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
