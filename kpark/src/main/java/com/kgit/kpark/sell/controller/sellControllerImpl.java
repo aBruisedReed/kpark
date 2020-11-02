@@ -8,11 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller("sellController")
 @RequestMapping(value="/sell/*")
 public class sellControllerImpl implements sellController {
-	@RequestMapping(value = {"/sell/*"}, method = RequestMethod.GET)
-	private ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//	@RequestMapping(value = {"/sell/*"}, method = RequestMethod.GET)
+//	private ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		String viewName = (String)request.getAttribute("viewName");
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName(viewName);
+//		return mav;
+//	}
+
+	@Override
+	@RequestMapping(value = "/sell/sellForm.do", method = RequestMethod.POST)
+	public ModelAndView sellForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
