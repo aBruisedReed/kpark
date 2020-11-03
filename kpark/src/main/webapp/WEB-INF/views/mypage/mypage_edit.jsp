@@ -43,7 +43,10 @@
   <br><br>
   <label class="title">이메일</label>
   <br><br>
-  <input type="text" placeholder="your_email">
+<!--   <input type="text" placeholder="your_email"> -->
+<input class="input_email_1" id="user_email_1" name="user_email_1" type="text" placeholder="">
+			<div class="at">@</div>
+			<input class="input_email_2" id="user_email_2" name="user_email_2" type="text" placeholder="">
   <br><br>
    <label class="title">주소</label>
  <br><br>

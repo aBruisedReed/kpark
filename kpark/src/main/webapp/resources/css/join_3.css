@@ -117,7 +117,7 @@ body {
 	border: 1px solid #cdcdcd;
 	color: #cdcdcd;
 }
-.input_pw, .input_pw_check, .input_name, .input_phone, .input_address_2, .input_address_3 {
+.input_pw, .input_pw_check, .input_name, .input_phone, #sample3_address, #sample3_detailAddress {
 	width: 439px;
 	height: 40px;
 	margin: 5px 0;
