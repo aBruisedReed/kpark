@@ -78,16 +78,17 @@
 		<input type="file" name="imageFileName"  onchange="readURL(this);" /><br>
 		<div id="d_file" colspan="3"></div></td>
      </tr>
+
      <tr>
-		<td align="center" colspan=3>
-	<input type="submit" value="글쓰기" />
-	<input type=button value="목록보기"onClick="backToList(this.form)" />
-	</td>
+		<td id="buttons" align="center" colspan=3>
+		<input type="submit" value="글쓰기" id="submit"/>
+		<input type="button" value="목록보기" onClick="backToList(this.form)" />
+		</td>
     </tr>
+    </form>
     </div>
     </table>
     <div class="a_paging" style="margin-top: 40px"></div>
 	</div>
-  </form>
 </body>
 </html>

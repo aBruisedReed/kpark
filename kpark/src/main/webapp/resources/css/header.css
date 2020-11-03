@@ -90,6 +90,9 @@ header h1.logo a {
 	border-left: 1px solid #CDCDCD;
 	color: black;
 }
+.header_nav li a:hover {
+	color: #6a449a;
+}
 .header_nav li:first-child a {
 	border-left: none;
 }

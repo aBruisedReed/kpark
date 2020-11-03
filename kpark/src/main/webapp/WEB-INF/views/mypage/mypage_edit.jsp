@@ -5,14 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <%@ page session="false" %>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    new daum.Postcode({
-        oncomplete: function(data) {
-           
-        }
-    }).open();
-</script>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,16 +43,18 @@
   <br><br>
   <label class="title">이메일</label>
   <br><br>
-  <input type="text" placeholder="your_email">
+<!--   <input type="text" placeholder="your_email"> -->
+<input class="input_email_1" id="user_email_1" name="user_email_1" type="text" placeholder="">
+			<div class="at">@</div>
+			<input class="input_email_2" id="user_email_2" name="user_email_2" type="text" placeholder="">
   <br><br>
    <label class="title">주소</label>
  <br><br>
-
-  <input type="text" id="sample3_postcode" placeholder="우편번호">
+<input type="text" id="sample3_postcode" placeholder="우편번호">
 <input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
 <input type="text" id="sample3_address" placeholder="주소"><br>
 <input type="text" id="sample3_detailAddress" placeholder="상세주소">
-<!--  <input type="text" id="sample3_extraAddress" placeholder="참고항목"> -->
+<input type="text" id="sample3_extraAddress" placeholder="참고항목">
 
 <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">

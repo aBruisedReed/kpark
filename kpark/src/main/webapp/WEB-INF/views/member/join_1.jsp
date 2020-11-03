@@ -13,6 +13,7 @@
 	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/join.css" />" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="<c:url value="/resources/js/join_1.js" />"></script>
 	<script type="text/javascript">
 		/* methods */
 	</script>
@@ -39,7 +40,7 @@
 본 약관에 규정되지 않은 사항에 대해서는 관련법령 또는 회사가 정한 개별 서비스의 이용약관, 운영정책 및 규칙 등(이하 ‘세부지침’)의 규정에 따릅니다.				
 			</textarea>
 			<div class="checkDiv">
-				<input type="checkbox" id="agree1" name="agree1" value="agree1" >
+				<input type="checkbox" id="agree1" name="agree1" value="agree1">
 				<label>이용약관에 동의합니다.</label>
 			</div>
 			</div>
@@ -63,8 +64,8 @@
 			</div>
 			</div>
 			<div class="btns">
-				<input class="cancel" type="button" value="취소">
-				<input class="next" type="button" value="확인">
+				<input class="cancel" type="button" value="취소" onclick="noagree()">
+				<input id="nextBtn" class="next" type="button" value="확인">
 			</div>
 			<h4 class="login_copyright">Copyright kpark Co., Ltd. All Rights Reserved.</h4>
 		</div>

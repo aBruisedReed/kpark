@@ -1,5 +1,6 @@
 .wrap{
     width: 1280px;
+    min-height: 600px;
     margin: 0 auto;
  
 }
@@ -7,7 +8,8 @@
 /* 구매 판매  상담 게시판 css */
 
 .t-label{
-     font-size: 40px;
+     font-size: 26px;
+     font-weight: bold;
      margin: 50px auto;
 }     
  .b-table1{
@@ -17,15 +19,16 @@
 
 }
 .b-table1 th{
-	    color: #5F00CC;
-    font-size: 20px;
-    border-bottom: 1px solid #444444;
+	color: #5F00CC;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #5F00CC;
     text-align:left;
-  
+  	padding: 13px 10px;
 }
  
 .b-table1 td{
-	 border-bottom: 1px solid #444444;
+	 border-bottom: 1px solid lightgray;;
 	padding:20px;
 }
 
