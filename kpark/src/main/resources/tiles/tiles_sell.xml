@@ -9,4 +9,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/sell/sellForm.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/sell/sellDetail" extends="baseLayout">
+		<put-attribute name="title" value="차량 상세 정보"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/sell/sellDetail.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
