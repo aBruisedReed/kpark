@@ -36,7 +36,7 @@
 				<ul>
 					<li><a href="findId">아이디 찾기</a></li>
 					<li><a href="findPw">비밀번호 찾기</a></li>
-					<li><a href="join">회원가입</a></li>
+					<li><a href="join_1">회원가입</a></li>
 				</ul>
 			</nav>
 			<nav class="login_other">

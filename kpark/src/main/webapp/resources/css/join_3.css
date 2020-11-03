@@ -117,13 +117,13 @@ body {
 	border: 1px solid #cdcdcd;
 	color: #cdcdcd;
 }
-.input_pw, .input_pw_check, .input_name, .input_phone, #sample3_address, #sample3_detailAddress {
+.input_pw, .input_pw_check, .input_name, .input_phone, .input_address_2, .input_address_3 {
 	width: 439px;
 	height: 40px;
 	margin: 5px 0;
 }
 .input_email_1, .input_email_2 {
-	width: 204px;
+	width: 200px;
 	height: 40px;
 }
 .at {
