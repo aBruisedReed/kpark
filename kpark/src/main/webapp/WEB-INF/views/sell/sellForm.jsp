@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,55 @@
 	<link rel="stylesheet" href="${contextPath }/resources/css/sellForm.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
-		/* methods */
+	var sel_files = [];
+	$(document).ready(function() {
+		$('#imgBtn').on("change", handleImgFileSelect);
+	});
+	
+	function fileUploadAction() {
+		console.log("fileUploadAction");
+		$('#imgBtn').trigger('click');
+	}
+	
+	function handleImgFileSelect(e) {
+		sel_files = [];
+		$('#selectedImg').empty();
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		
+		
+		var index = 0;
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+			}
+			
+			sel_files.push(f);
+			
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction(" +index+ ")\" id=\"img_id_" +index+ "\"><img src=\"" + e.target.result +"\" data-file='" +f.name+ "' class='selProductFile' title='Click to remove'></a>";
+				$('#selectedImg').append(html);
+				index++;
+				if(index==5) {
+					alert('4개 이상 업로드 할 수 없습니다.');
+				}
+				if(index>4) {
+					sel_files = [];
+					$('#selectedImg').empty();
+				}
+			}
+			reader.readAsDataURL(f);
+		});
+	}
+    
+	function backToList(obj) {
+		obj.action = "${contextPath}/kpark";
+		obj.submit();
+	}
+	
 	</script>
 </head>
 <body>
@@ -129,18 +176,14 @@
 				</table>
 				<textarea id="explanation" name="explanation" rows="20" cols="100" placeholder="상세 설명을 입력해주세요."></textarea>
 				<div id="selectedImg">
-					<img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
 				</div>
 				<p id="imgBtnLine">
-					<input type="file" name="selectImg" style="display: none" multiple="multiple" accept="image/*">
-					<button id="imgBtn" onclick="onclick=document.sellForm.selectImg.click()">이미지 선택...</button>
+					<label for="imgBtn">이미지 선택...</label>
+					<input id="imgBtn" type="file" name="imageFileName" onchange="fileUploadAction();" multiple="multiple" accept="image/*">
 				</p>
 				<div id="buttons">
 					<input type="submit" value="등록" id="submit">
-					<input type="button" value="취소" onclick="#">
+					<input type="button" value="취소" onclick="backToList(this.form)">
 				</div>
 			</form>
 		</div>
