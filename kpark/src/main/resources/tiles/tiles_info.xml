@@ -14,4 +14,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/info/brandInfo.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/info/brandDetail" extends="baseLayout">
+		<put-attribute name="title" value="차량 정보 - 차량 세부 정보"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/info/brandDetail.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
