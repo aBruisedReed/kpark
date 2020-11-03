@@ -14,7 +14,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>차량상세</title>
-	<link rel="stylesheet" href="${contextPath }/resources/css/sellDetail.css">
+	<link rel="stylesheet" href="${contextPath }/resources/css/buyDetail.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -412,5 +412,5 @@
 		</section>
 	</div>
 </body>
-<script src="<c:url value="/resources/js/sellDetail.js" />"></script>
+<script src="<c:url value="/resources/js/buyDetail.js" />"></script>
 </html>
