@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.kgit.kpark.member.vo.MemberVO"  alias="memberVO" />
+		<typeAlias type="com.kgit.kpark.member.vo.infoVO"  alias="infoVO" />
 		<!-- <typeAlias type="com.kgit.kpark.board.vo.ArticleVO"  alias="articleVO" />
 		<typeAlias type="com.kgit.kpark.board.vo.ImageVO" alias="imageVO" /> -->
 	</typeAliases>
