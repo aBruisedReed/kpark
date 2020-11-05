@@ -7,7 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.kgit.kpark.info.dao.infoDAO;
-import com.kgit.kpark.info.vo.infoVo;
+import com.kgit.kpark.info.vo.infoVO;
 
 
 
@@ -17,7 +17,7 @@ public class infoServiceImpl implements infoService {
     private infoDAO infoDAO;
 	@Override
 	public List selectCarList() throws DataAccessException {
-		List<infoVo> CarList = null;
+		List<infoVO> CarList = null;
 		CarList = infoDAO.selectCarList();
 		return CarList;
 	}

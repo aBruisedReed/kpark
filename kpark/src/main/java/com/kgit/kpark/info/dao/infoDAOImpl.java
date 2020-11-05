@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.kgit.kpark.info.vo.infoVo;
+import com.kgit.kpark.info.vo.infoVO;
 
 
 @Repository("infoDAO")
@@ -17,7 +17,7 @@ public class infoDAOImpl implements infoDAO {
 
 	@Override
 	public List selectCarList() throws DataAccessException {
-		List<infoVo> CarList = null;
+		List<infoVO> CarList = null;
 		CarList = sqlSession.selectList("mapper.info.selectCarList");
 		return CarList;
 	}
