@@ -8,7 +8,7 @@
                     alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다.");
                     return;
                 }else{
-                	location.href = 'join_2';
+                	location.href = 'join_3';
                 }
             });    
         });

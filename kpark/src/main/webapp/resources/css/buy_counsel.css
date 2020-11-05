@@ -354,10 +354,10 @@ legend {
 }div {
     display: block;
 
-}.ez-checkbox, .ez-radio {
-    zoom: 1;
+/* }.ez-checkbox, .ez-radio { */
+/*     zoom: 1; */
    
-    line-height: 18px;
+/*     line-height: 18px; */
 
 }
 .radio_ty {
@@ -379,6 +379,7 @@ legend {
     background: url(http://www.m-park.co.kr/2018_renew/images/template/bg_radio.png) center /100% 100% no-repeat;
     vertical-align: middle;
     transition: background 0.4s;
+
 }input[type="radio" i] {
     background-color: initial;
     cursor: default;
@@ -495,14 +496,16 @@ li {
     text-align: -webkit-match-parent;
 }li {
     list-style: none;
-}.table_notice02 .info .ez-radio {
-    display: inline-block;
-    background: url(http://www.m-park.co.kr/2018_renew/images/template/bg_checkbox.png) center /100% 100% no-repeat;
-    vertical-align: middle;
-    transition: background 0.4s;
+}
+/* .table_notice02 .info .ez-radio { */
+/*     display: inline-block; */
+/*     background: url(http://www.m-park.co.kr/2018_renew/images/template/bg_checkbox.png) center /100% 100% no-repeat; */
+/*     vertical-align: middle; */
+/*     transition: background 0.4s;} */
 /* }.table_notice02 .info .ez-selected { */
 /*     background: url(http://www.m-park.co.kr/2018_renew/images/template/bg_checkbox_on_bk.png) center /100% 100% no-repeat; */
-}.chk_ty {
+
+.chk_ty {
     width: 19px;
     height: 19px;
     line-height: 19px;

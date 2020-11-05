@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<resultMap id="memResult" type="memberVO">
+        <result property="user_name" column="name" />
+		<result property="user_id" column="id" />
+        <result property="user_pw" column="pw" />
+        <result property="user_address" column="address" />
+		<result property="user_zip" column="zip" />
+		<result property="user_phone" column="phone" />        
+        <result property="user_email" column="email" />
+	</resultMap> 
+	<!-- 
+	<resultMap id="memResult" type="java.util.HashMap">
+      <result property="name" column="name" />
+		<result property="id" column="id" />
+        <result property="pw" column="pw" />
+        <result property="address" column="address" />
+		<result property="zip" column="zip" />
+		<result property="phone" column="phone" />        
+        <result property="email" column="email" />
+   </resultMap> -->
+
+
+	<select id="selectAllMemberList" resultMap="memResult">
+      <![CDATA[
+         select * from k_customers order by name desc 	
+      ]]>
+	</select>
+
+	<select id="selectName" resultType="String">
+    <![CDATA[
+	select name from k_customers
+	where id = 'hong'			
+    ]]>
+	</select>
+	
+	<select id="selectPw" resultType="String" >
+	  <![CDATA[ 
+	    select pw from k_customers
+	    where id = 'hong'
+	 ]]>
+	 </select> 
+	 
+	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from k_customers
+         where
+         id=#{user_id}
+      ]]>
+	 </select>	
+	
+	<select id="selectMemberByPw" resultMap="memResult"  parameterType="String" >
+      <![CDATA[
+         select * from k_customers
+         where
+         pw = #{pw}			
+      ]]>
+    </select>
+    
+     <insert id="insertMember"  parameterType="memberVO">
+		<![CDATA[
+		 insert into k_customers(name, id, pw, address, zip, phone, email) 
+		 values(#{user_name}, #{user_id}, #{user_pw}, #{user_address}, #{user_zip}, #{user_phone}, #{user_email})
+		]]>      
+	</insert>
+	
+   <update id="updateMember"  parameterType="memberVO">
+     <![CDATA[
+	     update k_customers
+	     set name=#{name}, pw=#{pw}, address=#{address}, zip=#{zip}, phone=#{phone}, email=#{email}
+	     where
+	     id=#{id}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteMember"  parameterType="String">
+	<![CDATA[
+	   delete from k_customers
+	   where
+	   id=#{id}
+	]]>      
+  </delete>
+	
+	
+	<select id="loginById" resultMap="memResult" parameterType="memberVO">
+		<![CDATA[select * from k_customers where id=#{user_id} and pw=#{user_pw}]]>
+	</select>
+</mapper>

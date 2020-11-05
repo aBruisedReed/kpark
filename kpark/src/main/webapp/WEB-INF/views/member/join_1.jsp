@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +21,7 @@
 	<div class="join_wrap">
 		<div class="join_inner">
 			<div class="logo_container">
-				<a href="home"></a>
+				<a href="${contextPath }/"></a>
 			</div>
 			<h2>약관동의</h2>
 			<div class="agree1">

@@ -7,10 +7,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,12 +31,17 @@ public class sellControllerImpl implements sellController {
 	// 경로 각자 본인 것으로 수정
 
 	@Override
-	@RequestMapping(value = "/sell/sellForm.do", method = RequestMethod.POST)
-	public ModelAndView sellForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
+	@RequestMapping(value = "/sell/sellForm.do", method = RequestMethod.GET)
+	public ModelAndView sellForm(@RequestParam(value = "result", required = false) String result,
+			@RequestParam(value = "action", required = false) String action,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+			String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
+			HttpSession session = request.getSession();
+			session.setAttribute("action", action);
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("result", result);
+			mav.setViewName(viewName);
+			return mav;
 	}
 	
 	// 다중 이미지 업로드하기
