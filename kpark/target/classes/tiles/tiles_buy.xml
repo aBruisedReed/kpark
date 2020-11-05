@@ -4,9 +4,9 @@
 
 <tiles-definitions>
 
-	<definition name="/buy/buy" extends="baseLayout">
-		<put-attribute name="title" value="구매 - KPARK"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/buy/buy.jsp"></put-attribute>
+	<definition name="/buy/search" extends="baseLayout">
+		<put-attribute name="title" value="차량구매 : 전체차량"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/buy/search.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="/buy/buyDetail" extends="baseLayout">
