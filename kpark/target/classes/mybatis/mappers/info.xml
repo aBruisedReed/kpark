@@ -3,7 +3,7 @@
       PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    <mapper namespace="mapper.info">
-	<resultMap id="memResult" type="infoVO">
+	<resultMap id="infoResult" type="infoVO">
         <result property="maker" column="maker" />
 		<result property="model" column="model" />
         <result property="price" column="price" />
@@ -12,9 +12,10 @@
 		<result property="carType" column="carType" />        
        
 	</resultMap> 
-	<select id="selectCarList" resultMap="String">
+	<select id="selectCarList" resultMap="infoResult">
       <![CDATA[
          select * from info_car order by maker desc 	
       ]]>
 	</select>
 	</mapper>
+	

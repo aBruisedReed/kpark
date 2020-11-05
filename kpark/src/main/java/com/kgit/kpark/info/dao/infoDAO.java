@@ -6,4 +6,5 @@ import org.springframework.dao.DataAccessException;
 
 public interface infoDAO {
 	public List selectCarList() throws DataAccessException;
+	
 }
