@@ -31,7 +31,7 @@
 	<div class="join_wrap">
 		<div class="join_inner">
 			<div class="logo_container">
-				<a href="home"></a>
+				<a href="${contextPath }/"></a>
 			</div>
 			<h2>회원가입</h2>
 			<h3>아이디</h3>

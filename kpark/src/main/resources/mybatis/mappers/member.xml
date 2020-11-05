@@ -5,13 +5,13 @@
 
 <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">
-        <result property="name" column="name" />
-		<result property="id" column="id" />
-        <result property="pw" column="pw" />
-        <result property="address" column="address" />
-		<result property="zip" column="zip" />
-		<result property="phone" column="phone" />        
-        <result property="email" column="email" />
+        <result property="user_name" column="name" />
+		<result property="user_id" column="id" />
+        <result property="user_pw" column="pw" />
+        <result property="user_address" column="address" />
+		<result property="user_zip" column="zip" />
+		<result property="user_phone" column="phone" />        
+        <result property="user_email" column="email" />
 	</resultMap> 
 	<!-- 
 	<resultMap id="memResult" type="java.util.HashMap">
@@ -49,7 +49,7 @@
       <![CDATA[
          select * from k_customers
          where
-         id=#{id}			
+         id=#{user_id}
       ]]>
 	 </select>	
 	
@@ -86,7 +86,7 @@
   </delete>
 	
 	
-	<select id="loginById" resultType="memberVO" parameterType="memberVO">
-		<![CDATA[select * from k_customers where id=#{id} and pw=#{pw}]]>
+	<select id="loginById" resultMap="memResult" parameterType="memberVO">
+		<![CDATA[select * from k_customers where id=#{user_id} and pw=#{user_pw}]]>
 	</select>
 </mapper>
