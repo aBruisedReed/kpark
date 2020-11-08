@@ -61,7 +61,7 @@
 
       <tr>
 	<td align="right">작성자 : </td>
-	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.name }" readonly/> </td>
+	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.user_name }" readonly/> </td>
       </tr>
       <tr>
 	<td align="right">글제목 : </td>

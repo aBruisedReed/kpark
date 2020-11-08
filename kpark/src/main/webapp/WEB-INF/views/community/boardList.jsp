@@ -13,6 +13,17 @@
 	<meta charset="UTF-8">
 	<title>boardList</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
+	<script>
+	function fn_needLogin(isLogOn, boardForm, login) {
+		if(isLogOn != '' && isLogOn != 'false') {
+			location.href=boardForm;
+		}
+		else {
+			alert('로그인 후 이용 가능합니다.');
+			location.href=login+'?action=/community/boardForm.do';
+		}
+	}
+	</script>
 	
 </head>
 
@@ -81,7 +92,8 @@
 
     <tr id="listbuttons">
 		<td align="right" colspan=5>
-		<input type="submit" value="글쓰기" id="submit"/>
+		<input type="button" value="글쓰기" id="submit" onclick="fn_needLogin('${isLogOn }',
+			'${contextPath }/community/boardForm.do','${contextPath}/member/login.do')" />
 		</td>
     </tr>
 <!--  	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
