@@ -1,12 +1,23 @@
 package com.kgit.kpark.mypage.controller;
 
+import java.io.PrintWriter;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.kgit.kpark.member.service.MemberService;
+import com.kgit.kpark.member.vo.MemberVO;
 
 @Controller("mypageController")
 @RequestMapping(value = "/mypage/*")
@@ -18,6 +29,12 @@ public class mypageControllerImpl implements mypageController {
 //		mav.setViewName(viewName);
 //		return mav;
 //	}
+	
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	MemberVO memberVO;
 
 	@Override
 	@RequestMapping(value ="/buy_counsel.do" ,method = RequestMethod.POST)
@@ -64,6 +81,34 @@ public class mypageControllerImpl implements mypageController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@Override
+	@RequestMapping(value="/updateMember.do" ,method={RequestMethod.POST,RequestMethod.GET})
+	public void updateMember(@RequestParam("old_pw") String old_pw, HttpServletRequest request, HttpServletResponse response)  throws Exception{
+		HashMap<String,String> memberMap=new HashMap<String,String>();
+		PrintWriter pw=response.getWriter();
+		HttpSession session = request.getSession();
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String user_id=request.getParameter("user_id");
+		String user_pw=request.getParameter("user_pw");
+		String user_address=request.getParameter("user_address");
+		String user_zip=request.getParameter("user_zip");
+		String user_phone=request.getParameter("user_phone");
+		String user_email=request.getParameter("user_eamil");
+		
+		memberMap.put("user_id", user_id);
+		memberMap.put("user_pw", user_pw);
+		memberMap.put("user_address", user_address);
+		memberMap.put("user_zip", user_zip);
+		memberMap.put("user_phone", user_phone);
+		memberMap.put("user_email", user_email);
+		
+		memberService.updateMember(old_pw, member, memberMap, response);
+		pw.print("<script> alert('수정이 완료되었습니다.'); location.href='/kpark/mypage/mypage_select'; </script>");
+		pw.close();		
+		
+	}
+	
 
 	@Override
 	@RequestMapping(value ="/mypage_quit.do" ,method = RequestMethod.POST)

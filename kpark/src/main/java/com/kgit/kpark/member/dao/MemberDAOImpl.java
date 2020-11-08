@@ -1,5 +1,6 @@
 package com.kgit.kpark.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -31,6 +32,11 @@ public class MemberDAOImpl implements MemberDAO {
 	public int deleteMember(String id) throws DataAccessException {
 		int result =  sqlSession.delete("mapper.member.deleteMember", id);
 		return result;
+	}
+	
+	@Override
+	public void updateMember(HashMap memberMap) throws DataAccessException {
+		sqlSession.update("mapper.member.updateMember", memberMap);
 	}
 
 	@Override

@@ -124,6 +124,7 @@ public class MemberControllerImpl implements MemberController {
 		return mav;
 	}
 	
+	
 	@Override
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {

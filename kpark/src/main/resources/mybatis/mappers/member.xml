@@ -68,14 +68,37 @@
 		]]>      
 	</insert>
 	
-   <update id="updateMember"  parameterType="memberVO">
+   <!-- <update id="updateMember"  parameterType="memberVO">
      <![CDATA[
 	     update k_customers
-	     set name=#{name}, pw=#{pw}, address=#{address}, zip=#{zip}, phone=#{phone}, email=#{email}
+	     set pw=#{user_pw}, address=#{user_address}, zip=#{user_zip}, phone=#{user_phone}, email=#{user_email}
 	     where
-	     id=#{id}
+	     id=#{user_id}
       ]]>      
-   </update> 
+   </update>  -->
+   
+   <update id="updateMember" parameterType="java.util.HashMap">
+	   update k_customers
+			   <set>
+			      <if test=" user_pw!='' and user_pw!=null">
+			        pw=#{user_pw},
+			      </if>
+			      <if test=" user_address!='' and user_address!=null">
+			        address=#{user_address},
+			      </if>
+			      <if test=" user_zip!='' and user_zip!=null">
+			        zip=#{user_zip},
+			      </if>
+			      <if test=" user_phone!='' and user_phone!=null">
+			        phone=#{user_phone},
+			      </if>
+			      <if test=" user_email!='' and user_email!=null">
+			        email=#{user_email}
+			      </if>
+			   </set>
+		where 
+		id=#{user_id}
+	</update>	
      
    <delete id="deleteMember"  parameterType="String">
 	<![CDATA[
