@@ -2,6 +2,8 @@
 	/* background-color: pink; */
 	width: 1280px;
 	text-align: center;
+	margin: 0 auto;
+	overflow: hidden;
 }
 #title { 
 	width: 80%;
@@ -97,4 +99,14 @@
 }
 #buttons #submit {
 	background-color: #401C5A;
+}
+#detailModel {
+	width: 261px !important;
+	margin-top: 10px;
+}
+.carType {
+	text-align: right;
+}
+.carTypeCont {
+	text-align: left;
 }
