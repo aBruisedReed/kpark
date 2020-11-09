@@ -15,4 +15,5 @@ public interface MemberService {
 	 public int removeMember(String id) throws DataAccessException;
 	 public MemberVO login(MemberVO memberVO) throws Exception;
 	 public void updateMember(String old_pw, MemberVO member, HashMap memberMap, HttpServletResponse response) throws Exception;
+	 public String overlapped(String id);
 }

@@ -31,7 +31,35 @@
 				return false;
 			}
 		}));
-	})
+		
+		$(document).ready(function(){
+			$("#submit").on("click", function(){
+				if($("#pw1").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#pw1").focus();
+					return false;
+				}
+				if($("#user_name").val()==""){
+					alert("성명을 입력해주세요.");
+					$("#userName").focus();
+					return false;
+				}
+				if($("#user_phone").val()=="") {
+					alert("전화 번호를 입력해주세요.");
+					$("#user_phone").focus();
+					return false;
+				}
+				if($("#user_address_1").val()=="") {
+					alert("주소를 입력해주세요.");
+					$("#user_address_1").focus();
+					return false;
+				}
+				if($("#user_address_2").val()=="") {
+					alert("주소를 입력해주세요.");
+					$("#user_address_2").focus();
+					return false;
+				}
+			}
 	</script>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
@@ -84,7 +112,7 @@
 
   <br><br><br>
   <div class="edit_btn">
-  <input type="submit" value="수정 완료">
+  <input id="submit" type="submit" value="수정 완료">
  <input type="reset" value="다시 입력">
  </div>
  </form>

@@ -1,5 +1,8 @@
 package com.kgit.kpark.member.controller;
 
+import java.io.PrintWriter;
+import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,11 +11,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -115,15 +122,26 @@ public class MemberControllerImpl implements MemberController {
 	}
 	
 	@Override
+	@RequestMapping(value="/member/overlapped.do" ,method = RequestMethod.POST)
+	public ResponseEntity overlapped(@RequestParam("user_id") String id,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		String result = memberService.overlapped(id);
+		resEntity =new ResponseEntity(result, HttpStatus.OK);
+		return resEntity;
+	}
+	
+	@Override
 	@RequestMapping(value = "/member/addMember.do", method = RequestMethod.POST)
 	public ModelAndView addMember(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		int result = 0;
 		result = memberService.addMember(memberVO);
-		ModelAndView mav = new ModelAndView("redirect:/member/login.do");
-		return mav;
+		out.print("<script> alert('회원가입이 완료되었습니다.'); location.href='/kpark/member/login.do'; </script>");
+		out.flush();
+		return null;
 	}
-	
 	
 	@Override
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)

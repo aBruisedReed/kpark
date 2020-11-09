@@ -45,13 +45,13 @@
 	 ]]>
 	 </select> 
 	 
-	 <select id="idCheck" resultType="int">
-	 	<![CDATA[
-	 		select count(*) from k_customers
-	 		where
-	 		id=#{user_id}
-	 	]]>
-	 </select>
+	 <select id="selectOverlappedID" parameterType="String" resultType="String">
+	   <![CDATA[
+		   select decode(count(*),1, 'true', 0, 'false')
+		   from k_customers
+		   where id = #{user_id}
+		]]>
+	</select>
 	 
 	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
       <![CDATA[

@@ -42,7 +42,7 @@ public class MemberServiceImpl  implements MemberService{
 	 
 
 	   @Override
-	   public void  updateMember(String old_pw, MemberVO member, HashMap memberMap, HttpServletResponse response) throws Exception{
+	   public void updateMember(String old_pw, MemberVO member, HashMap memberMap, HttpServletResponse response) throws Exception{
 		   response.setCharacterEncoding("UTF-8"); 
 		   response.setContentType("text/html; charset=UTF-8");
 		   PrintWriter out = response.getWriter();
@@ -57,9 +57,15 @@ public class MemberServiceImpl  implements MemberService{
 				 memberDAO.updateMember(memberMap);
 			}
 		}
+	   
 
 		@Override
 		public MemberVO login(MemberVO memberVO) throws Exception {
 			return memberDAO.loginById(memberVO);
+		}
+
+		@Override
+		public String overlapped(String id) {
+			return memberDAO.selectOverlappedID(id);
 		}
 }
