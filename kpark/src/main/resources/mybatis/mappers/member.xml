@@ -38,10 +38,10 @@
     ]]>
 	</select>
 	
-	<select id="selectPw" resultType="String" >
+	<select id="getPwById" resultType="String" >
 	  <![CDATA[ 
 	    select pw from k_customers
-	    where id = 'hong'
+	    where id = #{user_id}
 	 ]]>
 	 </select> 
 	 

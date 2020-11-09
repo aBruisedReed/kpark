@@ -132,7 +132,7 @@ public class mypageControllerImpl implements mypageController {
 		HttpSession session = request.getSession();
 		MemberVO member = (MemberVO)session.getAttribute("member");
 		
-		if(pw.equals(member.getUser_pw())) {
+		if(pw.equals(memberService.getPwById(member.getUser_id()))) {
 			id = member.getUser_id();
 			memberService.removeMember(id);
 			
