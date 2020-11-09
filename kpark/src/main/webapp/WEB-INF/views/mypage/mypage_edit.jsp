@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${contextPath }/resources/css/reset.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/mypage.css">
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="<c:url value="/resources/js/zip.js" />"></script>

@@ -21,5 +21,8 @@ public interface mypageController {
  public ModelAndView pop_compare(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public ModelAndView recentView(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public void updateMember(String old_pw, HttpServletRequest request, HttpServletResponse response) throws Exception;
+// public ModelAndView removeMember(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
+ public void removeMember(String pw, String id, HttpServletRequest request, HttpServletResponse response)
+		throws Exception;
  
 }

@@ -25,6 +25,18 @@
 			document.getElementById("user_address").value = document.getElementById("user_address_2").value + ' ' + document.getElementById("user_address_3").value;
 			/* console.log(document.getElementById("user_address").value); */
 		});
+		
+		if($("#memberForm").submit(function(){
+			if($("#user_pw").val() !== $("#user_pw_check").val()){
+				alert("비밀번호 확인이 일치하지 않습니다.");
+				$("#pw1").val("").focus();
+				$("#pw2").val("");
+				return false;
+			}else if($.trim($("#user_pw").val()) !== $("#user_pw").val()){
+				alert("비밀번호에 공백은 입력이 불가능합니다.");
+				return false;
+			}
+		}));
 	</script>
 </head>
 <body>

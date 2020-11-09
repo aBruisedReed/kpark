@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kgit.kpark.member.controller.MemberController;
 import com.kgit.kpark.member.service.MemberService;
 import com.kgit.kpark.member.vo.MemberVO;
 
@@ -29,6 +30,8 @@ public class mypageControllerImpl implements mypageController {
 //		mav.setViewName(viewName);
 //		return mav;
 //	}
+	@Autowired
+	private MemberController memberController;
 	
 	@Autowired
 	private MemberService memberService;
@@ -117,6 +120,30 @@ public class mypageControllerImpl implements mypageController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/quitMember.do", method = RequestMethod.POST)
+	public void removeMember(@RequestParam("pwCheck") String pw, String id, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out=response.getWriter();
+		HttpSession session = request.getSession();
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		
+		if(pw.equals(member.getUser_pw())) {
+			id = member.getUser_id();
+			memberService.removeMember(id);
+			
+			memberController.logout(request, response);
+			out.print("<script> alert('탈퇴가 완료되었습니다.'); location.href='/kpark/'; </script>");
+		}
+		else {
+			System.out.println(member.getUser_pw());
+			System.out.println(pw);
+			out.print("<script> alert('비밀번호가 일치하지 않습니다.'); location.href='/kpark/mypage/mypage_quit.do'; </script>");
+		}
 	}
 
 	@Override

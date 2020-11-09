@@ -45,6 +45,14 @@
 	 ]]>
 	 </select> 
 	 
+	 <select id="idCheck" resultType="int">
+	 	<![CDATA[
+	 		select count(*) from k_customers
+	 		where
+	 		id=#{user_id}
+	 	]]>
+	 </select>
+	 
 	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
       <![CDATA[
          select * from k_customers
@@ -67,15 +75,6 @@
 		 values(#{user_name}, #{user_id}, #{user_pw}, #{user_address}, #{user_zip}, #{user_phone}, #{user_email})
 		]]>      
 	</insert>
-	
-   <!-- <update id="updateMember"  parameterType="memberVO">
-     <![CDATA[
-	     update k_customers
-	     set pw=#{user_pw}, address=#{user_address}, zip=#{user_zip}, phone=#{user_phone}, email=#{user_email}
-	     where
-	     id=#{user_id}
-      ]]>      
-   </update>  -->
    
    <update id="updateMember" parameterType="java.util.HashMap">
 	   update k_customers
@@ -104,7 +103,7 @@
 	<![CDATA[
 	   delete from k_customers
 	   where
-	   id=#{id}
+	   id=#{user_id}
 	]]>      
   </delete>
 	
