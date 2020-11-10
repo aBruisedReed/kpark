@@ -1,6 +1,9 @@
 package com.kgit.kpark.member.service;
 
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.dao.DataAccessException;
 
@@ -11,4 +14,7 @@ public interface MemberService {
 	 public int addMember(MemberVO membeVO) throws DataAccessException;
 	 public int removeMember(String id) throws DataAccessException;
 	 public MemberVO login(MemberVO memberVO) throws Exception;
+	 public void updateMember(String old_pw, MemberVO member, HashMap memberMap, HttpServletResponse response) throws Exception;
+	 public String overlapped(String id);
+	 public String getPwById(String id) throws Exception;
 }

@@ -2,6 +2,8 @@
 	/* background-color: pink; */
 	width: 1280px;
 	text-align: center;
+	margin: 0 auto;
+	overflow: hidden;
 }
 #title { 
 	width: 80%;
@@ -75,39 +77,12 @@
 	text-align: right;
 	padding: 10px 75%;
 }
-#imgBtnLine label {
-	width: 70px;
-  display: inline-block;
-  padding: .5em .75em;
-  color: #fff;
-  font-size: 13px;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #62339c;
-  cursor: pointer;
-  border: none;
-  border-radius: .25em;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-
-#imgBtnLine label:hover {
-  background-color: #8d6ab1;
-}
-
-#imgBtnLine label:active {
-  background-color: #77599e;
-}
-
-#imgBtnLine input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+#imgBtn {
+	border: none;
+	width: 100px;
+	height: 30px;
+	background-color: gray;
+	color: white;
 }
 #buttons {
 	padding: 30px 0px;
@@ -124,4 +99,14 @@
 }
 #buttons #submit {
 	background-color: #401C5A;
+}
+#detailModel {
+	width: 261px !important;
+	margin-top: 10px;
+}
+.carType {
+	text-align: right;
+}
+.carTypeCont {
+	text-align: left;
 }

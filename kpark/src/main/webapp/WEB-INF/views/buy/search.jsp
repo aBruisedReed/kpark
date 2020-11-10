@@ -122,51 +122,44 @@
 								<!--  할부=price/60 -->
 							</div>
 						</div>
-				</a>
-
+					</a>
 				</li>
-				
+
 				<!-- 뷰 확인용 반복문 -->
 				<c:forEach var="i" begin="1" end="10">
 					<li data-serial="202011011234">
-					<!-- 예시, 수정요망 --> 
-					<a href="buyDetail?serial=202011011234">
-						<div class="car_img">
-							<img src="/kpark/resources/image/1.jpg">
-							<div class="info_comp">
-								<p>2012년식</p>
-								<p>86,542km</p>
-								<p>휘발유</p>
+						<!-- 예시, 수정요망 --> <a href="buyDetail?serial=202011011234">
+							<div class="car_img">
+								<img src="/kpark/resources/image/1.jpg">
+								<div class="info_comp">
+									<p>2012년식</p>
+									<p>86,542km</p>
+									<p>휘발유</p>
+								</div>
 							</div>
-						</div>
-						<div class="car_box">
-							<div class="title">현대 아반떼MD</div>
-							<div class="model">M16GDi 럭셔리</div>
-							<div class="price_info">
-								<span class="price">430</span>만원(월<span class="install">7</span>만원)
-								<!--  할부=price/60 -->
+							<div class="car_box">
+								<div class="title">현대 아반떼MD</div>
+								<div class="model">M16GDi 럭셔리</div>
+								<div class="price_info">
+									<span class="price">430</span>만원(월<span class="install">7</span>만원)
+									<!--  할부=price/60 -->
+								</div>
 							</div>
-						</div>
-				</a>
+					</a>
 
-				</li>
+					</li>
 				</c:forEach>
 			</ul>
 		</section>
 		<section class="paging">
 			<div class="paginate">
-				<a href="#" onclick="" class="on">1</a>
-				<a href="#" onclick="" class="">2</a>
-				<a href="#" onclick="" class="">3</a>
-				<a href="#" onclick="" class="">4</a>
-				<a href="#" onclick="" class="">5</a>
-				<a href="#" onclick="" class="">6</a>
-				<a href="#" onclick="" class="">7</a>
-				<a href="#" onclick="" class="">8</a>
-				<a href="#" onclick="" class="">9</a>
-				<a href="#" onclick="" class="">10</a>
-				<a href="#" onclick="" class="next">N</a>
-				<a href="#" onclick="" class="next2">N2</a>
+				<a href="#" onclick="" class="on">1</a> <a href="#" onclick=""
+					class="">2</a> <a href="#" onclick="" class="">3</a> <a href="#"
+					onclick="" class="">4</a> <a href="#" onclick="" class="">5</a> <a
+					href="#" onclick="" class="">6</a> <a href="#" onclick="" class="">7</a>
+				<a href="#" onclick="" class="">8</a> <a href="#" onclick=""
+					class="">9</a> <a href="#" onclick="" class="">10</a> <a href="#"
+					onclick="" class="next">N</a> <a href="#" onclick="" class="next2">N2</a>
 			</div>
 		</section>
 	</div>

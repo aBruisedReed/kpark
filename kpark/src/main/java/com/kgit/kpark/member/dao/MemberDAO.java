@@ -1,5 +1,6 @@
 package com.kgit.kpark.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -12,4 +13,7 @@ public interface MemberDAO {
 	 public int insertMember(MemberVO memberVO) throws DataAccessException ;
 	 public int deleteMember(String id) throws DataAccessException;
 	 public MemberVO loginById(MemberVO memberVO) throws DataAccessException;
+	 public void updateMember(HashMap memberMap) throws DataAccessException;
+	 public String selectOverlappedID(String id) throws DataAccessException;
+	 public String getPwById(String id) throws DataAccessException;
 }

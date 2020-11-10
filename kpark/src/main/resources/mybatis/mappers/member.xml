@@ -45,6 +45,14 @@
 	 ]]>
 	 </select> 
 	 
+	 <select id="selectOverlappedID" parameterType="String" resultType="String">
+	   <![CDATA[
+		   select decode(count(*),1, 'true', 0, 'false')
+		   from k_customers
+		   where id = #{user_id}
+		]]>
+	</select>
+	 
 	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
       <![CDATA[
          select * from k_customers
@@ -67,21 +75,35 @@
 		 values(#{user_name}, #{user_id}, #{user_pw}, #{user_address}, #{user_zip}, #{user_phone}, #{user_email})
 		]]>      
 	</insert>
-	
-   <update id="updateMember"  parameterType="memberVO">
-     <![CDATA[
-	     update k_customers
-	     set name=#{name}, pw=#{pw}, address=#{address}, zip=#{zip}, phone=#{phone}, email=#{email}
-	     where
-	     id=#{id}
-      ]]>      
-   </update> 
+   
+   <update id="updateMember" parameterType="java.util.HashMap">
+	   update k_customers
+			   <set>
+			      <if test=" user_pw!='' and user_pw!=null">
+			        pw=#{user_pw},
+			      </if>
+			      <if test=" user_address!='' and user_address!=null">
+			        address=#{user_address},
+			      </if>
+			      <if test=" user_zip!='' and user_zip!=null">
+			        zip=#{user_zip},
+			      </if>
+			      <if test=" user_phone!='' and user_phone!=null">
+			        phone=#{user_phone},
+			      </if>
+			      <if test=" user_email!='' and user_email!=null">
+			        email=#{user_email}
+			      </if>
+			   </set>
+		where 
+		id=#{user_id}
+	</update>	
      
    <delete id="deleteMember"  parameterType="String">
 	<![CDATA[
 	   delete from k_customers
 	   where
-	   id=#{id}
+	   id=#{user_id}
 	]]>      
   </delete>
 	

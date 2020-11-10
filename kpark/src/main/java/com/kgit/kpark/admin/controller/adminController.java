@@ -12,4 +12,5 @@ public interface adminController {
 	public ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response)throws Exception;
 	public ModelAndView adminSellForm(HttpServletRequest request, HttpServletResponse response)throws Exception;
 	public ModelAndView adminSellList(HttpServletRequest request, HttpServletResponse response)throws Exception;
+	public ModelAndView removeMember(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
