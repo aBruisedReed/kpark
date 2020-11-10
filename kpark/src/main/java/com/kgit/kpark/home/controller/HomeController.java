@@ -9,5 +9,5 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 
 public interface HomeController {
-	ModelAndView homeData(SellingCarVO sellingCarVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	ModelAndView homeData(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

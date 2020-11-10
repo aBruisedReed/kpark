@@ -91,24 +91,37 @@ input[type=range]:focus::-ms-fill-upper {
 	margin: 0 auto;
 }
 #all .title {
+	background-color: white;
+	z-index: 9;
 	text-decoration: none;
 	height: 111px;
-	width: 100%;
+	width: 1280px;
 	margin: 30px 0;
+}
+.title * {
+}
+.designBar {
+	display:none;
+	height: 120px;
+    left: -1000px;
+    bottom: 0;
+    position: absolute;
+    width: 3000px;
+    background: white;
+    border-bottom: 1px solid lightgray;
+    z-index: -1;
 }
 .left {
 	width: 720px;
 	height: 120px;
 	display: inline-block;
-	float: left;
-	padding-top: 20px;
 }
 .left .tl_upper {
 	text-align: left;
 	width: 720px;
 }
 .left .tl_upper h1 {
-	font-size: 22px;
+	font-size: 30px;
 }
 .left .tl_upper .maker_model {
 	display: inline-block;
@@ -154,14 +167,12 @@ input[type=range]:focus::-ms-fill-upper {
 	width: 240px;
 	height: 100px;
 	display: inline-block;
-	float: left;
-	padding-top: 30px
+	line-height: 35px;
 }
 .q_btns {
 	width: 260px;
 	height: 120px;
 	display: inline-block;
-	float: right;
 	text-align: justify;
 }
 .q_btns a {
@@ -462,7 +473,7 @@ input[type=range]:focus::-ms-fill-upper {
 	background-size: contain;
 }
 .option .op4 {
-	background: url("../image/icon/icon_option4_on.png") center no-repeat;
+	background: url("../image/icon/icon_option4.png") center no-repeat;
 	background-size: contain;
 }
 .option .op5 {
@@ -478,12 +489,12 @@ input[type=range]:focus::-ms-fill-upper {
 	background-size: contain;
 }
 .option .op8 {
-	background: url("../image/icon/icon_option8_on.png") center no-repeat;
+	background: url("../image/icon/icon_option8.png") center no-repeat;
 	background-size: contain;
 	width: 80px;
 }
 .option .op9 {
-	background: url("../image/icon/icon_option9_on.png") center no-repeat;
+	background: url("../image/icon/icon_option9.png") center no-repeat;
 	background-size: contain;
 }
 .option .op10 {
@@ -715,4 +726,8 @@ input[type=range]:focus::-ms-fill-upper {
 	background-color: white;
 	border:2px solid #401C54;
 	color: #401C54;
+}
+#toInstall *, #toInstall {
+	text-decoration: none;
+	color: black;
 }

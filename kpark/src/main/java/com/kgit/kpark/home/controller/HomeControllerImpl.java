@@ -18,14 +18,14 @@ import com.kgit.kpark.home.service.HomeService;
 
 @Controller("homeController")
 @EnableAspectJAutoProxy
+@RequestMapping(value="/*")
 public class HomeControllerImpl implements HomeController {
 	@Autowired
 	HomeService homeService;
 
 	@Override
 	@RequestMapping(value = "home.do", method = RequestMethod.GET)
-	public ModelAndView homeData(SellingCarVO sellingCarVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("call home.do");
+	public ModelAndView homeData(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 	    ModelAndView mav = new ModelAndView();
 	    List<SellingCarVO> carList = homeService.carList();
@@ -48,10 +48,10 @@ public class HomeControllerImpl implements HomeController {
 		return "/common/"+pageName;
 	}
 
-	@RequestMapping(value="buy/{pageName}")
-	public String buy(@PathVariable("pageName")String pageName) {
-		return "/buy/"+pageName;
-	}
+//	@RequestMapping(value="buy/{pageName}")
+//	public String buy(@PathVariable("pageName")String pageName) {
+//		return "/buy/"+pageName;
+//	}
 	
 	@RequestMapping(value="admin/{pageName}")
 	public String adm(@PathVariable("pageName")String pageName) {
