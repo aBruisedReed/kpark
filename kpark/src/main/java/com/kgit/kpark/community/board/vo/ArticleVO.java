@@ -14,8 +14,8 @@ public class ArticleVO {
 	private String title;
 	private String content;
 	private String imageFileName;
-	private String id;
 	private Date  writeDate;
+	private String id;
 	
 	
 	public ArticleVO() {

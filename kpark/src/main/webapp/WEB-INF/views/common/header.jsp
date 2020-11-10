@@ -77,11 +77,11 @@
 					<li class="info_1"><a href="${contextPath }/info/brandList.do">차량정보</a></li>
 				</ul>
 			</li>
-			<li class="nav4"><a href="${contextPath }/community/reviewList.do">커뮤니티</a>
+			<li class="nav4"><a href="${contextPath }/community/review/reviewList.do">커뮤니티</a>
 				<ul class="nav4_over">
-					<li class="comm_1"><a href="${contextPath }/community/reviewList.do">거래후기</a></li>
-					<li class="comm_2"><a href="${contextPath }/community/newsList.do">자동차뉴스</a></li>
-					<li class="comm_3"><a href="${contextPath }/community/boardList.do">자유게시판</a></li>
+					<li class="comm_1"><a href="${contextPath }/community/review/reviewList.do">거래후기</a></li>
+					<li class="comm_2"><a href="${contextPath }/community/news/newsList.do">자동차뉴스</a></li>
+					<li class="comm_3"><a href="${contextPath }/community/board/boardList.do">자유게시판</a></li>
 				</ul>
 			</li>
 		</nav>
