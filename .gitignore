@@ -42,3 +42,4 @@ kpark/target/classes/com/kgit/kpark/admin/goods/controller/SellingCarController.
 kpark/target/classes/com/kgit/kpark/admin/controller/adminControllerImpl.class
 kpark/target/classes/com/kgit/kpark/admin/controller/adminController.class
 *.class
+*.class

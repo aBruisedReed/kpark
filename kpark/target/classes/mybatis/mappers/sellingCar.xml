@@ -33,6 +33,11 @@
 		 values(#{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, LPAD(SEQ_BOARD.NEXTVAL,6,0), #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType})
 		]]>      
 	</insert>
+	<select id="selectCarList" resultMap="scResult">
+      <![CDATA[
+         select * from ( select * from k_sellingCar order by serial desc) where rownum <= 8
+      ]]>
+	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">
