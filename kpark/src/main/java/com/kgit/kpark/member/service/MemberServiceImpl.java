@@ -69,9 +69,19 @@ public class MemberServiceImpl  implements MemberService{
 		public MemberVO login(MemberVO memberVO) throws Exception {
 			return memberDAO.loginById(memberVO);
 		}
+		
+		@Override
+		public MemberVO selectMemberById(String id) throws Exception {
+			return memberDAO.selectMemberById(id);
+		}
 
 		@Override
 		public String overlapped(String id) throws DataAccessException {
 			return memberDAO.selectOverlappedID(id);
+		}
+
+		@Override
+		public void adminUpdate(HashMap memberMap) {
+			memberDAO.adminUpdate(memberMap);
 		}
 }

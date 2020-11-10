@@ -35,13 +35,13 @@
 				  <c:forEach var="member" items="${membersList}" >
 				  <tr>
 				    <td>${member.user_id }</td>
-				    <td>${member.user_pw }</td>
+				    <td>${member.user_name }</td>
 				    <td>${member.user_address }</td>
 				    <td>${member.user_zip }</td>
 				    <td>${member.user_phone }</td>
 				    <td>${member.user_email }</td>
 				    <td>
-				    	<button class="modBtn" >수정</button>
+				    	<a href="${contextPath}/admin/adminEditForm.do?id=${member.user_id }"><button class="modBtn" >수정</button></a>
 				    	<a href="${contextPath}/admin/removeMember.do?id=${member.user_id }" onclick="return confirm('정말 삭제하시겠습니까?');"><button class="delBtn">삭제</button></a>
 				    </td>
 				  </tr>

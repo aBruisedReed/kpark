@@ -42,5 +42,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminMembersList.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/admin/adminEditForm" extends="baseLayout">
+		<put-attribute name="title" value="관리자 - 회원 정보 목록"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminEditForm.jsp"></put-attribute>
+	</definition>
+	
 	
 </tiles-definitions>
