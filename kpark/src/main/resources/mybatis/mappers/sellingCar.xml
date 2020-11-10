@@ -38,6 +38,11 @@
          select * from ( select * from k_sellingCar order by serial desc) where rownum <= 8
       ]]>
 	</select>
+	<select id="selectCarInfo" resultType="sellingCarVO"  parameterType="String">
+      <![CDATA[
+         select * from k_sellingCar where serial=#{serial}
+      ]]>
+	 </select>	
 </mapper>
 <!-- <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">

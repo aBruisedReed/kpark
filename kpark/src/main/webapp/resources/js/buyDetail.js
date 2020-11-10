@@ -50,3 +50,17 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 185 || document.documentElement.scrollTop > 185) {
+    document.getElementById('title').style.position = 'fixed';
+	document.getElementById('title').style.margin = '0';
+	document.getElementById('title').style.top = '0';
+	document.getElementById('designBar').style.display = "block";
+  } else {
+    document.getElementById('title').style.position = 'relative';
+	document.getElementById('title').style.margin = '30px 0';
+	document.getElementById('title').style.removeProperty("top");
+	document.getElementById('designBar').style.display = "none";
+  }
+}
