@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
-@Component("memberVO")
+@Component("MemberVO")
 public class MemberVO {
 	private String user_name;
 	private String user_id;

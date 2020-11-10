@@ -10,6 +10,21 @@ public class infoVO {
 		private String price;
 		private String fc;
 		private String fuel;
+		private String carType;
+		private int code;
+		private String image;
+		public String getImage() {
+			return image;
+		}
+		public void setImage(String image) {
+			this.image = image;
+		}
+		public int getCode() {
+			return code;
+		}
+		public void setCode(int code) {
+			this.code = code;
+		}
 		public String getMaker() {
 			return maker;
 		}
@@ -46,5 +61,5 @@ public class infoVO {
 		public void setCarType(String carType) {
 			this.carType = carType;
 		}
-		private String carType;
+		
 }

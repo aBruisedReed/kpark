@@ -32,6 +32,7 @@
 <body>
 	<div id="all">
 		<div id="title">차량 정보</div>
+
 		<div id="content">
 			<hr><br>
 			<table id="table">
@@ -77,66 +78,66 @@
 					<table class="sell_table">
 					  <tr>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[0].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[0].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[0].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[0].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[0].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[0].carType}"/></p>
 					    	</div>
 					    </td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[1].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[1].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[1].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[1].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[1].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[1].carType}"/></p>
 					    	</div>
 						</td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[2].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[2].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[2].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[2].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[2].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[2].carType}"/></p>
 					    	</div>
 					    </td>
 					  </tr>
 					  
 					  <tr>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[3].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[3].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[3].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[3].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[3].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[3].carType}"/></p>
 					    	</div>
 					    </td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[4].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[4].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[4].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[4].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[4].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[4].carType}"/></p>
 					    	</div>
 						</td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200917_139/auto_1600330991366jiUjg_PNG/20200917172308_oXaK71Hw.png?type=f160_116">
+					    		<img src="${contextPatd}${list[5].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list[5].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list[5].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list[5].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list[5].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list[5].carType}"/></p>
 					    	</div>
 					    </td>
 					  </tr>
@@ -151,66 +152,66 @@
 					<table class="sell_table">
 					  <tr>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[0].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[0].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[0].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[0].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[0].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[0].carType}"/></p>
 					    	</div>
 					    </td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[1].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[1].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[1].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[1].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[1].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[1].carType}"/></p>
 					    	</div>
 						</td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[2].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[2].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[2].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[2].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[2].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[2].carType}"/></p>
 					    	</div>
 					    </td>
 					  </tr>
 					  
 					  <tr>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[3].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[3].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[3].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[3].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[3].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[3].carType}"/></p>
 					    	</div>
 					    </td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[4].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[4].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[4].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[4].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[4].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[4].carType}"/></p>
 					    	</div>
 						</td>
 					    <td>
-					    		<img src="https://imgauto-phinf.pstatic.net/20200407_287/auto_1586224652431bUq6f_PNG/20200407105728_c9QG5Lkd.png?type=f160_116">
+					    		<img src="${contextPatd}${list1[5].image}">
 					    	<div class="info">
-					    		<p class="tag1">2021 투싼</p>
-					    		<p class="tag2">출시 <span>2,435~3,567만원</span></p>
-					    		<p class="tag3">연비 <span>11.0~14.8km/L</span></p>
-					    		<p class="tag4">연료 <span>디젤, 가솔린</span></p>
-					    		<p class="tag5">준중형</p>
+					    		<p class="tag1"><c:out value="${list1[5].model}"/></p>
+					    		<p class="tag2">출시 <span><c:out value="${list1[5].price}"/></span></p>
+					    		<p class="tag3">연비 <span><c:out value="${list1[5].fc}"/></span></p>
+					    		<p class="tag4">연료 <span><c:out value="${list1[5].fuel}"/></span></p>
+					    		<p class="tag5"><c:out value="${list1[5].carType}"/></p>
 					    	</div>
 					    </td>
 					  </tr>
