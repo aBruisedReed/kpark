@@ -42,7 +42,7 @@
 				    <td>${member.user_email }</td>
 				    <td>
 				    	<button class="modBtn" >수정</button>
-				    	<a href="${contextPath}/admin/removeMember.do?id=${member.user_id }"><button class="delBtn">삭제</button></a>
+				    	<a href="${contextPath}/admin/removeMember.do?id=${member.user_id }" onclick="return confirm('정말 삭제하시겠습니까?');"><button class="delBtn">삭제</button></a>
 				    </td>
 				  </tr>
 				  </c:forEach>
