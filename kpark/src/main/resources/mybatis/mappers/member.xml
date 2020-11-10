@@ -27,7 +27,7 @@
 
 	<select id="selectAllMemberList" resultMap="memResult">
       <![CDATA[
-         select * from k_customers order by name desc 	
+         select * from k_customers order by name desc
       ]]>
 	</select>
 
@@ -53,7 +53,7 @@
 		]]>
 	</select>
 	 
-	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
+	<select id="selectMemberById" resultMap="memResult"  parameterType="String" >
       <![CDATA[
          select * from k_customers
          where
@@ -97,7 +97,33 @@
 			   </set>
 		where 
 		id=#{user_id}
-	</update>	
+	</update>
+	
+	<update id="adminUpdate" parameterType="memberVO">
+	   update k_customers
+			   <set>
+			  	 <if test=" user_pw!='' and user_pw!=null">
+			        pw=#{user_pw},
+			      </if>
+			      <if test=" user_name!='' and user_name!=null">
+			        name=#{user_name},
+			      </if>
+			      <if test=" user_address!='' and user_address!=null">
+			        address=#{user_address},
+			      </if>
+			      <if test=" user_zip!='' and user_zip!=null">
+			        zip=#{user_zip},
+			      </if>
+			      <if test=" user_phone!='' and user_phone!=null">
+			        phone=#{user_phone},
+			      </if>
+			      <if test=" user_email!='' and user_email!=null">
+			        email=#{user_email}
+			      </if>
+			   </set>
+		where 
+		id=#{user_id}
+	</update>
      
    <delete id="deleteMember"  parameterType="String">
 	<![CDATA[

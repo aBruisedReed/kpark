@@ -17,4 +17,7 @@ public interface MemberService {
 	 public void updateMember(String old_pw, MemberVO member, HashMap memberMap, HttpServletResponse response) throws Exception;
 	 public String overlapped(String id);
 	 public String getPwById(String id) throws Exception;
+//	 public void adminUpdate(String id);
+	 public MemberVO selectMemberById(String id) throws Exception;
+	 public void adminUpdate(HashMap memberMap);
 }

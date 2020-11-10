@@ -56,4 +56,14 @@ public class MemberDAOImpl implements MemberDAO {
 		String pw = sqlSession.selectOne("mapper.member.getPwById", id);
 		return pw;
 	}
+
+	@Override
+	public void adminUpdate(HashMap memberMap) {
+		sqlSession.update("mapper.member.adminUpdate", memberMap);
+	}
+
+	@Override
+	public MemberVO selectMemberById(String id) {
+		return sqlSession.selectOne("mapper.member.selectMemberById", id);
+	}
 }
