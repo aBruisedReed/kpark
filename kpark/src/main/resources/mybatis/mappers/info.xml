@@ -9,12 +9,103 @@
         <result property="price" column="price" />
         <result property="fc" column="fc" />
 		<result property="fuel" column="fuel" />
-		<result property="carType" column="carType" />        
-       
+		<result property="carType" column="carType" />    
+		<result property="code" column="code" />    
+       <result property="image" column="image" /> 
 	</resultMap> 
 	<select id="selectCarList" resultMap="infoResult">
       <![CDATA[
          select * from info_car order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectHyunList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='현대' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectHyunList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='현대' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectKiaList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='기아' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectKiaList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='기아' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectCherList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='쉐보레' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectCherList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='쉐보레' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectSsList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='쌍용' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectSsList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='쌍용' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectSamList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='삼성' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectSamList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='삼성' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectBMWList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='BMW' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectBMWList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='BMW' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectBenList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='벤츠' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectBenList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='벤츠' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectAudiList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='아우디' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectAudiList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='아우디' and code = 1 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectVolList0" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='폭스바겐' and code = 0 order by maker desc 	
+      ]]>
+	</select>
+	<select id="selectVolList1" resultMap="infoResult">
+	 <![CDATA[
+         select * from info_car where maker='폭스바겐' and code = 1 order by maker desc 	
       ]]>
 	</select>
 	</mapper>
