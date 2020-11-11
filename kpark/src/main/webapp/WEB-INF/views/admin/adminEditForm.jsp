@@ -100,7 +100,7 @@
  <br><br>
  <input class="input_address_1" id="user_address_1" name="user_zip" type="number" value="${member.user_zip }"  placeholder="우편번호" readonly>
 			<input class="button_address_find" type="button" onclick="zip_adress()" value="우편번호 찾기">
-			<input class="input_address_2" id="user_address_2" name="user_address_2" type="text" placeholder="주소" value="${member.user_address }">
+			<input class="input_address_2" id="user_address_2" name="user_address_2" type="text" placeholder="주소" value="${members.user_address }">
 			<input class="input_address_3" id="user_address_3" name="user_address_3" type="text" placeholder="상세주소">
 <!-- <input type="text" id="sample3_postcode" placeholder="우편번호"> -->
 <!-- <input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br> -->
