@@ -1,37 +1,190 @@
-.main{
-	display:flex;
+@charset "UTF-8";
 
-	margin: 80px 0 0 0;
-	justify-content:space-around;
-	
+/* body */
+html, body {
+  margin: 0;
+  padding: 0;
+  /* background: #E8ECEF; */
+  text-align: center;
+  box-sizing: border-box;
 }
-h3.title{
-	
-    font-size: 40px;
-  display: inline-block; 
-   white-space: nowrap;
+h1{
+    font: 400 30px roboto, "Open Sans", Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+h2{
+    font: 300 22px roboto, "Open Sans", Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+/*탭*/
+.tabbed {
+  width: 80%;
+  min-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 68px;
+  border-bottom: 4px solid #000;
+  overflow: hidden;
+  transition: border 250ms ease;
+}
+
+.tabbed ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: left;
+  padding-left: 48px;
+  list-style-type: none;
+}
+.tabbed ul * {
+  margin: 0px;
+  padding: 0px;
+}
+.tabbed ul li {
+  display: block;
+  float: right;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+
+  transition: all 250ms ease;
+}
+.tabbed ul li:before,
+.tabbed ul li:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;  
+  background-color: #FFF;
+  transition: all 250ms ease;
+}
+.tabbed ul li:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+.tabbed ul li:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+}
+.tabbed ul li:hover,
+.tabbed ul li:hover:before,
+.tabbed ul li:hover:after {
+  background-color: #F4F7F9;
+  color: #444;
+}
+.tabbed ul li.active {
+  z-index: 3;
+}
+.tabbed ul li.active,
+.tabbed ul li.active:before,
+.tabbed ul li.active:after {
+  background-color: #000;
+  color: #fff;
+}
+
+.tabbed.skin-turquoise ul li.active,
+.tabbed.skin-turquoise ul li.active:before,
+.tabbed.skin-turquoise ul li.active:after {
+  background-color: #9B59B6;
+}
+
+/* Round Tabs */
+.tabbed.round ul li {
+  border-radius: 8px 8px 0 0;
+}
+.tabbed.round ul li:before {
+  border-radius: 0 8px 0 0;
+}
+.tabbed.round ul li:after {
+  border-radius: 8px 0 0 0;
+}
+
+/*공통테이블*/
+.common {
+	width:80%;
+	height:auto;
+  	min-width: 400px;
+  	margin: 0 auto;
+	height:auto;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+table.type04 {
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1;
+}
+table.type04 tbody th {
+    width: 100px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.type04 td {
+    width: 100px;
+    padding: 10px;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+img {
+	border: 3px soild black;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
-   
-	
+table.type09 {
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1;
 }
-.info{
-margin: 0 0 0 100px;
-	
-}.tag{
-	color:green;
-	font-size:30px;
-	margin:20px 0 0 0;
-}.main_img{
-max-width: 100%;
-	height: auto;
- 
-margin: 0 200px 0 0 ;
-	
-	
+table.type09 thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: center;
+    color: #369;
+    border-bottom: 3px solid #036;
 }
-img { 
+table.type09 tbody th {
+    width: 250px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.type09 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+}
 
+.img_group{
+	margin: auto;
+	float:right;
+	position:relative;
+	width:647px;
+	height:410px;
+	text-align:right;
 }
-hr{size:3px;}
-span{color:black;}

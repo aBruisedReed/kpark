@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.info.service.infoService;
 import com.kgit.kpark.info.vo.infoVO;
 
@@ -36,7 +34,6 @@ infoVO infoVO;
 		mav.addObject("list", list);
 		mav.addObject("list1", list1);
 		mav.setViewName(viewName);
-	
 		return mav;
 	}
 	@Override
@@ -328,17 +325,6 @@ infoVO infoVO;
 		mav.addObject("list1", list1);
 		mav.addObject("list3", list3);
 		mav.setViewName("forward:/info/brandInfo2.do");
-		return mav;
-	}
-	@Override
-	@RequestMapping(value = "/info/brandDetail.do", method = RequestMethod.GET)
-	public ModelAndView brandDetail(@RequestParam ("model") String model, HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
-		ModelAndView mav = new ModelAndView();
-		infoVO car = infoService.carInfo(model);
-		mav.addObject("car", car);
-		mav.setViewName(viewName);
 		return mav;
 	}
 

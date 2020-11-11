@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.kgit.kpark.info.vo.infoVO;
-
 public interface infoDAO {
 	public List selectCarList() throws DataAccessException;
 	public List selectHyunList0() throws DataAccessException;
@@ -26,5 +24,5 @@ public interface infoDAO {
 	public List selectAudiList1() throws DataAccessException;
 	public List selectVolList0() throws DataAccessException;
 	public List selectVolList1() throws DataAccessException;
-	public infoVO carInfo(String model);
+	
 }

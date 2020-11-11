@@ -1,0 +1,134 @@
+body {
+	background-color: lightgray;
+}
+.login_copyright {
+	color: lightgray;
+	margin: 20px;
+}
+.join_wrap {
+	width: 600px;
+	background-color: white;
+	border: 1px solid #cdcdcd;
+ 	margin: 0 auto;
+ 	height: 100vh;
+}
+.join_inner {
+	width: 450px;
+ 	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	text-align: center;
+}
+.logo_container{
+	width: 100%;
+	background-size: contain;
+	border-bottom: 1px solid #cdcdcd;
+}
+.logo_container a {
+	display: block;
+	height: 100px;
+	width: 220px;
+	background: url("../image/kpark_logo.png") center no-repeat;
+	background-size: contain;
+	margin: 0 auto;
+}
+.join_inner h2 {
+	display: block;
+	font-weight: bold;
+	font-size: 22px;
+	float: left;
+	margin: 10px 0;
+}
+.join_inner h3 {
+	display: block;
+	font-size: 18px;
+	float: left;
+	margin: 5px 0;
+}
+.join_inner textarea {
+	width: 100%;
+	height: 300px;	
+	resize: none;
+}
+.join_inner label {
+	margin-bottom: 20px;
+}
+.join_inner .checkDiv {
+	float: right;
+}
+.join_inner .agree1, .agree2 {
+	margin: 50px 0;
+}
+.btns {
+	margin-top: 50px;
+}
+.btns * {
+	width: 210px;
+	height: 50px;
+}
+.btns .cancel {
+	margin-right: 9px;
+	color: black;
+	background-color: white;
+	border: 1px soild #cdcdcd;
+}
+.btns .cancel:hover {
+	background-color: lightgray;
+}
+.btns .next {
+	margin-left: 9px;
+	color: white;
+	background-color: #401C5A;
+	border: none;
+}
+.btns .next:hover {
+	background-color: #9E7BFF;
+}
+.join_inner>p{
+	color: lightgray;
+	width: 100%;
+	text-align: left;
+}
+.join_inner .authen {
+	border: 1px solid #cdcdcd;
+	border-radius: 20px;
+	width: 200px;
+	height: 80px;
+	margin: 10px auto;
+	
+}
+.join_inner .authen .phoneIcon {
+	display: inline-block;
+	height: 50px;
+	width: auto;
+	background: url("../image/phoneIcon.png") center no-repeat;
+	background-size: contain;
+	margin: 0 auto;
+}
+/* .phoneIconText {
+	color: lightgray;
+	text-decoration: none !important;
+	font-weight: bold;
+	margin: 0 auto;
+} */
+.authen h4 {
+	font-weight: bold;
+	text-decoration: none;
+	color: lightgray;
+}
+.j2_h2 {
+	width:100%;
+	text-align: left;
+}
+.phoneBtn {
+	margin: 20px auto;
+	background-color: white;
+	border: 1px solid #cdcdcd;
+	border-radius: 20px;
+	width: 200px;
+	height: 80px;
+}
+.phoneBtn:hover {
+	background-color: #cdcdcd;
+	color: white;
+}

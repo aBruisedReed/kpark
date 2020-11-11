@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: younjiwon
 Build-Jdk: 13.0.1
-=======
-Built-By: Administrator
-Build-Jdk: 1.8.0_251
->>>>>>> branch 'main' of https://github.com/aBruisedReed/kpark.git
 Created-By: Maven Integration for Eclipse
 

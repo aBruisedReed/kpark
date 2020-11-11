@@ -73,41 +73,11 @@
 				
 				<!-- 동적 구현 -->
 				<!-- 시판 모델 -->
-				<c:url var="URL" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[0].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL1" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[1].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL2" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[2].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL3" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[3].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL4" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[4].model}" />
-                  
-                   </c:url>
-                    	<c:url var="URL5" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list[5].model}" />
-                  
-                   </c:url>
 				<div id="tab-1" class="tab-content current">
 					<table class="sell_table">
 					  <tr>
 					    <td>
-					    		<a href="<c:out value="${URL}" />"><img src="${contextPatd}${list[0].image}"></a>
+					    		<img src="${contextPatd}${list[0].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[0].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[0].price}"/></span></p>
@@ -117,7 +87,7 @@
 					    	</div>
 					    </td>
 					    <td>
-					    		<a href="<c:out value="${URL1}" />"><img src="${contextPatd}${list[1].image}"></a>
+					    		<img src="${contextPatd}${list[1].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[1].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[1].price}"/></span></p>
@@ -127,7 +97,7 @@
 					    	</div>
 						</td>
 					    <td>
-					    		<a href="<c:out value="${URL2}" />"><img src="${contextPatd}${list[2].image}"></a>
+					    		<img src="${contextPatd}${list[2].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[2].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[2].price}"/></span></p>
@@ -140,7 +110,7 @@
 					  
 					  <tr>
 					    <td>
-					    		<a href="<c:out value="${URL3}" />"><img src="${contextPatd}${list[3].image}"></a>
+					    		<img src="${contextPatd}${list[3].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[3].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[3].price}"/></span></p>
@@ -150,7 +120,7 @@
 					    	</div>
 					    </td>
 					    <td>
-					    		<a href="<c:out value="${URL4}" />"><img src="${contextPatd}${list[4].image}"></a>
+					    		<img src="${contextPatd}${list[4].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[4].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[4].price}"/></span></p>
@@ -160,7 +130,7 @@
 					    	</div>
 						</td>
 					    <td>
-					    		<a href="<c:out value="${URL5}" />"><img src="${contextPatd}${list[5].image}"></a>
+					    		<img src="${contextPatd}${list[5].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list[5].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list[5].price}"/></span></p>
@@ -177,41 +147,11 @@
 				
 				<!-- 동적 구현 -->
 				<!-- 단종 모델 -->
-					<c:url var="URL11" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[0].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL12" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[1].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL13" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[2].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL14" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[3].model}" />
-                  
-                   </c:url>
-                   	<c:url var="URL15" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[4].model}" />
-                  
-                   </c:url>
-                    	<c:url var="URL16" value="/info/brandDetail.do">
-					
-                   <c:param name="model" value="${list1[5].model}" />
-                  
-                   </c:url>
 				<div id="tab-2" class="tab-content">
 					<table class="sell_table">
 					  <tr>
 					    <td>
-					    		<a href="<c:out value="${URL11}" />"><img src="${contextPatd}${list1[0].image}"></a>
+					    		<img src="${contextPatd}${list1[0].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[0].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[0].price}"/></span></p>
@@ -221,7 +161,7 @@
 					    	</div>
 					    </td>
 					    <td>
-					    		<a href="<c:out value="${URL12}" />"><img src="${contextPatd}${list1[1].image}"></a>
+					    		<img src="${contextPatd}${list1[1].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[1].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[1].price}"/></span></p>
@@ -231,7 +171,7 @@
 					    	</div>
 						</td>
 					    <td>
-					    		<a href="<c:out value="${URL13}" />"><img src="${contextPatd}${list1[2].image}"></a>
+					    		<img src="${contextPatd}${list1[2].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[2].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[2].price}"/></span></p>
@@ -244,7 +184,7 @@
 					  
 					  <tr>
 					    <td>
-					    		<a href="<c:out value="${URL14}" />"><img src="${contextPatd}${list1[3].image}"></a>
+					    		<img src="${contextPatd}${list1[3].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[3].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[3].price}"/></span></p>
@@ -254,7 +194,7 @@
 					    	</div>
 					    </td>
 					    <td>
-					    		<a href="<c:out value="${URL15}" />"><img src="${contextPatd}${list1[4].image}"></a>
+					    		<img src="${contextPatd}${list1[4].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[4].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[4].price}"/></span></p>
@@ -264,7 +204,7 @@
 					    	</div>
 						</td>
 					    <td>
-					    		<a href="<c:out value="${URL16}" />"><img src="${contextPatd}${list1[5].image}"></a>
+					    		<img src="${contextPatd}${list1[5].image}">
 					    	<div class="info">
 					    		<p class="tag1"><c:out value="${list1[5].model}"/></p>
 					    		<p class="tag2">출시 <span><c:out value="${list1[5].price}"/></span></p>
