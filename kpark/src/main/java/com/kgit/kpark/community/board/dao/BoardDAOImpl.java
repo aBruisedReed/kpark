@@ -22,7 +22,7 @@ public class BoardDAOImpl implements BoardDAO {
 		List<ArticleVO> articlesList = articlesList = sqlSession.selectList("mapper.board.selectAllArticlesList");
 		return articlesList;
 	}
-	
+
 	@Override
 	public int insertNewArticle(Map articleMap) throws DataAccessException {
 		int articleNO = selectNewArticleNO();
@@ -43,7 +43,7 @@ public class BoardDAOImpl implements BoardDAO {
 		}
 		sqlSession.insert("mapper.board.insertNewImage",imageFileList);
 	}
-	
+		
 	@Override
 	public ArticleVO selectArticle(int articleNO) throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectArticle", articleNO);
