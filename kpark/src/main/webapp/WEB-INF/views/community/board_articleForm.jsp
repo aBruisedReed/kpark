@@ -58,12 +58,12 @@
     <div class="ttl-sm">자유게시판을 작성하세요.</div><br><br>
 
 	<div class="formboard">
-    <form name="boardForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
+    <form name="board_articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
     		enctype="multipart/form-data">
 
       <tr>
 	<td align="right">작성자 : </td>
-	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.user_name }" readonly/> </td>
+	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.user_id }" readonly/> </td>
       </tr>
       <tr>
 	<td align="right">글제목 : </td>

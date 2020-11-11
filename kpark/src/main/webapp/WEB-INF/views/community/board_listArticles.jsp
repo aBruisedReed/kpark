@@ -11,13 +11,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+	 <style>
+	   .cls1 {
+	   		text-decoration:none;
+	   }
+	   .cls2{
+	   		text-align:center; 
+	   		font-size:30px;
+	   }
+	 </style>
 	<meta charset="UTF-8">
 	<title>boardList</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
 	<script>
-	function fn_needLogin(isLogOn, boardForm, login) {
+	function fn_needLogin(isLogOn, board_articleForm, login) {
 		if(isLogOn != '' && isLogOn != 'false') {
-			location.href=boardForm;
+			location.href=board_articleForm;
 		}
 		else {
 			alert('로그인 후 이용 가능합니다.');
@@ -69,7 +78,6 @@
 	    <c:forEach  var="article" items="${articlesList }" varStatus="articleNum" >
 	     <tr align="center">
 		<td width="5%">${articleNum.count}</td>
-		<td width="10%">${article.id }</td>
 		<td align='left'  width="35%">
 		  <span style="padding-right:30px"></span>
 		   <c:choose>
@@ -85,6 +93,7 @@
 		          </c:otherwise>
 		        </c:choose>
 		  </td>
+  		  <td width="10%">${article.id }</td>
 		  <td  width="10%">${article.writeDate}</td>
 		  <td  width="10%">${article.viewcnt}</td> 
 		</tr>
@@ -94,14 +103,14 @@
 
     <tr id="listbuttons">
 		<td align="right" colspan=5>
-		<input type="button" value="글쓰기" id="submit" onclick="fn_needLogin('${isLogOn }',
-			'${contextPath }/community/board_articleForm.do','${contextPath}/member/login.do')" />
+		<input type="button" value="글쓰기" id="submit" onclick="fn_needLogin('${isLogOn }','${contextPath }/community/board_articleForm.do','${contextPath}/member/login.do')" />
 		</td>
     </tr>
-<!--  	<a  class="cls1"  href="#"><p class="cls2">글쓰기</p><br><br></a>
-	<a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
-	                                                    '${contextPath}/member/loginForm.do')"> <!-- 로그인 상태가 아닐 경우 로그인창 요청 URL을 전달
-	                                                    <p class="cls2">글쓰기</p></a><br> -->
+<!-- 
+	<a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/community/board_articleForm.do', 
+	                                                    '${contextPath}/member/login.do')">
+	                                                    <p class="cls2">글쓰기</p></a><br>
+	                                                     -->
 	</table>
     <div class="a_paging" style="margin-top: 40px"></div>
 	</div>
