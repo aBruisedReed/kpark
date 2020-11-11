@@ -18,10 +18,10 @@ import com.kgit.kpark.sell.goods.controller.SellGoodsController;
 import com.kgit.kpark.sell.goods.service.SellService;
 import com.kgit.kpark.sell.goods.vo.SellVO;
 
-@Controller("sellsGoodsController")
+@Controller("sellGoodsController")
 @EnableAspectJAutoProxy
-public class SellsGoodsControllerImpl implements SellGoodsController {
-	private static final Logger logger = LoggerFactory.getLogger(SellsGoodsControllerImpl.class);
+public class SellGoodsControllerImpl implements SellGoodsController {
+	private static final Logger logger = LoggerFactory.getLogger(SellGoodsControllerImpl.class);
 	
 	@Autowired 
 	SellService sellService;
