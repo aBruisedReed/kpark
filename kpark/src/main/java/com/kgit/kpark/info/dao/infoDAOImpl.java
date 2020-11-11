@@ -148,4 +148,10 @@ public class infoDAOImpl implements infoDAO {
 		return CarList;
 	}
 
+	@Override
+	public infoVO carInfo(String model) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("mapper.info.selectCarInfo",model);
+	}
+
 }

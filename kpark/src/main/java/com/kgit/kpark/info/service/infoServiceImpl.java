@@ -129,5 +129,10 @@ public class infoServiceImpl implements infoService {
 		CarList = infoDAO.selectVolList1();
 		return CarList;
 	}
+	@Override
+	public infoVO carInfo(String model) {
+		
+		return infoDAO.carInfo(model);
+	}
 
 }
