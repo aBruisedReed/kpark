@@ -262,7 +262,7 @@ input[type=range]:focus::-ms-fill-upper {
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    z-index: -1;
+    z-index: -2;
 }
 .info .il_left {
 	width: 420px;
