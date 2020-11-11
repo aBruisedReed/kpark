@@ -258,7 +258,7 @@ input[type=range]:focus::-ms-fill-upper {
     background: #f2f2f2;
     position: absolute;
     left: 50%;
-    top: 1243px;
+    top: 1074px;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -730,4 +730,7 @@ input[type=range]:focus::-ms-fill-upper {
 #toInstall *, #toInstall {
 	text-decoration: none;
 	color: black;
+}
+#toInstall:hover {
+	text-decoration: underline;
 }
