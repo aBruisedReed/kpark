@@ -104,7 +104,8 @@
 }
 .cars_list ul {
   text-align: left;
-  padding-top: 20px;;
+  padding-top: 20px;
+  font-size: 0;
 }
 .cars_list li {
   margin: 0 13px;

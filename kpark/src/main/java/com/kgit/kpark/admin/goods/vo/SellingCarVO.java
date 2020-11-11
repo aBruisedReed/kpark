@@ -26,7 +26,7 @@ public class SellingCarVO {
 	private String damOther;
 	private String carOption;
 	private String carType;
-
+	
   public String getMaker() {
     return this.maker;
   }

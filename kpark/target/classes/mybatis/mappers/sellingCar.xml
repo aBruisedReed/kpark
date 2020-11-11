@@ -43,6 +43,35 @@
          select * from k_sellingCar where serial=#{serial}
       ]]>
 	 </select>	
+	 <select id="selectCarListCnt" resultType="int">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar
+  	    ]]>
+	</select>
+	<select id="selectCarListPage" resultMap="scResult" parameterType="int">
+      <![CDATA[
+         SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM > #{startIndex} AND RNUM <= #{startIndex}+40
+      ]]>
+	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">

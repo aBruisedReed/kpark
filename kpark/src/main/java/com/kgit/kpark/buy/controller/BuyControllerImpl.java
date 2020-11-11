@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.service.BuyService;
+import com.kgit.kpark.buy.util.Paging;
 import com.kgit.kpark.home.service.HomeService;
 import com.kgit.kpark.member.controller.MemberControllerImpl;
 
@@ -36,6 +37,23 @@ public class BuyControllerImpl implements BuyController {
 		ModelAndView mav = new ModelAndView();
 		SellingCarVO car = buyService.carInfo(serial);
 		mav.addObject("car", car);
+		mav.setViewName(viewName);
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "buy/search.do", method = RequestMethod.GET)
+	public ModelAndView search(@RequestParam(defaultValue="1") int curPage, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int startIndex = ((curPage-1) * 40) + 1;
+		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
+		ModelAndView mav = new ModelAndView();
+		List<SellingCarVO> carListPage = buyService.carListPage(startIndex);
+		int listCnt = buyService.carListCnt();
+		Paging paging = new Paging(listCnt, curPage);
+		mav.addObject("listCnt", listCnt);
+		mav.addObject("carListPage", carListPage);
+		mav.addObject("paging", paging);
+		
 		mav.setViewName(viewName);
 		return mav;
 	}

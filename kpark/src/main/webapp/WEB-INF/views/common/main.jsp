@@ -68,7 +68,7 @@
 			<ul>
 				<c:forEach items="${carList }" var="car">
 					<li data-serial="${car.serial }">
-						<!-- 예시, 수정요망 --> <a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
+						<a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
 								<img src="/kpark/resources/image/1.jpg">
 								<div class="info_comp">
@@ -87,7 +87,8 @@
 									 <fmt:formatNumber type="number"  pattern="0" value="${car.price/60} " /></span>만원)
 								</div>
 							</div>
-					</a>
+						</a>
+					</li>
 				</c:forEach>
 			</ul>
 		</section>
