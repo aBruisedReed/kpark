@@ -77,12 +77,25 @@
 	text-align: right;
 	padding: 10px 75%;
 }
-#imgBtn {
-	border: none;
+#imgBtnLine label {
+	display: inline-block;
+	text-align: center;
+	padding-top: 10px;
 	width: 100px;
-	height: 30px;
-	background-color: gray;
+	height: 25px;
+	border: none;
+	background-color: #999;
 	color: white;
+}
+#imgBtnLine input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0;
 }
 #buttons {
 	padding: 30px 0px;
@@ -109,4 +122,10 @@
 }
 .carTypeCont {
 	text-align: left;
+}
+#addBtn {
+	border: none;
+	width: 100px;
+	height: 30px;
+	background-color: #eaeaea;
 }

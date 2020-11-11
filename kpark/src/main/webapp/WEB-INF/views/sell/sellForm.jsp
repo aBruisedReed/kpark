@@ -3,17 +3,73 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<%@ page session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title></title>
-<link rel="stylesheet"
-	href="${contextPath }/resources/css/adminSellForm.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-		/* methods */
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet"
+		href="${contextPath }/resources/css/adminSellForm.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#preview').attr('src', e.target.result);
+					$('#preview').attr('style', "display: inline;")
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		function readURL1(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#preview1').attr('src', e.target.result);
+					$('#preview1').attr('style', "display: inline;")
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		function readURL2(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#preview2').attr('src', e.target.result);
+					$('#preview2').attr('style', "display: inline;")
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		function readURL3(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#preview3').attr('src', e.target.result);
+					$('#preview3').attr('style', "display: inline;")
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		
+		function backToMain(obj) {
+			obj.action = "${contextPath}/kpark/home.do";
+			obj.submit();
+		}
+		
+		var cnt=1;
+		function fn_addFile() {
+			if(cnt==4) {
+				alert('더이상 추가할 수 없습니다.');
+				return;
+			}
+			$("#imgBtnLine").append("<label for='inputImg"+cnt+"'>이미지"+(cnt+1)+" 선택</label>");
+			$("#imgBtnLine").append("<input id='inputImg"+cnt+"' type='file' name='file" + cnt + "' accept='image/*' onchange='readURL"+cnt+"(this);' />");
+			$("#selectedImg").append("<img id='preview"+cnt+"' style='display: none;'>");
+			cnt++;
+		}
+		
 	</script>
 </head>
 <body>
@@ -216,25 +272,18 @@
 				<textarea id="explanation" name="explanation" rows="20" cols="100"
 					placeholder="상세 설명을 입력해주세요."></textarea>
 				<div id="selectedImg">
-					<img
-						src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img
-						src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img
-						src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
-					<img
-						src="https://www.hyundai.com/content/dam/hyundai/ww/en/images/find-a-car/all-vehicles/azera-ig-fl-side-view-white-cream.png">
+					<img id="preview" style="display: none;">
 				</div>
-				<p id="imgBtnLine">
-					<input type="file" name="selectImg" style="display: none"
-						multiple="multiple" accept="image/*">
-					<button id="imgBtn"
-						onclick="onclick=document.sellForm.selectImg.click()">이미지
-						선택...</button>
-				</p>
+				<div id="imgBtnLine">
+					<label for="inputImg">이미지1 선택</label>
+					<input id="inputImg" type="file" name="imageFileName" onchange="readURL(this);" accept="image/*">
+				</div>
+				<div id="fileAddDiv">
+				<input id="addBtn" type="button" value="파일 추가" onclick="fn_addFile()">
+				</div>
 				<div id="buttons">
-					<input type="submit" value="등록" id="submit"> <input
-						type="button" value="취소" onclick="#">
+					<input type="submit" value="등록" id="submit"> 
+					<input type="button" value="취소" onclick="backToMain(this.form);">
 				</div>
 			</form>
 		</div>
