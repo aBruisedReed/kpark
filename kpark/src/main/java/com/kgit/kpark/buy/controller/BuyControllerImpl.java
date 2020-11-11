@@ -43,7 +43,10 @@ public class BuyControllerImpl implements BuyController {
 	
 	@Override
 	@RequestMapping(value = "buy/search.do", method = RequestMethod.GET)
-	public ModelAndView search(@RequestParam(defaultValue="1") int curPage, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView search(@RequestParam(defaultValue="1") int curPage, 
+			@RequestParam(value="searchType", required=false) String searchType,
+			@RequestParam(value="keyword", required=false) String keyword,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int startIndex = ((curPage-1) * 40) + 1;
 		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
 		ModelAndView mav = new ModelAndView();

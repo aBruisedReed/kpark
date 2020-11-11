@@ -12,5 +12,6 @@ import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 public interface BuyController {
 //	ModelAndView search(SellingCarVO sellingCarVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	ModelAndView buyDetail(String serial, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	ModelAndView search(int curPage, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	ModelAndView search(int curPage, String searchType, String keyword, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 }
