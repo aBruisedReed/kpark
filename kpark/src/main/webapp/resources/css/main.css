@@ -107,11 +107,17 @@
   padding-top: 20px;;
 }
 .cars_list li {
-  margin: 0 8px;
+  margin: 0 13px;
   width: 300px;
   height: 330px;
   cursor: pointer;
   display: inline-block;
+}
+.cars_list li:nth-child(4n+0) {
+  margin-right: 0;
+}
+.cars_list li:nth-child(4n+1) {
+  margin-left: 0;
 }
 .cars_list .car_img {
   position: relative;
