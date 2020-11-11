@@ -85,7 +85,8 @@
 		          </c:otherwise>
 		        </c:choose>
 		  </td>
-		  <td  width="10%">${article.writeDate}</td> 
+		  <td  width="10%">${article.writeDate}</td>
+		  <td  width="10%">${article.viewcnt}</td> 
 		</tr>
 	    </c:forEach>
 	     </c:when>

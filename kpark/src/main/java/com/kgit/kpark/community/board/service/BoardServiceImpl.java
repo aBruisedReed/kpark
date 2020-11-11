@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -52,5 +54,18 @@ public class BoardServiceImpl  implements BoardService{
 	@Override
 	public void board_removeArticle(int articleNO) throws Exception {
 		boardDAO.board_deleteArticle(articleNO);
-	}	
+	}
+	
+	@Override
+	public void board_increaseViewcnt(int articleNO, HttpSession session) throws Exception {
+		long update_time = 0;
+		if(session.getAttribute("update_time_"+articleNO) != null) {
+			update_time = (Long)session.getAttribute("update_time_"+articleNO);
+		}
+		long current_time = System.currentTimeMillis();
+		if(current_time - update_time > 5*1000) {
+			boardDAO.board_increaseViewcnt(articleNO);
+			session.setAttribute("update_time_"+articleNO, current_time);
+		}
+	}
 }

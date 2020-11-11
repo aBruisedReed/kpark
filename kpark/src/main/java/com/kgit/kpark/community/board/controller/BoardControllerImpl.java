@@ -164,16 +164,21 @@ public class BoardControllerImpl implements BoardController{
 // 다중 이미지 보기	
 	@Override
 	@RequestMapping(value="/community/board_viewArticle.do", method=RequestMethod.GET)
-	public ModelAndView board_viewArticle(int articleNO, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView board_viewArticle(@RequestParam int articleNO,
+			HttpSession session, 
+			HttpServletRequest request, 
+			HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
 		String viewName = (String)request.getAttribute("viewName");
 		Map articleMap = boardService.board_viewArticle(articleNO);
+		boardService.board_increaseViewcnt(articleNO, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		mav.addObject("article", articleVO);
 		return mav;
 	}
+	
 // 이미지 수정
 	@Override
 	@RequestMapping(value="/community/board_modArticle.do", method=RequestMethod.POST)

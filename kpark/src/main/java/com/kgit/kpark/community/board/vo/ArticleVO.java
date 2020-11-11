@@ -16,6 +16,7 @@ public class ArticleVO {
 	private String imageFileName;
 	private Date  writeDate;
 	private String id;
+	private int viewcnt;
 	
 	
 	public ArticleVO() {
@@ -45,7 +46,6 @@ public class ArticleVO {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-
 
 	public String getTitle() {
 		return title;
@@ -91,5 +91,15 @@ public class ArticleVO {
 
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
+	}
+
+	public int getViewcnt() {
+		return viewcnt;
+	}
+
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
 	}	
+	
+	
 }

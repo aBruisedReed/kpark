@@ -12,6 +12,7 @@
     <result property="content" column="content" />
     <result property="imageFileName" column="imageFileName" />
     <result property="writeDate" column="writeDate" />
+    <result property="viewcnt" column="viewcnt" />
     <result property="id" column="id" />
   </resultMap> 
   
@@ -24,7 +25,7 @@
 
   <select id="selectAllArticlesList" resultMap="articlesResult"   >
     <![CDATA[
-      SELECT level, articleNO, parentNO, title, content, imageFileName, writeDate, id
+      SELECT level, articleNO, parentNO, title, content, imageFileName, writeDate, viewcnt, id
       from k_board
       START WITH  parentNO=0
       CONNECT BY PRIOR articleNO=parentNO 
@@ -37,7 +38,7 @@
   <insert id="insertNewArticle"  parameterType="java.util.Map">
 		<![CDATA[
 			INSERT into k_board(articleNO,  title, content, imageFileName, id)
-			VALUES(#{articleNO},#{title},	#{content}, #{imageFileName},	#{id})
+			VALUES(#{articleNO}, #{title},	#{content}, #{imageFileName},	#{id})
 		]]>      
 	</insert> -->
 	
@@ -54,6 +55,13 @@
     ]]>
   </select>
   
+  <!-- 증가처리 -->
+  <update id="increaseViewcnt">
+  	UPDATE k_board SET viewcnt = viewcnt + 1
+  	WHERE articleNO = #{articleNO}
+  </update>
+  
+  <!-- 수정 -->
   <update id="updateArticle"  parameterType="java.util.Map">
 			update k_board
 			set title=#{title},	 
@@ -78,7 +86,7 @@
     <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
       insert into k_board(articleNO, id, title, content, imageFileName)
-      values(#{articleNO}, #{id}, #{title}, #{content}, null)
+      values(#{articleNO}, #{id}, #{title}, #{content}, 'null')
     ]]>      
   </insert>
  

@@ -14,6 +14,7 @@ import com.kgit.kpark.community.board.vo.ImageVO;
 
 @Repository("boardDAO")
 public class BoardDAOImpl implements BoardDAO {
+	private static final Object ArticleVO = null;
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -74,4 +75,9 @@ public class BoardDAOImpl implements BoardDAO {
 	private int board_selectNewImageFileNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectNewImageFileNO");
 	}
+
+	public void board_increaseViewcnt(int articleNO) throws DataAccessException {
+		sqlSession.update("mapper.board.increaseViewcnt", articleNO);
+	}
+
 }

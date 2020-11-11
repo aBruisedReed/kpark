@@ -2,6 +2,7 @@ package com.kgit.kpark.community.board.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +19,7 @@ public interface BoardController {
 	public ResponseEntity board_addNewArticle(MultipartHttpServletRequest multipartRequest,HttpServletResponse response) 
 			throws Exception;
 	
-	public ModelAndView board_viewArticle(@RequestParam("articleNO") int articleNO,
+	public ModelAndView board_viewArticle(@RequestParam("articleNO") int articleNO, HttpSession session,
 			                        HttpServletRequest request, HttpServletResponse response) 
 			                        		throws Exception;
 	
@@ -28,5 +29,6 @@ public interface BoardController {
 	public ResponseEntity board_removeArticle(@RequestParam("articleNO") int articleNO,
                               HttpServletRequest request, HttpServletResponse response) 
                             		  throws Exception;
+
 
 }
