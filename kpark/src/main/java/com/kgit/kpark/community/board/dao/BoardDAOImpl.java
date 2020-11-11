@@ -18,14 +18,14 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List selectAllArticlesList() throws DataAccessException {
+	public List board_selectAllArticlesList() throws DataAccessException {
 		List<ArticleVO> articlesList = articlesList = sqlSession.selectList("mapper.board.selectAllArticlesList");
 		return articlesList;
 	}
 
 	@Override
-	public int insertNewArticle(Map articleMap) throws DataAccessException {
-		int articleNO = selectNewArticleNO();
+	public int board_insertNewArticle(Map articleMap) throws DataAccessException {
+		int articleNO = board_selectNewArticleNO();
 		articleMap.put("articleNO", articleNO);
 		sqlSession.insert("mapper.board.insertNewArticle",articleMap);
 		return articleNO;
@@ -33,10 +33,10 @@ public class BoardDAOImpl implements BoardDAO {
     
 	//다중 파일 업로드
 	@Override
-	public void insertNewImage(Map articleMap) throws DataAccessException {
+	public void board_insertNewImage(Map articleMap) throws DataAccessException {
 		List<ImageVO> imageFileList = (ArrayList)articleMap.get("imageFileList");
 		int articleNO = (Integer)articleMap.get("articleNO");
-		int imageFileNO = selectNewImageFileNO();
+		int imageFileNO = board_selectNewImageFileNO();
 		for(ImageVO imageVO : imageFileList){
 			imageVO.setImageFileNO(++imageFileNO);
 			imageVO.setArticleNO(articleNO);
@@ -45,33 +45,33 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 		
 	@Override
-	public ArticleVO selectArticle(int articleNO) throws DataAccessException {
+	public ArticleVO board_selectArticle(int articleNO) throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectArticle", articleNO);
 	}
 
 	@Override
-	public void updateArticle(Map articleMap) throws DataAccessException {
+	public void board_updateArticle(Map articleMap) throws DataAccessException {
 		sqlSession.update("mapper.board.updateArticle", articleMap);
 	}
 
 	@Override
-	public void deleteArticle(int articleNO) throws DataAccessException {
+	public void board_deleteArticle(int articleNO) throws DataAccessException {
 		sqlSession.delete("mapper.board.deleteArticle", articleNO);
 		
 	}
 	
 	@Override
-	public List selectImageFileList(int articleNO) throws DataAccessException {
+	public List board_selectImageFileList(int articleNO) throws DataAccessException {
 		List<ImageVO> imageFileList = null;
 		imageFileList = sqlSession.selectList("mapper.board.selectImageFileList",articleNO);
 		return imageFileList;
 	}
 	
-	private int selectNewArticleNO() throws DataAccessException {
+	private int board_selectNewArticleNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
 	}
 	
-	private int selectNewImageFileNO() throws DataAccessException {
+	private int board_selectNewImageFileNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectNewImageFileNO");
 	}
 }

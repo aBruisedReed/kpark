@@ -19,39 +19,38 @@ public class BoardServiceImpl  implements BoardService{
 	@Autowired
 	BoardDAO boardDAO;
 	
-	public List<ArticleVO> listArticles() throws Exception{
-		List<ArticleVO> articlesList =  boardDAO.selectAllArticlesList();
+	public List<ArticleVO> board_listArticles() throws Exception{
+		List<ArticleVO> articlesList =  boardDAO.board_selectAllArticlesList();
         return articlesList;
 	}
 
 	 //다중 이미지 추가하기
 	@Override
-	public int addNewArticle(Map articleMap) throws Exception{
-		int articleNO = boardDAO.insertNewArticle(articleMap);
+	public int board_addNewArticle(Map articleMap) throws Exception{
+		int articleNO = boardDAO.board_insertNewArticle(articleMap);
 		articleMap.put("articleNO", articleNO);
-		boardDAO.insertNewImage(articleMap);
+		boardDAO.board_insertNewImage(articleMap);
 		return articleNO;
 	}
 
 	//다중 파일 보이기
 	@Override
-	public Map viewArticle(int articleNO) throws Exception {
+	public Map board_viewArticle(int articleNO) throws Exception {
 		Map articleMap = new HashMap();
-		ArticleVO articleVO = boardDAO.selectArticle(articleNO);
-		List<ImageVO> imageFileList = boardDAO.selectImageFileList(articleNO);
+		ArticleVO articleVO = boardDAO.board_selectArticle(articleNO);
+		List<ImageVO> imageFileList = boardDAO.board_selectImageFileList(articleNO);
 		articleMap.put("article", articleVO);
 		articleMap.put("imageFileList", imageFileList);
 		return articleMap;
 	}
- 	
 	
 	@Override
-	public void modArticle(Map articleMap) throws Exception {
-		boardDAO.updateArticle(articleMap);
+	public void board_modArticle(Map articleMap) throws Exception {
+		boardDAO.board_updateArticle(articleMap);
 	}
 	
 	@Override
-	public void removeArticle(int articleNO) throws Exception {
-		boardDAO.deleteArticle(articleNO);
+	public void board_removeArticle(int articleNO) throws Exception {
+		boardDAO.board_deleteArticle(articleNO);
 	}	
 }

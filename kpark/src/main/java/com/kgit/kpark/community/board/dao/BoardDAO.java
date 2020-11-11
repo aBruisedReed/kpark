@@ -8,12 +8,11 @@ import org.springframework.dao.DataAccessException;
 import com.kgit.kpark.community.board.vo.ArticleVO;
 
 public interface BoardDAO {
-	public List selectAllArticlesList() throws DataAccessException;
-	public int insertNewArticle(Map articleMap) throws DataAccessException;
-	public void insertNewImage(Map articleMap) throws DataAccessException;
-	public ArticleVO selectArticle(int articleNO) throws DataAccessException;
-	public void updateArticle(Map articleMap) throws DataAccessException;
-	public void deleteArticle(int articleNO) throws DataAccessException;
-	public List selectImageFileList(int articleNO) throws DataAccessException;
-	
+	public List board_selectAllArticlesList() throws DataAccessException;
+	public int board_insertNewArticle(Map articleMap) throws DataAccessException;
+	public void board_insertNewImage(Map articleMap) throws DataAccessException;
+	public ArticleVO board_selectArticle(int articleNO) throws DataAccessException;
+	public void board_updateArticle(Map articleMap) throws DataAccessException;
+	public void board_deleteArticle(int articleNO) throws DataAccessException;
+	public List board_selectImageFileList(int articleNO) throws DataAccessException;
 }
