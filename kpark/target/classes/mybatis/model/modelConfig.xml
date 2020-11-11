@@ -7,6 +7,10 @@
 		<typeAlias type="com.kgit.kpark.member.vo.MemberVO"  alias="memberVO" />
 		<typeAlias type="com.kgit.kpark.info.vo.infoVO"  alias="infoVO" />
 		<typeAlias type="com.kgit.kpark.admin.goods.vo.SellingCarVO"  alias="sellingCarVO" />
+<<<<<<< HEAD
+=======
+		<typeAlias type="com.kgit.kpark.sell.goods.vo.SellVO"  alias="sellVO" />
+>>>>>>> branch 'main' of https://github.com/aBruisedReed/kpark.git
 		<typeAlias type="com.kgit.kpark.community.board.vo.ArticleVO"  alias="articleVO" />
 		<typeAlias type="com.kgit.kpark.community.board.vo.ImageVO" alias="imageVO" />
 	</typeAliases>
