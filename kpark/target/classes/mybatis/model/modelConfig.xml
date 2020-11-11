@@ -7,7 +7,8 @@
 		<typeAlias type="com.kgit.kpark.member.vo.MemberVO"  alias="memberVO" />
 		<typeAlias type="com.kgit.kpark.info.vo.infoVO"  alias="infoVO" />
 		<typeAlias type="com.kgit.kpark.admin.goods.vo.SellingCarVO"  alias="sellingCarVO" />
-		<!-- <typeAlias type="com.kgit.kpark.board.vo.ArticleVO"  alias="articleVO" />
-		<typeAlias type="com.kgit.kpark.board.vo.ImageVO" alias="imageVO" /> -->
+		<typeAlias type="com.kgit.kpark.sell.goods.vo.SellVO"  alias="sellVO" />
+		<typeAlias type="com.kgit.kpark.community.board.vo.ArticleVO"  alias="articleVO" />
+		<typeAlias type="com.kgit.kpark.community.board.vo.ImageVO" alias="imageVO" />
 	</typeAliases>
 </configuration>
