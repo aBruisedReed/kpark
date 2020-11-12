@@ -121,7 +121,7 @@
 								<div class="title">${car.maker } ${car.carModel }</div>
 								<div class="model">${car.subModel }</div>
 								<div class="price_info">
-									<span class="price">${car.price }</span>만원(월<span class="install">7<fmt:formatNumber type="number"  pattern="0" value="${car.price/60} " /></span>만원)
+									<span class="price">${car.price }</span>만원(월<span class="install">7<fmt:formatNumber type="number"  pattern="0" value="${car.price/60}" /></span>만원)
 									<!--  할부=price/60 -->
 								</div>
 							</div>
