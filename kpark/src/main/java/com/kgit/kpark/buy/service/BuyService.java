@@ -10,6 +10,8 @@ public interface BuyService {
 	public SellingCarVO carInfo(String serial);
 	public List<SellingCarVO> carListPage(int startIndex);
 	public List<SellingCarVO> carListPageByMaker(CarInfoVO carInfoVO);
+	public List<SellingCarVO> carListPageByType(CarInfoVO carInfoVO);
+	public List<SellingCarVO> carListPageByName(CarInfoVO carInfoVO);
 	public int carListCnt();
 	public int carListCnt(CarInfoVO carInfoVO);
 }

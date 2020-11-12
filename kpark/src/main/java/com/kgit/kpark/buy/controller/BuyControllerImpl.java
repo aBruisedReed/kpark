@@ -48,7 +48,7 @@ public class BuyControllerImpl implements BuyController {
 			@RequestParam(value="searchType", required=false) String searchType,
 			@RequestParam(value="keyword", required=false) String keyword,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<SellingCarVO> carListPage;
+		List<SellingCarVO> carListPage = null;
 		int startIndex = ((curPage-1) * 40) + 1;
 		int listCnt=0;
 		Paging paging =new Paging();
@@ -56,21 +56,26 @@ public class BuyControllerImpl implements BuyController {
 		if(searchType==null || keyword==null) { //메인 창
 			carListPage = buyService.carListPage(startIndex);
 			listCnt = buyService.carListCnt();
-			paging.setListCnt(listCnt);
-			paging.setCurPage(curPage);
-		} else if(searchType.equals("maker")) { //모델 검색
+		} else if(searchType.equals("maker")) { //제조사 모델 검색
 			carInfoVO.setCarModel(keyword);
 			carInfoVO.setStartIndex(startIndex);
 			carListPage = buyService.carListPageByMaker(carInfoVO);
 			listCnt = buyService.carListCnt(carInfoVO);
-			paging.setListCnt(listCnt);
-			paging.setCurPage(curPage);
-		} else {
-			carListPage = buyService.carListPage(startIndex);
+		} else if(searchType.equals("type")){
+			String[] carType = keyword.split(";");
+			carInfoVO.setCarType(carType);
+			carInfoVO.setStartIndex(startIndex);
+			carListPage = buyService.carListPageByType(carInfoVO);
+			listCnt = buyService.carListCnt(carInfoVO);
+		} else if(searchType.equals("modelname")){
+			carInfoVO.setKeyword(keyword);
+			carInfoVO.setStartIndex(startIndex);
+			carListPage = buyService.carListPageByName(carInfoVO);
+			listCnt = buyService.carListCnt(carInfoVO);
 		}
+		paging.init(listCnt, curPage);
 		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("listCnt", listCnt);
 		mav.addObject("carListPage", carListPage);
 		mav.addObject("paging", paging);
 		

@@ -69,35 +69,35 @@
 					<div class="checkType">
 						<ul>
 							<li><input type="checkbox" name="car_type" id="gc"
-								value="gc"> <label for="gc">경차</label></li>
+								value="경차"> <label for="gc">경차</label></li>
 							<li><input type="checkbox" name="car_type" id="shc"
-								value="shc"> <label for="shc">소형차</label></li>
+								value="소형차"> <label for="shc">소형차</label></li>
 							<li><input type="checkbox" name="car_type" id="jjh"
-								value="jjh"> <label for="jjh">준중형</label></li>
+								value="준중형"> <label for="jjh">준중형</label></li>
 							<li><input type="checkbox" name="car_type" id="jh"
-								value="jh"> <label for="jh">중형</label></li>
+								value="중형"> <label for="jh">중형</label></li>
 							<li><input type="checkbox" name="car_type" id="dh"
-								value="dh"> <label for="dh">대형</label></li>
+								value="대형"> <label for="dh">대형</label></li>
 							<li><input type="checkbox" name="car_type" id="sports"
-								value="sports"> <label for="sports">스포츠카</label></li>
+								value="스포츠카"> <label for="sports">스포츠카</label></li>
 							<li><input type="checkbox" name="car_type" id="suv"
-								value="suv"> <label for="suv">SUV</label></li>
+								value="SUV"> <label for="suv">SUV</label></li>
 							<li><input type="checkbox" name="car_type" id="rv"
-								value="rv"> <label for="rv">RV</label></li>
+								value="RV"> <label for="rv">RV</label></li>
 							<li><input type="checkbox" name="car_type" id="sh"
-								value="sh"> <label for="sh">승합</label></li>
+								value="승합"> <label for="sh">승합</label></li>
 							<li><input type="checkbox" name="car_type" id="hm"
-								value="hm"> <label for="hm">화물</label></li>
+								value="화물"> <label for="hm">화물</label></li>
 							<li><input type="checkbox" name="car_type" id="etc"
-								value="etc"> <label for="etc">기타</label></li>
+								value="기타"> <label for="etc">기타</label></li>
 						</ul>
 					</div>
-					<div class="search_btn2">검색</div>
+					<div class="search_btn2" onclick="searchByType()">검색</div>
 				</div>
 				<div class="modelTab">
 					<input type="text" class="input_model" name="carModel"
-						id="carModel" value placeholder="모델명 또는 차량번호로 검색해주세요.">
-					<div class="search_btn3">검색</div>
+						id="carModel" placeholder="모델명 또는 차량번호로 검색해주세요.">
+					<div class="search_btn3" onclick="searchByModel()">검색</div>
 				</div>
 			</ul>
 		</section>
@@ -142,10 +142,10 @@
 					<c:set var="getParamUrl" value="${getParamUrl }&keyword=${param.keyword}" />
 				</c:if>
 				<c:if test="${paging.curRange ne 1 }">
-                        <a href="#" onClick="fn_paging(1)" class="back2">B</a> 
+                        <a href="${contextPath}/buy/search.do?curPage=1${getParamUrl }" onClick="" class="back2">B</a> 
                     </c:if>
                     <c:if test="${paging.curPage ne 1}">
-                        <a href="#" onClick="fn_paging('${paging.prevPage }')" class="back">B</a> 
+                        <a href="${contextPath}/buy/search.do?curPage=${paging.prevPage}${getParamUrl }" onClick="fn_paging('${paging.prevPage }')" class="back">B</a> 
                     </c:if>
                     <c:forEach var="pageNum" begin="${paging.startPage }" end="${paging.endPage }">
                         <c:choose>

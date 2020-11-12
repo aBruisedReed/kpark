@@ -126,18 +126,52 @@ function searchByMaker() {
 		alert("모델을 선택해주세요.")		
 		return 0
 	}
-							location.href = getContextPath()+"/buy/search.do"
-								+"?searchType=maker"
-								+"&keyword="+$('#sel_model').text();
+	location.href = getContextPath()+"/buy/search.do"
+		+"?searchType=maker"
+		+"&keyword="+$('#sel_model').text();
 }
 function searchByType() {
-							location.href = getContextPath()+"/buy/search.do"
-								+"?searchType=type"
-								+"&keyword="+$('#sel_maker').text();
+	if ( $(".checkType :checked").size()<1 ) {
+      alert("차종을 선택해주세요.");
+      return;
+    }
+    else {
+      var params = [];
+      $(".checkType :checked").each(function() {
+        params.push($(this).val());
+      });
+      console.log(params.join(';'));
+	}
+      /*$.ajax({
+        url : '/checkbox/updateChkBox',
+        type : 'post',
+        data : param,
+        dataType : 'text',
+        success : function(data) {
+          console.log('return string : ' + data);
+        },
+        error : function() { console.log('error');}
+      });
+    }*/
+
+	location.href = getContextPath()+"/buy/search.do"
+		+"?searchType=type"
+		+"&keyword="+params.join(';');
 }
 function searchByModel() {
-							location.href = getContextPath()+"/buy/search.do"
-								+"?searchType=model"
-								+"&keyword="+$('#sel_maker').text();
+	if ( $('#carModel').val()=="" ) {
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+	var keyword = $('#carModel').val();
+	location.href = getContextPath()+"/buy/search.do"
+		+"?searchType=modelname"
+		+"&keyword="+keyword;
 }
+$('#carModel').keypress(function(event){
+     if ( event.which == 13 ) {
+         searchByModel();
+     }
+});
+
 

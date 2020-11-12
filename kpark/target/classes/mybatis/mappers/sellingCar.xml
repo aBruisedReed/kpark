@@ -53,6 +53,22 @@
         	SELECT COUNT(*) FROM k_sellingCar WHERE CARMODEL LIKE '%' || #{carModel} || '%' 
   	    ]]>
 	</select>
+	<select id="selectCarListCntType" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+  	    ]]>
+	</select>
+	<select id="selectCarListCntName" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE
+			                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+			                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+			                	CARNUMBER LIKE '%' || #{keyword} || '%' 
+  	    ]]>
+	</select>
 	<select id="selectCarListPage" resultMap="scResult" parameterType="int">
       <![CDATA[
          SELECT
@@ -95,6 +111,63 @@
 			                    k_sellingCar
 			                WHERE
 			                	CARMODEL LIKE '%' || #{carModel} || '%' 
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
+	</select>
+	<select id="selectCarListByType" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
+	</select>
+	<select id="selectCarListByName" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+			                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+			                	CARNUMBER LIKE '%' || #{keyword} || '%' 
 			                ORDER BY
 			                    serial desc
 			            ) A

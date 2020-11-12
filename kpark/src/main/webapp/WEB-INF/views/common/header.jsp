@@ -14,17 +14,7 @@
 	<title>header</title>
 	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/header.css" />" rel="stylesheet">
-	<script>
-		function fn_needLogin(isLogOn, sellForm, login) {
-			if(isLogOn != '' && isLogOn != 'false') {
-				location.href=sellForm;
-			}
-			else {
-				alert('로그인 후 이용 가능합니다.');
-				location.href=login+'?action=/sell/sellForm.do';
-			}
-		}
-	</script>
+	<script src="<c:url value="/resources/js/jquery.js" />"></script>
 </head>
 <body>
 <header>
@@ -33,8 +23,8 @@
 			<a href="${contextPath }/"></a>
 		</h1>
 		<div class="searchbox">
-			<input class="search_text" type="text" placeholder="모델명을 검색해주세요.">
-			<input class="search_button" type="button">
+			<input id="headerInput" class="search_text" type="text" placeholder="모델명을 검색해주세요.">
+			<input class="search_button" type="button" onclick="searchByModelHeader()">
 		</div>
 		<nav class="header_nav">
 			<ul>
@@ -87,5 +77,36 @@
 		</nav>
 	</div>
 </header>
+<script>
+	function fn_needLogin(isLogOn, sellForm, login) {
+		if(isLogOn != '' && isLogOn != 'false') {
+			location.href=sellForm;
+		}
+		else {
+			alert('로그인 후 이용 가능합니다.');
+			location.href=login+'?action=/sell/sellForm.do';
+		}
+	}
+	function getContextPath() {
+	 	 var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	  	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+	};
+	function searchByModelHeader() {
+		if ( $('#headerInput').val()=="" ) {
+	      alert("검색어를 입력해주세요.");
+	      return;
+	    }
+		var keyword = $('#headerInput').val();
+		location.href = getContextPath()+"/buy/search.do"
+			+"?searchType=modelname"
+			+"&keyword="+keyword;
+	}
+	$('#headerInput').keypress(function(event){
+		if ( event.which == 13 ) {
+	         searchByModelHeader();
+	     }
+	     
+	});
+</script>
 </body>
 </html>
