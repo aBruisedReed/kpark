@@ -1,6 +1,7 @@
 package com.kgit.kpark.sell.goods.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,6 +32,12 @@ public class SellServiceImpl implements SellService {
 	public void updateCar(SellVO sellVO, HashMap carMap, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List listArticles() throws DataAccessException {
+		List<SellVO> sellList = sellDAO.selectAllSellList();
+		return sellList;
 	}
 
 	
