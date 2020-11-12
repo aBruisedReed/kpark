@@ -50,9 +50,9 @@
 		<nav class="main_nav">
 			<li class="nav1"><a href="buy">차량구매</a>
 				<ul class="nav1_over">
-					<li class="buy_1"><a href="all">전체차량</a></li>
-					<li class="buy_2"><a href="search">조건검색</a></li>
-					<li class="buy_3"><a href="buyConsult">구매상담</a></li>
+					<li class="buy_1"><a href="${contextPath}/buy/search.do">전체차량</a></li>
+					<li class="buy_2"><a href="${contextPath}/buy/search.do">조건검색</a></li>
+					<li class="buy_3"><a href="${contextPath}/buy/consult.dot">구매상담</a></li>
 				</ul>
 			</li>
 			<li class="nav2"><a href="javascript:fn_needLogin('${isLogOn }',

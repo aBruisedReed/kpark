@@ -48,6 +48,16 @@ $(document).ready(function () {
     position=3;
     highlightBar(3,1,2);
   });
+
+	setInterval(function() {
+		if(position==1) {
+			$("#bar2").trigger("click");
+		} else if(position==2) {
+			$("#bar3").trigger("click");
+		} else if(position==3) {
+			$("#bar1").trigger("click");
+		}
+	}, 5000);
 });
 
 function highlightBar(num, num2, num3) {
@@ -72,3 +82,4 @@ function highlightBar(num, num2, num3) {
   var div = bar.getElementsByTagName("div");
   div.item(0).style.backgroundColor = "gray"; 
 }
+
