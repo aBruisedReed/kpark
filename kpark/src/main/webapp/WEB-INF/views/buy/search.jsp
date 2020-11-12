@@ -113,7 +113,7 @@
 								<img src="/kpark/resources/image/1.jpg">
 								<div class="info_comp">
 									<p>${car.carYear }년식</p>
-									<p>><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
+									<p><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
 									<p>${car.fuel }</p>
 								</div>
 							</div>
