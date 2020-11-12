@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kgit.kpark.admin.goods.dao.SellingCarDAO;
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.dao.BuyDAO;
+import com.kgit.kpark.buy.util.CarInfoVO;
 import com.kgit.kpark.community.board.vo.ArticleVO;
 import com.kgit.kpark.home.dao.HomeDAO;
 
@@ -30,4 +31,16 @@ public class BuyServiceImpl implements BuyService {
 	public int carListCnt() {
 		return buyDAO.carListCnt();
 	}
+	
+	@Override
+	public int carListCnt(CarInfoVO carInfoVO) {
+		return buyDAO.carListCntInfo(carInfoVO);
+	}
+
+	@Override
+	public List<SellingCarVO> carListPageByMaker(CarInfoVO carInfoVO) {
+		return buyDAO.carListPageByMaker(carInfoVO);
+	}
+
+	
 }

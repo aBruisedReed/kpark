@@ -1,4 +1,4 @@
-footer {position:relative;background:#292929;z-index:10;}
+footer {position:relative;background:#292929;z-index:9;}
 footer:before {position:absolute;left:0;top:0;width:100%;background:#292929;content:"";}
 
 .footer_logo{float: left; margin-left: 600px; margin-top: 30px;}

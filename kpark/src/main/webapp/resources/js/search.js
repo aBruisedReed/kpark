@@ -1,5 +1,4 @@
 $(document).ready(function() { //onload()
-	console.log("onload")
 	var tab1 = document.getElementById("tab1");
 	var tab2 = document.getElementById("tab2");
 	var tab3 = document.getElementById("tab3");
@@ -115,3 +114,30 @@ function setModel(model) {
 	$('.model_menu').hide();
 	$('#sel_model').attr('class', '');
 }
+
+/*search section*/
+function getContextPath() {
+ 	 var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+  	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+};
+function searchByMaker() {
+	console.log($('#sel_model').text());
+	if($('#sel_model').text()==="모델 선택") {
+		alert("모델을 선택해주세요.")		
+		return 0
+	}
+							location.href = getContextPath()+"/buy/search.do"
+								+"?searchType=maker"
+								+"&keyword="+$('#sel_model').text();
+}
+function searchByType() {
+							location.href = getContextPath()+"/buy/search.do"
+								+"?searchType=type"
+								+"&keyword="+$('#sel_maker').text();
+}
+function searchByModel() {
+							location.href = getContextPath()+"/buy/search.do"
+								+"?searchType=model"
+								+"&keyword="+$('#sel_maker').text();
+}
+

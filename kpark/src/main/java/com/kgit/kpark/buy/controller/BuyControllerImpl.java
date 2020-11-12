@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.service.BuyService;
+import com.kgit.kpark.buy.util.CarInfoVO;
 import com.kgit.kpark.buy.util.Paging;
 import com.kgit.kpark.home.service.HomeService;
 import com.kgit.kpark.member.controller.MemberControllerImpl;
@@ -47,12 +48,28 @@ public class BuyControllerImpl implements BuyController {
 			@RequestParam(value="searchType", required=false) String searchType,
 			@RequestParam(value="keyword", required=false) String keyword,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List<SellingCarVO> carListPage;
 		int startIndex = ((curPage-1) * 40) + 1;
+		int listCnt=0;
+		Paging paging =new Paging();
+		CarInfoVO carInfoVO = new CarInfoVO();
+		if(searchType==null || keyword==null) { //메인 창
+			carListPage = buyService.carListPage(startIndex);
+			listCnt = buyService.carListCnt();
+			paging.setListCnt(listCnt);
+			paging.setCurPage(curPage);
+		} else if(searchType.equals("maker")) { //모델 검색
+			carInfoVO.setCarModel(keyword);
+			carInfoVO.setStartIndex(startIndex);
+			carListPage = buyService.carListPageByMaker(carInfoVO);
+			listCnt = buyService.carListCnt(carInfoVO);
+			paging.setListCnt(listCnt);
+			paging.setCurPage(curPage);
+		} else {
+			carListPage = buyService.carListPage(startIndex);
+		}
 		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
 		ModelAndView mav = new ModelAndView();
-		List<SellingCarVO> carListPage = buyService.carListPage(startIndex);
-		int listCnt = buyService.carListCnt();
-		Paging paging = new Paging(listCnt, curPage);
 		mav.addObject("listCnt", listCnt);
 		mav.addObject("carListPage", carListPage);
 		mav.addObject("paging", paging);

@@ -48,6 +48,11 @@
         	SELECT COUNT(*) FROM k_sellingCar
   	    ]]>
 	</select>
+	<select id="selectCarListCntModel" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE CARMODEL LIKE '%' || #{carModel} || '%' 
+  	    ]]>
+	</select>
 	<select id="selectCarListPage" resultMap="scResult" parameterType="int">
       <![CDATA[
          SELECT
@@ -71,6 +76,32 @@
 			WHERE
 			    RNUM > #{startIndex} AND RNUM <= #{startIndex}+40
       ]]>
+	</select>
+	<select id="selectCarListByMaker" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	CARMODEL LIKE '%' || #{carModel} || '%' 
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
 	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">

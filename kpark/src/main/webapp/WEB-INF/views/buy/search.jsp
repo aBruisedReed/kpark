@@ -22,11 +22,9 @@
 			<ul class="tab_contents">
 				<div class="makerTab">
 					<div class="btns">
-						<button id="sel_maker" onclick="toggleMaker()" class="">제조사
-							선택</button>
-						<button id="sel_model" onclick="toggleModel()" class="">모델
-							선택</button>
-						<div class="search_btn">검색</div>
+						<button id="sel_maker" onclick="toggleMaker()" class="">제조사 선택</button>
+						<button id="sel_model" onclick="toggleModel()" class="">모델 선택</button>
+						<div class="search_btn" onclick="searchByMaker()">검색</div>
 					</div>
 					<div id="maker_menu" class="maker_menu menu">
 						<!-- 토글쓰지 -->
@@ -104,12 +102,13 @@
 			</ul>
 		</section>
 		<section class="cars_list">
+			<c:if test="${empty carListPage }">
+				<h1 style="text-align: center">검색 결과가 없습니다.</h1>
+			</c:if>
 			<ul>
-
-				<!-- 뷰 확인용 반복문 -->
 				<c:forEach items="${carListPage }" var="car">
 					<li data-serial="${car.serial }">
-						<a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
+						<a href="${contextPath}/buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
 								<img src="/kpark/resources/image/1.jpg">
 								<div class="info_comp">
@@ -135,6 +134,13 @@
 		</section>
 		<section class="paging">
 			<div class="paginate">
+				<c:set var="getParamUrl" value="" />
+				<c:if test="${not empty param.searchType }">
+					<c:set var="getParamUrl" value="${getParamUrl }&searchType=${param.searchType}" />
+				</c:if>
+				<c:if test="${not empty param.keyword }">
+					<c:set var="getParamUrl" value="${getParamUrl }&keyword=${param.keyword}" />
+				</c:if>
 				<c:if test="${paging.curRange ne 1 }">
                         <a href="#" onClick="fn_paging(1)" class="back2">B</a> 
                     </c:if>
@@ -144,18 +150,18 @@
                     <c:forEach var="pageNum" begin="${paging.startPage }" end="${paging.endPage }">
                         <c:choose>
                             <c:when test="${pageNum eq  paging.curPage}">
-                                <span style="font-weight: bold;"><a href="${contextPath}/buy/search.do?curPage=${pageNum}" onClick="" class="on">${pageNum }</a></span> 
+                                <span style="font-weight: bold;"><a href="${contextPath}/buy/search.do?curPage=${pageNum}${getParamUrl }" onClick="" class="on">${pageNum }</a></span> 
                             </c:when>
                             <c:otherwise>
-                                <a href="${contextPath}/buy/search.do?curPage=${pageNum}" onClick="">${pageNum }</a> 
+                                <a href="${contextPath}/buy/search.do?curPage=${pageNum}${getParamUrl }" onClick="">${pageNum }</a> 
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0}">
-                        <a href="${contextPath}/buy/search.do?curPage=${paging.nextPage}" onClick="fn_paging('${paging.nextPage }')" class="next">N</a> 
+                        <a href="${contextPath}/buy/search.do?curPage=${paging.nextPage}${getParamUrl }" onClick="fn_paging('${paging.nextPage }')" class="next">N</a> 
                     </c:if>
                     <c:if test="${paging.curRange ne paging.rangeCnt && paging.rangeCnt > 0}">
-                        <a href="${contextPath}/buy/search.do?curPage=${paging.pageCnt}" onClick="fn_paging('${paging.pageCnt }')" class="next2">N2</a> 
+                        <a href="${contextPath}/buy/search.do?curPage=${paging.pageCnt}${getParamUrl }" onClick="fn_paging('${paging.pageCnt }')" class="next2">N2</a> 
                     </c:if>
 			</div>
 		</section>

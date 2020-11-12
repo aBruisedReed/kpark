@@ -37,7 +37,9 @@ public class Paging {
 	/** 다음 페이지 **/
 	private int nextPage;
 
+	public Paging() {
 		
+	}
 	public Paging(int listCnt, int curPage){
         
 		/**
