@@ -1,6 +1,7 @@
 package com.kgit.kpark.sell.goods.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class SellDAOImpl implements SellDAO {
 	public void updateCar(HashMap carMap) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public List<SellVO> selectAllSellList() throws DataAccessException {
+		List<SellVO> sellList = sqlSession.selectList("mapper.sell.selectAllSellList");
+		return sellList;
 	}
 	
 }
