@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kgit.kpark.member.vo.MemberVO;
-import com.kgit.kpark.sell.goods.controller.SellGoodsController;
 import com.kgit.kpark.sell.goods.service.SellService;
 import com.kgit.kpark.sell.goods.vo.SellVO;
 
 @Controller("sellGoodsController")
 @EnableAspectJAutoProxy
-public class SellGoodsControllerImpl implements SellGoodsController {
+public class SellGoodsControllerImpl implements SellsController {
 	private static final Logger logger = LoggerFactory.getLogger(SellGoodsControllerImpl.class);
 	
 	@Autowired 

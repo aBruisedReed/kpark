@@ -44,5 +44,10 @@ public class BuyServiceImpl implements BuyService {
 	public List<SellingCarVO> carListPageByName(CarInfoVO carInfoVO) {
 		return buyDAO.carListPageByName(carInfoVO);
 	}
+
+	@Override
+	public List<SellingCarVO> carListPage(int startIndex) {
+		return buyDAO.carListPage(startIndex);
+	}
 	
 }

@@ -44,12 +44,6 @@
          select * from k_sellingCar where serial=#{serial}
       ]]>
 	 </select>	
-	 
-	 <select id="selectAllSellList" resultMap="scResult">
-      <![CDATA[
-         select * from k_sellingReq	
-      ]]>
-	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">
@@ -73,7 +67,11 @@
    </resultMap>
 
 
-	
+	<select id="selectAllMemberList" resultMap="memResult">
+      <![CDATA[
+         select * from k_customers order by name desc 	
+      ]]>
+	</select>
 
 	<select id="selectName" resultType="String">
     <![CDATA[
