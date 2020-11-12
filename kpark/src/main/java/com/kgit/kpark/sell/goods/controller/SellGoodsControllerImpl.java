@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kgit.kpark.sell.goods.controller.SellsController;
+import com.kgit.kpark.member.vo.MemberVO;
+import com.kgit.kpark.sell.goods.controller.SellGoodsController;
 import com.kgit.kpark.sell.goods.service.SellService;
 import com.kgit.kpark.sell.goods.vo.SellVO;
 
-@Controller("sellsController")
+@Controller("sellGoodsController")
 @EnableAspectJAutoProxy
-public class SellsControllerImpl implements SellsController {
-	private static final Logger logger = LoggerFactory.getLogger(SellsControllerImpl.class);
+public class SellGoodsControllerImpl implements SellGoodsController {
+	private static final Logger logger = LoggerFactory.getLogger(SellGoodsControllerImpl.class);
 	
 	@Autowired 
 	SellService sellService;
@@ -35,11 +37,11 @@ public class SellsControllerImpl implements SellsController {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		int result = sellService.addSell(sellVO);
-		//ModelAndView mav = new ModelAndView("redirect:/admin/adminSelect.do");
-		//out.print("<script> alert('판매신청을 완료하었습니다..'); location.href='/kpark/member/login.do'; </script>");
-		//return mav;
 		System.out.println(sellVO.getCarModel());
-		out.print("<script> alert('판매신청을 완료하었습니다..'); location.href='/kpark/main.do'; </script>");
+		HttpSession session = request.getSession();
+        MemberVO memberVO = (MemberVO) session.getAttribute("member");
+        String test = memberVO.getUser_id();
+		out.print("<script> alert('판매신청을 완료하었습니다..'); location.href='/kpark/home.do'; </script>");
 		out.flush();
 		return null;
 	}

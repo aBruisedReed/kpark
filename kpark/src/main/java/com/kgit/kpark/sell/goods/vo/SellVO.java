@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component("SellVO")
 public class SellVO {	
+	private String id;
 	private String maker;
 	private String carModel;
 	private String subModel;
@@ -26,6 +27,14 @@ public class SellVO {
 	private String carOption;
 	private String carType;
 	private String explanation;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getExplanation() {
 		return explanation;
