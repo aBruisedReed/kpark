@@ -21,11 +21,6 @@ public class BuyServiceImpl implements BuyService {
 	public SellingCarVO carInfo(String serial) {
 		return buyDAO.carInfo(serial);
 	}
-
-	@Override
-	public List<SellingCarVO> carListPage(int startIndex) {
-		return buyDAO.carListPage(startIndex);
-	}
 	
 	@Override
 	public int carListCnt() {

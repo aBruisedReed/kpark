@@ -1,8 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <html>
 <head>
 <title>Buy</title>
@@ -112,22 +110,21 @@
 							<div class="car_img">
 								<img src="/kpark/resources/image/1.jpg">
 								<div class="info_comp">
-									<p>${car.carYear }년식</p>
-									<p><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
-									<p>${car.fuel }</p>
+									<p>2012년식</p>
+									<p>86,542km</p>
+									<p>휘발유</p>
 								</div>
 							</div>
 							<div class="car_box">
-								<div class="title">${car.maker } ${car.carModel }</div>
-								<div class="model">${car.subModel }</div>
+								<div class="title">현대 아반떼MD</div>
+								<div class="model">M16GDi 럭셔리</div>
 								<div class="price_info">
-									<span class="price">
-									<fmt:formatNumber value="${car.price }" type="number"/>
-									</span>만원(월<span class="install">
-									 <fmt:formatNumber type="number"  pattern="0" value="${car.price/60} " /></span>만원)
+									<span class="price">430</span>만원(월<span class="install">7</span>만원)
+									<!--  할부=price/60 -->
 								</div>
 							</div>
-						</a>
+					</a>
+
 					</li>
 				</c:forEach>
 			</ul>

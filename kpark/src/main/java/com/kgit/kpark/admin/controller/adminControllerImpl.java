@@ -57,7 +57,6 @@ public class adminControllerImpl implements adminController {
 	@RequestMapping(value = "/admin/adminSelect.do", method = RequestMethod.POST)
 	public ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
-		PrintWriter out = response.getWriter();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
