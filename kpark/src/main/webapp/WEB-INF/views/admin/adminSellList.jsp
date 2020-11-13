@@ -45,7 +45,7 @@
 				<c:forEach var="sell" items="${sellList }" varStatus="sellNum">
 				  <tr>
 				    <td>${sellNum.count }</td>
-				    <td>작성자</td>
+				    <td>${sell.id }</td>
 				    <td>${sell.maker }</td>
 				    <td>${sell.subModel }</td>
 				    <td>${sell.price }</td>

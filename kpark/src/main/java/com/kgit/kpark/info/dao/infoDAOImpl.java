@@ -41,7 +41,7 @@ public class infoDAOImpl implements infoDAO {
 		List<infoVO> CarList = null;
 		CarList = sqlSession.selectList("mapper.info.selectKiaList0");
 		return CarList;
-	}
+	} 
 
 	@Override
 	public List selectKiaList1() throws DataAccessException {
@@ -125,7 +125,7 @@ public class infoDAOImpl implements infoDAO {
 		List<infoVO> CarList = null;
 		CarList = sqlSession.selectList("mapper.info.selectAudiList0");
 		return CarList;
-	}
+	} 
 
 	@Override
 	public List selectAudiList1() throws DataAccessException {
@@ -146,6 +146,12 @@ public class infoDAOImpl implements infoDAO {
 		List<infoVO> CarList = null;
 		CarList = sqlSession.selectList("mapper.info.selectVolList1");
 		return CarList;
+	}
+
+	@Override
+	public infoVO carInfo(String model) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("mapper.info.selectCarInfo",model);
 	}
 
 }
