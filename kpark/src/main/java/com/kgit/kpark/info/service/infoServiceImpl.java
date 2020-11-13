@@ -74,7 +74,7 @@ public class infoServiceImpl implements infoService {
 		List<infoVO> CarList = null;
 		CarList = infoDAO.selectSamList0();
 		return CarList;
-	}
+	} 
 	@Override
 	public List selectSamList1() throws DataAccessException {
 		List<infoVO> CarList = null;
@@ -128,6 +128,11 @@ public class infoServiceImpl implements infoService {
 		List<infoVO> CarList = null;
 		CarList = infoDAO.selectVolList1();
 		return CarList;
+	}
+	@Override
+	public infoVO carInfo(String model) {
+		
+		return infoDAO.carInfo(model);
 	}
 
 }
