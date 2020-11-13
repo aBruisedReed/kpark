@@ -37,12 +37,12 @@
 	<insert id="insertCar" parameterType="java.util.Map">
 		<![CDATA[
 			insert into k_sellingCar(maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, serial, acc, flood, carRepair, history, dam, damOther, carOption, carType) 
-			 values(#{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, LPAD(SEQ_BOARD.NEXTVAL,6,0), #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType})
+			 values(#{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, SEQ_SC.NEXTVAL, #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType})
 		]]>
 	</insert>
 	<select id="selectCarList" resultMap="scResult">
       <![CDATA[
-         select * from ( select * from k_sellingCar order by serial desc) where rownum <= 8
+         select * from ( select * from k_sellingCar order by TO_NUMBER(SERIAL) desc) where rownum <= 8
       ]]>
 	</select>
 	<select id="selectCarInfo" resultType="sellingCarVO"  parameterType="int">
@@ -52,7 +52,7 @@
 	 </select>	
 	 <select id="selectSerialNumber" resultType="String">
 	 	<![CDATA[
-	 	SELECT SERIAL FROM K_SELLINGCAR ks WHERE SERIAL = (SELECT max(SERIAL ) FROM K_SELLINGCAR)
+	 		SELECT SERIAL FROM K_SELLINGCAR ks WHERE SERIAL = (SELECT max(TO_NUMBER(SERIAL) ) FROM K_SELLINGCAR)
 	 	]]>
 	 </select>
 	 <select id="selectCarListCnt" resultType="int">
@@ -98,11 +98,11 @@
 			                FROM
 			                    k_sellingCar
 			                ORDER BY
-			                    serial desc
+			                    TO_NUMBER(SERIAL) desc
 			            ) A
 			    )
 			WHERE
-			    RNUM > #{startIndex} AND RNUM <= #{startIndex}+40
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
       ]]>
 	</select>
 	<select id="selectCarListByMaker" resultMap="scResult" parameterType="carInfoVO">
@@ -124,7 +124,7 @@
 			                WHERE
 			                	CARMODEL LIKE '%' || #{carModel} || '%' 
 			                ORDER BY
-			                    serial desc
+			                    TO_NUMBER(SERIAL) desc
 			            ) A
 			    )
 			WHERE
@@ -153,7 +153,7 @@
            							 #{item}
        							</foreach> <![CDATA[
 			                ORDER BY
-			                    serial desc
+			                    TO_NUMBER(SERIAL) desc
 			            ) A
 			    )
 			WHERE
@@ -181,7 +181,7 @@
 				                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
 				                	CARNUMBER LIKE '%' || #{keyword} || '%' 
 				                ORDER BY
-				                    serial desc
+				                    TO_NUMBER(SERIAL) desc
 				            ) A
 				    )
 				WHERE

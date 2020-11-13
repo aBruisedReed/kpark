@@ -70,7 +70,18 @@
 					<li data-serial="${car.serial }">
 						<!-- 예시, 수정요망 --> <a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
-								<img src="/kpark/resources/image/1.jpg">
+								<c:choose> 
+									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
+										<c:set var="serialImg" property="title" value="${car.serial%40 }" />
+									</c:when>
+									<c:when test="${car.serial lt 490 && car.serial%40 eq 0}">
+										<c:set var="serialImg" property="title" value="40" />
+									</c:when>
+									<c:when test="${car.serial gt 490}">
+										<c:set var="serialImg" property="title" value="${car.serial}" />
+									</c:when>
+								</c:choose>
+								<img src="/kpark/resources/image_repo/car_img/${ serialImg}/1.jpg">
 								<div class="info_comp">
 									<p>${car.carYear }년식</p>
 									<p><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
