@@ -17,14 +17,14 @@ public class BuyDAOImpl implements BuyDAO {
 
 	@Override
 	public SellingCarVO carInfo(String serial) {
-		return sqlSession.selectOne("mapper.sellingCar.selectCarInfo", serial);
+		return sqlSession.selectOne("mapper.sellingCar.selectCarInfo", Integer.parseInt(serial));
 	}
 
 	@Override
 	public List<SellingCarVO> carListPage(int startIndex) {
 		return sqlSession.selectList("mapper.sellingCar.selectCarListPage", startIndex);
 	}
-
+	
 	@Override
 	public int carListCnt() {
 		return sqlSession.selectOne("mapper.sellingCar.selectCarListCnt");
