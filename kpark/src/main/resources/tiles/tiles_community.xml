@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- /community/board_listArticles 요청에 대해 글목록창을 구현 -->
+	<definition name="/community/board_listArticles" extends="baseLayout">
+	      <put-attribute name="title" value="글목록창" />
+	      <put-attribute name="body" value="/WEB-INF/views/community/board_listArticles.jsp" />
+	</definition>
+	
+	<!-- /community/board_articleForm 요청에 대해 글쓰기창을 구현 -->
+	<definition name="/community/board_articleForm" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기창" />
+		<put-attribute name="body" value="/WEB-INF/views/community/board_articleForm.jsp" />
+	</definition>
+	
+	<!-- /community/board_viewArticle 요청에 대해 글상세창을 구현 -->
+	<definition name="/community/board_viewArticle" extends="baseLayout">
+	    <put-attribute name="title" value="글상세창" />
+	    <put-attribute name="body" value="/WEB-INF/views/community/board_viewArticle.jsp" />
+	</definition>
+	
+	<!-- /community/board_replyForm 요청에 대해 글댓글창을 구현 -->
+	<definition name="/community/board_replyForm" extends="baseLayout">
+	    <put-attribute name="title" value="글댓글창" />
+	    <put-attribute name="body" value="/WEB-INF/views/community/board_replyForm.jsp" />
+	</definition>
+	    
+	<!-- /community/newsList 요청에 대해 글목록창을 구현 -->
+	<definition name="/community/newsList" extends="baseLayout">
+	      <put-attribute name="title" value="글목록창" />
+	      <put-attribute name="body" value="/WEB-INF/views/community/newsList.jsp" />
+	</definition>
+	
+	<!-- /community/newsForm 요청에 대해 글쓰기창을 구현 -->
+	<definition name="/community/newsForm" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기창" />
+		<put-attribute name="body" value="/WEB-INF/views/community/newsForm.jsp" />
+	</definition>
+	
+	<!-- /community/newsView 요청에 대해 글상세창을 구현 -->
+	<definition name="/community/newsView" extends="baseLayout">
+	    <put-attribute name="title" value="글상세창" />
+	    <put-attribute name="body" value="/WEB-INF/views/community/newsView.jsp" />
+	</definition>
+	
+	<!-- /community/reviewList 요청에 대해 글목록창을 구현 -->
+	<definition name="/community/reviewList" extends="baseLayout">
+	      <put-attribute name="title" value="글목록창" />
+	      <put-attribute name="body" value="/WEB-INF/views/community/reviewList.jsp" />
+	</definition>
+	
+	<!-- /community/reviewForm 요청에 대해 글쓰기창을 구현 -->
+	<definition name="/community/reviewForm" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기창" />
+		<put-attribute name="body" value="/WEB-INF/views/community/reviewForm.jsp" />
+	</definition>
+	
+	<!-- /community/reviewView 요청에 대해 글상세창을 구현 -->
+	<definition name="/community/reviewView" extends="baseLayout">
+	    <put-attribute name="title" value="글상세창" />
+	    <put-attribute name="body" value="/WEB-INF/views/community/reviewView.jsp" />
+	</definition>
+	
+</tiles-definitions>
