@@ -108,9 +108,9 @@
 			<ul>
 				<c:forEach items="${carListPage }" var="car">
 					<li data-serial="${car.serial }">
-						<a href="${contextPath}/buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
+						<a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
-								<c:choose>
+								<c:choose> 
 									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
 										<c:set var="serialImg" property="title" value="${car.serial%40 }" />
 									</c:when>
@@ -132,8 +132,10 @@
 								<div class="title">${car.maker } ${car.carModel }</div>
 								<div class="model">${car.subModel }</div>
 								<div class="price_info">
-									<span class="price">${car.price }</span>만원(월<span class="install">7<fmt:formatNumber type="number"  pattern="0" value="${car.price/60}" /></span>만원)
-									<!--  할부=price/60 -->
+									<span class="price">
+									<fmt:formatNumber value="${car.price }" type="number"/>
+									</span>만원(월<span class="install">
+									 <fmt:formatNumber type="number"  pattern="0" value="${car.price/60} " /></span>만원)
 								</div>
 							</div>
 					</a>
