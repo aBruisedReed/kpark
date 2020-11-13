@@ -31,7 +31,11 @@ public class BoardServiceImpl  implements BoardService{
 	public int board_addNewArticle(Map articleMap) throws Exception{
 		int articleNO = boardDAO.board_insertNewArticle(articleMap);
 		articleMap.put("articleNO", articleNO);
-		boardDAO.board_insertNewImage(articleMap);
+		System.out.println(articleMap.get("imageFile"));
+		if(articleMap.get("imageFile") != null) {
+			System.out.println("test");
+			boardDAO.board_insertNewImage(articleMap);
+		}
 		return articleNO;
 	}
 

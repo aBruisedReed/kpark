@@ -60,6 +60,7 @@
 	<div class="formboard">
     <form name="board_articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
     		enctype="multipart/form-data">
+    		
 
       <tr>
 	<td align="right">작성자 : </td>
