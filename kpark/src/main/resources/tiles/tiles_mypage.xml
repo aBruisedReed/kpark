@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="/mypage/mypage_select" extends="baseLayout">
+		<put-attribute name="title" value="마이페이지"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_select.jsp"></put-attribute>
+	</definition>
+
+	<definition name="/mypage/mypage_buy" extends="baseLayout">
+		<put-attribute name="title" value="나의 구매 상담 내역"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_buy.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/mypage_sell" extends="baseLayout">
+		<put-attribute name="title" value="나의 판매 상담 내역"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_sell.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/mypage_quit" extends="baseLayout">
+		<put-attribute name="title" value="회원 탈퇴"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_quit.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/mypage_edit" extends="baseLayout">
+		<put-attribute name="title" value="회원 정보 수정"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage_edit.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="/mypage/buy_counsel" extends="baseLayout">
+		<put-attribute name="title" value="구매 상담"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/buy_counsel.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 헤더푸터가 없는 레이아웃 (팝업창 전용) -->
+	<definition name="empty" template="/WEB-INF/views/common/empty.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/recentView" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/recentView.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/favoriteCar" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/favoriteCar.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/compareCar" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/compareCar.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/mypage/pop_compare" extends="empty">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/pop_compare.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

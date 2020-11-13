@@ -1,0 +1,37 @@
+.main{
+	display:flex;
+
+	margin: 80px 0 0 0;
+	justify-content:space-around;
+	
+}
+h3.title{
+	
+    font-size: 40px;
+  display: inline-block; 
+   white-space: nowrap;
+
+
+     
+	
+}
+.info{
+margin: 0 0 0 100px;
+	
+}.tag{
+	color:green;
+	font-size:30px;
+	margin:20px 0 0 0;
+}.main_img{
+max-width: 100%;
+	height: auto;
+ 
+margin: 0 200px 0 0 ;
+	
+	
+}
+img { 
+
+}
+hr{size:3px;}
+span{color:black;}

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.sell">
+	<resultMap id="scResult" type="sellVO">
+		<result property="id" column="id" />
+		<result property="maker" column="maker" />
+		<result property="carModel" column="carModel" />
+		<result property="subModel" column="subModel" />
+		<result property="carNumber" column="carNumber" />
+		<result property="price" column="price" />
+		<result property="carYear" column="carYear" />
+		<result property="distance" column="distance" />
+		<result property="fuel" column="fuel" />
+		<result property="cc" column="cc" />
+		<result property="color" column="color" />
+		<result property="gear" column="gear" />
+		<result property="seize" column="seize" />
+		<result property="mortgage" column="mortgage" />
+		<result property="acc" column="acc" />
+		<result property="flood" column="flood" />
+		<result property="carRepair" column="carRepair" />
+		<result property="history" column="history" />
+		<result property="dam" column="dam" />
+		<result property="damOther" column="damOther" />
+		<result property="carOption" column="carOption" />
+		<result property="carType" column="carType" />
+		<result property="explanation" column="explanation" />
+	</resultMap>
+	<insert id="insertCar"  parameterType="sellVO">
+		<![CDATA[
+		 insert into k_sellingReq(id, maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, acc, flood, carRepair, history, dam, damOther, carOption, carType,explanation) 
+		 values(#{id}, #{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType},#{explanation})
+		]]>      
+	</insert>
+	<select id="selectCarList" resultMap="scResult">
+      <![CDATA[
+         select * from ( select * from k_sellingCar order by serial desc) where rownum <= 8
+      ]]>
+	</select>
+	<select id="selectCarInfo" resultType="sellingCarVO"  parameterType="String">
+      <![CDATA[
+         select * from k_sellingCar where serial=#{serial}
+      ]]>
+	 </select>	
+	 
+	 <select id="selectAllSellList" resultMap="scResult">
+      <![CDATA[
+         select * from k_sellingReq	
+      ]]>
+	</select>
+</mapper>
+<!-- <mapper namespace="mapper.member">
+	<resultMap id="memResult" type="memberVO">
+        <result property="user_name" column="name" />
+		<result property="user_id" column="id" />
+        <result property="user_pw" column="pw" />
+        <result property="user_address" column="address" />
+		<result property="user_zip" column="zip" />
+		<result property="user_phone" column="phone" />        
+        <result property="user_email" column="email" />
+	</resultMap> 
+	
+	<resultMap id="memResult" type="java.util.HashMap">
+      <result property="name" column="name" />
+		<result property="id" column="id" />
+        <result property="pw" column="pw" />
+        <result property="address" column="address" />
+		<result property="zip" column="zip" />
+		<result property="phone" column="phone" />        
+        <result property="email" column="email" />
+   </resultMap>
+
+
+	<select id="selectAllMemberList" resultMap="memResult">
+      <![CDATA[
+         select * from k_customers order by name desc 	
+      ]]>
+	</select>
+
+	<select id="selectName" resultType="String">
+    <![CDATA[
+	select name from k_customers
+	where id = 'hong'			
+    ]]>
+	</select>
+	
+	<select id="selectPw" resultType="String" >
+	  <![CDATA[ 
+	    select pw from k_customers
+	    where id = 'hong'
+	 ]]>
+	 </select> 
+	 
+	 <select id="idCheck" resultType="int">
+	 	<![CDATA[
+	 		select count(*) from k_customers
+	 		where
+	 		id=#{user_id}
+	 	]]>
+	 </select>
+	 
+	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from k_customers
+         where
+         id=#{user_id}
+      ]]>
+	 </select>	
+	
+	<select id="selectMemberByPw" resultMap="memResult"  parameterType="String" >
+      <![CDATA[
+         select * from k_customers
+         where
+         pw = #{pw}			
+      ]]>
+    </select>
+    
+     <insert id="insertMember"  parameterType="memberVO">
+		<![CDATA[
+		 insert into k_customers(name, id, pw, address, zip, phone, email) 
+		 values(#{user_name}, #{user_id}, #{user_pw}, #{user_address}, #{user_zip}, #{user_phone}, #{user_email})
+		]]>      
+	</insert>
+   
+   <update id="updateMember" parameterType="java.util.HashMap">
+	   update k_customers
+			   <set>
+			      <if test=" user_pw!='' and user_pw!=null">
+			        pw=#{user_pw},
+			      </if>
+			      <if test=" user_address!='' and user_address!=null">
+			        address=#{user_address},
+			      </if>
+			      <if test=" user_zip!='' and user_zip!=null">
+			        zip=#{user_zip},
+			      </if>
+			      <if test=" user_phone!='' and user_phone!=null">
+			        phone=#{user_phone},
+			      </if>
+			      <if test=" user_email!='' and user_email!=null">
+			        email=#{user_email}
+			      </if>
+			   </set>
+		where 
+		id=#{user_id}
+	</update>	
+     
+   <delete id="deleteMember"  parameterType="String">
+	<![CDATA[
+	   delete from k_customers
+	   where
+	   id=#{user_id}
+	]]>      
+  </delete>
+	
+	
+	<select id="loginById" resultMap="memResult" parameterType="memberVO">
+		<![CDATA[select * from k_customers where id=#{user_id} and pw=#{user_pw}]]>
+	</select>
+</mapper> -->
