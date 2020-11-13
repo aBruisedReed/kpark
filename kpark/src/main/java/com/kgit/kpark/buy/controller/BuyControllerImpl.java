@@ -45,11 +45,11 @@ public class BuyControllerImpl implements BuyController {
 	@Override
 	@RequestMapping(value = "buy/consult.do", method = RequestMethod.GET)
 	public ModelAndView consult(@RequestParam(required=false) String serial, HttpServletRequest request, HttpServletResponse response) {
-		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
-		ModelAndView mav = new ModelAndView();
-		SellingCarVO car = buyService.carInfo(serial);
-		System.out.println(serial);
-		mav.addObject("car", car);
+//		String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
+//		ModelAndView mav = new ModelAndView();
+//		SellingCarVO car = buyService.carInfo(serial);
+//		System.out.println(serial);
+//		mav.addObject("car", car);
 		mav.setViewName(viewName);
 		return mav;
 	}
