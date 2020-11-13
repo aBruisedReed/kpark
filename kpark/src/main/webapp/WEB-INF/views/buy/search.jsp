@@ -108,7 +108,7 @@
 			<ul>
 				<c:forEach items="${carListPage }" var="car">
 					<li data-serial="${car.serial }">
-						<a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
+						<a href="buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
 								<c:choose> 
 									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
