@@ -15,6 +15,8 @@
 	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/header.css" />" rel="stylesheet">
 	<script src="<c:url value="/resources/js/jquery.js" />"></script>
+	
+	
 </head>
 <body>
 <header>
