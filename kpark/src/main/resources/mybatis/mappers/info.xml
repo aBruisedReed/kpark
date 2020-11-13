@@ -12,9 +12,9 @@
 		<result property="carType" column="carType" />    
 		<result property="code" column="code" />    
        <result property="image" column="image" /> 
-	</resultMap> 
+	</resultMap>  
 	<select id="selectCarList" resultMap="infoResult">
-      <![CDATA[
+      <![CDATA[ 
          select * from info_car order by maker desc 	
       ]]>
 	</select>
@@ -108,5 +108,10 @@
          select * from info_car where maker='폭스바겐' and code = 1 order by maker desc 	
       ]]>
 	</select>
+	<select id="selectCarInfo" resultType="infoVO" parameterType="String">
+      <![CDATA[
+         select * from info_car where model=#{model}
+      ]]>
+	 </select>	
 	</mapper>
 	

@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>boardAticleForm</title>
+	<title>게시판 작성폼</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
@@ -25,18 +25,17 @@
          reader.readAsDataURL(input.files[0]);
       }
   }  
-  function backToList(obj){
-    obj.action="${contextPath}/community/board_listArticles.do";
-    obj.submit();
-  }
-  
-  var cnt=1;
-  function fn_addFile(){
-	  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
-	  cnt++;
-  }  
-
-</script>
+	  function backToList(obj){
+	    obj.action="${contextPath}/community/board_listArticles.do";
+	    obj.submit();
+	  }
+	  
+	  var cnt=1;
+	  function fn_addFile(){
+		  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
+		  cnt++;
+	  }  
+	</script>
 </head>
 
 <body>
@@ -55,10 +54,10 @@
     <table class="common">
     <!-- 자유게시판 -->
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
-    <div class="ttl-sm">자유게시판을 작성하세요.</div><br><br>
+    <div class="ttl-sm">자유게시판을 작성하세요.</div><br><br><br><br>
 
 	<div class="formboard">
-    <form name="board_articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
+    <form name="articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
     		enctype="multipart/form-data">
 
       <tr>
