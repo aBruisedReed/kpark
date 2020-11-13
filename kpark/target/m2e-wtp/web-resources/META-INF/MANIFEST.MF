@@ -1,7 +1,12 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Built-By: macbook
 Build-Jdk: 11.0.8
+=======
+Built-By: younjiwon
+Build-Jdk: 13.0.1
+>>>>>>> parent of a945255... 게시판 수정
 =======
 Built-By: younjiwon
 Build-Jdk: 13.0.1
