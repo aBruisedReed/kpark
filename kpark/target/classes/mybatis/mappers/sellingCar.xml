@@ -45,7 +45,7 @@
          select * from ( select * from k_sellingCar order by serial desc) where rownum <= 8
       ]]>
 	</select>
-	<select id="selectCarInfo" resultType="sellingCarVO"  parameterType="String">
+	<select id="selectCarInfo" resultType="sellingCarVO"  parameterType="int">
       <![CDATA[
          select * from k_sellingCar where serial=#{serial}
       ]]>
@@ -58,6 +58,27 @@
 	 <select id="selectCarListCnt" resultType="int">
 	 	<![CDATA[
         	SELECT COUNT(*) FROM k_sellingCar
+  	    ]]>
+	</select>
+	<select id="selectCarListCntModel" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE CARMODEL LIKE '%' || #{carModel} || '%' 
+  	    ]]>
+	</select>
+	<select id="selectCarListCntType" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+  	    ]]>
+	</select>
+	<select id="selectCarListCntName" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE
+			                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+			                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+			                	CARNUMBER LIKE '%' || #{keyword} || '%' 
   	    ]]>
 	</select>
 	<select id="selectCarListPage" resultMap="scResult" parameterType="int">
@@ -84,7 +105,89 @@
 			    RNUM > #{startIndex} AND RNUM <= #{startIndex}+40
       ]]>
 	</select>
-	
+	<select id="selectCarListByMaker" resultMap="scResult" parameterType="carInfoVO">
+	<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	CARMODEL LIKE '%' || #{carModel} || '%' 
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
+    </select>
+    <select id="selectCarListByType" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
+	</select>
+	<select id="selectCarListByName" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+				SELECT
+				    *
+				FROM
+				    (
+				        SELECT
+				            A.*,
+				            ROWNUM AS RNUM,
+				            COUNT(*) OVER() AS TOTCNT
+				        FROM
+				            (
+				                SELECT
+				                    *
+				                FROM
+				                    k_sellingCar
+				                WHERE
+				                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+				                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+				                	CARNUMBER LIKE '%' || #{keyword} || '%' 
+				                ORDER BY
+				                    serial desc
+				            ) A
+				    )
+				WHERE
+				    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+	      	]]>
+	</select>
 	<insert id="insertNewImage" parameterType="java.util.Map">
 		<foreach item="item" collection="list" open="insert all" separator=" " close="select * from dual">
 		into k_sellingCar_image(imageFileNO, imageFileName, serial, regDate)
