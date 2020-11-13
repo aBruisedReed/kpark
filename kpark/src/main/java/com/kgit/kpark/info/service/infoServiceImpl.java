@@ -32,7 +32,7 @@ public class infoServiceImpl implements infoService {
 		List<infoVO> CarList = null;
 		CarList = infoDAO.selectHyunList1();
 		return CarList;
-	}
+	} 
 	@Override
 	public List selectKiaList0() throws DataAccessException {
 		List<infoVO> CarList = null;

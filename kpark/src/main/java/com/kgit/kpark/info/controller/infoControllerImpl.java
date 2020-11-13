@@ -36,7 +36,7 @@ infoVO infoVO;
 		mav.addObject("list", list);
 		mav.addObject("list1", list1);
 		mav.setViewName(viewName);
-	
+	 
 		return mav;
 	}
 	@Override

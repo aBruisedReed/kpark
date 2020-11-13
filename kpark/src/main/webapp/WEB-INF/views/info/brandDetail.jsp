@@ -15,7 +15,7 @@
 	<script type="text/javascript">
 		/* methods */
 	</script>
-</head> 
+</head>  
 <body>
 <div id="all">
 <div class="main">

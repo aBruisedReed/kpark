@@ -41,7 +41,7 @@ public class infoDAOImpl implements infoDAO {
 		List<infoVO> CarList = null;
 		CarList = sqlSession.selectList("mapper.info.selectKiaList0");
 		return CarList;
-	}
+	} 
 
 	@Override
 	public List selectKiaList1() throws DataAccessException {

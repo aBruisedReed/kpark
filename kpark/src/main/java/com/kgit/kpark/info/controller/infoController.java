@@ -20,4 +20,4 @@ public interface infoController {
 	public ModelAndView brandInfoVol(HttpServletRequest request, HttpServletResponse response)throws Exception;
 	ModelAndView brandDetail(@RequestParam (value="model",required=false) String model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
- 
+  

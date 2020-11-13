@@ -28,4 +28,4 @@ public interface infoService {
 	public List selectVolList1() throws DataAccessException;
 	public infoVO carInfo(String model);
 }
- 
+  

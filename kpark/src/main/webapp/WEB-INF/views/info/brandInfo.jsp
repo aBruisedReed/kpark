@@ -14,7 +14,7 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
+	 		
 			$('ul.tabs li').click(function(){
 				var tab_id = $(this).attr('data-tab');
 	
