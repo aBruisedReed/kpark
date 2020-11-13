@@ -14,11 +14,11 @@ public class SellingCarDAOImpl implements SellingCarDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Override
-	public int insertCar(SellingCarVO sellingCarVO) throws DataAccessException {
-		int result = sqlSession.insert("mapper.sellingCar.insertCar", sellingCarVO);
-		return result;
-	}
+//	@Override
+//	public int insertCar(SellingCarVO sellingCarVO) throws DataAccessException {
+//		int result = sqlSession.insert("mapper.sellingCar.insertCar", sellingCarVO);
+//		return result;
+//	}
 
 	@Override
 	public int deleteCar(int serial) throws DataAccessException {
@@ -30,6 +30,17 @@ public class SellingCarDAOImpl implements SellingCarDAO {
 	public void updateCar(HashMap carMap) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String getSerialMax() throws DataAccessException {
+		return sqlSession.selectOne("mapper.sellingCar.selectSerialNumber");
+	}
+	
+	@Override
+	public int insertCar(HashMap sellingCarVO) throws DataAccessException {
+		int result = sqlSession.insert("mapper.sellingCar.insertCar", sellingCarVO);
+		return result;
 	}
 	
 }
