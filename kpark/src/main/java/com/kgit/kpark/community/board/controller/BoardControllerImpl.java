@@ -62,7 +62,7 @@ public class BoardControllerImpl implements BoardController{
 			multipartRequest.setCharacterEncoding("utf-8");
 			String imageFileName = null;
 			
-			Map<String, Object> articleMap = new HashMap<String, Object>();
+			Map articleMap = new HashMap();
 			Enumeration enu = multipartRequest.getParameterNames();
 			while(enu.hasMoreElements()) {
 				String name= (String)enu.nextElement();
@@ -82,8 +82,12 @@ public class BoardControllerImpl implements BoardController{
 					ImageVO imageVO = new ImageVO();
 					imageVO.setImageFileName(fileName);
 					imageFileList.add(imageVO);
+					System.out.println("실행");
 				}
 				articleMap.put("imageFileList", imageFileList);
+			} else {
+				articleMap.put("imageFile", null);
+				
 			}
 			String message;
 			ResponseEntity resEnt = null;
@@ -134,10 +138,11 @@ public class BoardControllerImpl implements BoardController{
 	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception{
 		List<String> fileList= new ArrayList<String>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
+		String originalFileName = null;
 		while(fileNames.hasNext()){
 			String fileName = fileNames.next();
 			MultipartFile mFile = multipartRequest.getFile(fileName);
-			String originalFileName=mFile.getOriginalFilename();
+			originalFileName=mFile.getOriginalFilename();
 			fileList.add(originalFileName);
 			File file = new File(ARTICLE_IMAGE_REPO +"\\"+ fileName);
 			if(mFile.getSize()!=0){ //File Null Check
@@ -148,6 +153,9 @@ public class BoardControllerImpl implements BoardController{
 				}
 				mFile.transferTo(new File(ARTICLE_IMAGE_REPO +"\\"+"temp"+ "\\"+originalFileName)); //임시로 저장된 multipartFile을 실제 파일로 전송
 			}
+		}
+		if (originalFileName != null) {
+			return fileList = null;
 		}
 		return fileList;
 	}

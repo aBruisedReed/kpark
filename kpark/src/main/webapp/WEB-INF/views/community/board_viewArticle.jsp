@@ -29,8 +29,7 @@
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
    <script type="text/javascript" >
      function backToList(obj){
-	    obj.action="${contextPath}/community/board_listArticles.do";
-	    obj.submit();
+	    window.location.href="${contextPath}/community/board_listArticles.do";
      }
  
 	 function fn_enable(obj){
