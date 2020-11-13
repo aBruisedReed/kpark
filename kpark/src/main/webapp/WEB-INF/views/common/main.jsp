@@ -43,7 +43,7 @@
 						<h1>The all-new GENESIS G80</h1>
 						<h2>특별함을 아는 당신에게</h2>
 					</div>
-					<a href="buy/search.do?searchType=modelname&keyword=제네시스" id="rc_btn1" class="rc_btns">찾아보기</a>
+					<a href="buy/search.do?searchType=modelname&keyword=G80" id="rc_btn1" class="rc_btns">찾아보기</a>
 				</div>
 			</div>
 			<div class="ctrl_bar">
