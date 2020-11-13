@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,37 +26,47 @@
 				  <tr id="column">
 				    <th id="article_num">글번호</th>
 				    <th id="article_writer">작성자</th>
-				    <th id="article_title">제조사</th>
-				    <th id="article_date">모델명</th>
-				    <th id="article_answer">가격</th>
-				    <th id="article_year">연식</th>
+				    <th id="article_title">제목</th>
+				    <th id="article_date">작성일</th>
+				    <th id="article_answer">답변 여부</th>
 				  </tr>
-				  <c:choose>
-				  <c:when test="${sellList==null }">
-					<tr height="10">
-						<td colspan="5">
-							<p align="center">
-								<b><span style="font-size: 9pt">등록된 글이 없습니다.</span></b>
-							</p>
-						</td>
-					</tr>
-				</c:when>
-				
-				<c:when test="${sellList!=null }">
-				<c:forEach var="sell" items="${sellList }" varStatus="sellNum">
 				  <tr>
-				    <td>${sellNum.count }</td>
-				    <td>작성자</td>
-				    <td>${sell.maker }</td>
-				    <td>${sell.subModel }</td>
-				    <td>${sell.price }</td>
-				    <td>${sell.carYear }</td>
+				    <td>1</td>
+				    <td>홍길동</td>
+				    <td><a href="#">차량 판매에 관한 문의 드립니다.</a></td>
+				    <td>2020. 1. 1</td>
+				    <td>처리 전</td>
 				  </tr>
-				</c:forEach>
-				</c:when>
-				</c:choose>
+				  <tr>
+				    <td>2</td>
+				    <td>홍길동</td>
+				    <td><a href="#">차량 판매에 관한 문의 드립니다.</a></td>
+				    <td>2020. 1. 1</td>
+				    <td>처리 전</td>
+				  </tr>
+				  <tr>
+				    <td>3</td>
+				    <td>홍길동</td>
+				    <td><a href="#">차량 판매에 관한 문의 드립니다.</a></td>
+				    <td>2020. 1. 1</td>
+				    <td>처리 전</td>
+				  </tr>
+				  <tr>
+				    <td>4</td>
+				    <td>홍길동</td>
+				    <td><a href="#">차량 판매에 관한 문의 드립니다.</a></td>
+				    <td>2020. 1. 1</td>
+				    <td>처리 전</td>
+				  </tr>
+				  <tr>
+				    <td>5</td>
+				    <td>홍길동</td>
+				    <td><a href="#">차량 판매에 관한 문의 드립니다.</a></td>
+				    <td>2020. 1. 1</td>
+				    <td>처리 전</td>
+				  </tr>
 			</table>
-			<!-- <h3>페이지 번호</h3> -->
+			<h3>페이지 번호</h3>
 		</div>
 	</div>
 </body>

@@ -16,5 +16,4 @@ public interface SellService {
 	 public int addSell(SellVO sellVO) throws DataAccessException;
 	 public int removeCar(int serial) throws DataAccessException;
 	 public void updateCar(SellVO sellVO, HashMap carMap, HttpServletResponse response) throws Exception;
-	 public List listArticles() throws DataAccessException;
 }

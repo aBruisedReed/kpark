@@ -1,7 +1,6 @@
 package com.kgit.kpark.sell.goods.service;
 
 import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,10 +33,5 @@ public class SellServiceImpl implements SellService {
 		
 	}
 
-	@Override
-	public List listArticles() throws DataAccessException {
-		List<SellVO> sellList = sellDAO.selectAllSellList();
-		return sellList;
-	}
 	
 }

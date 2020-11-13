@@ -27,18 +27,11 @@
 		<result property="carOption" column="carOption" />
 		<result property="carType" column="carType" />
 	</resultMap>
-	<!-- <insert id="insertCar"  parameterType="sellingCarVO">
+	<insert id="insertCar"  parameterType="sellingCarVO">
 		<![CDATA[
 		 insert into k_sellingCar(maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, serial, acc, flood, carRepair, history, dam, damOther, carOption, carType) 
 		 values(#{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, LPAD(SEQ_BOARD.NEXTVAL,6,0), #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType})
 		]]>      
-	</insert> -->
-	
-	<insert id="insertCar" parameterType="java.util.Map">
-		<![CDATA[
-			insert into k_sellingCar(maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, serial, acc, flood, carRepair, history, dam, damOther, carOption, carType) 
-			 values(#{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, LPAD(SEQ_BOARD.NEXTVAL,6,0), #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType})
-		]]>
 	</insert>
 	<select id="selectCarList" resultMap="scResult">
       <![CDATA[
@@ -50,14 +43,30 @@
          select * from k_sellingCar where serial=#{serial}
       ]]>
 	 </select>	
-	 <select id="selectSerialNumber" resultType="String">
-	 	<![CDATA[
-	 	SELECT SERIAL FROM K_SELLINGCAR ks WHERE SERIAL = (SELECT max(SERIAL ) FROM K_SELLINGCAR)
-	 	]]>
-	 </select>
 	 <select id="selectCarListCnt" resultType="int">
 	 	<![CDATA[
         	SELECT COUNT(*) FROM k_sellingCar
+  	    ]]>
+	</select>
+	<select id="selectCarListCntModel" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE CARMODEL LIKE '%' || #{carModel} || '%' 
+  	    ]]>
+	</select>
+	<select id="selectCarListCntType" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+  	    ]]>
+	</select>
+	<select id="selectCarListCntName" resultType="int" parameterType="carInfoVO">
+	 	<![CDATA[
+        	SELECT COUNT(*) FROM k_sellingCar WHERE
+			                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+			                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+			                	CARNUMBER LIKE '%' || #{keyword} || '%' 
   	    ]]>
 	</select>
 	<select id="selectCarListPage" resultMap="scResult" parameterType="int">
@@ -84,31 +93,88 @@
 			    RNUM > #{startIndex} AND RNUM <= #{startIndex}+40
       ]]>
 	</select>
-	
-	<insert id="insertNewImage" parameterType="java.util.Map">
-		<foreach item="item" collection="list" open="insert all" separator=" " close="select * from dual">
-		into k_sellingCar_image(imageFileNO, imageFileName, serial, regDate)
-		values (#{item.imageFileNO}, #{item.imageFileName}, #{item.serial}, sysdate)
-		</foreach>
-	</insert>
-	
-	<select id="selectNewImageFileNO" resultType="int">
+	<select id="selectCarListByMaker" resultMap="scResult" parameterType="carInfoVO">
 		<![CDATA[
-			select nvl(max(imageFileNO),0) from k_sellingCar_image
-		]]>
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	CARMODEL LIKE '%' || #{carModel} || '%' 
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
 	</select>
-	
-	<resultMap id="imgResult" type="imageVO">
-		<result property="imageFileNO" column="imageFileNO" />
-		<result property="serial" column="serial" />
-		<result property="imageFileName" column="imageFileName" />
-	</resultMap>
-	
-	<select id="selectImageFileList" resultMap="imgResult" parameterType="int">
+	<select id="selectCarListByType" resultMap="scResult" parameterType="carInfoVO">
 		<![CDATA[
-			select * from k_sellingCar_image
-			where serial = #{serial}
-		]]>
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	carType IN ]]>
+			                	<foreach collection="carType" item="item" index="index" open="(" close=")" separator=",">
+           							 #{item}
+       							</foreach> <![CDATA[
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
+	</select>
+	<select id="selectCarListByName" resultMap="scResult" parameterType="carInfoVO">
+		<![CDATA[
+			SELECT
+			    *
+			FROM
+			    (
+			        SELECT
+			            A.*,
+			            ROWNUM AS RNUM,
+			            COUNT(*) OVER() AS TOTCNT
+			        FROM
+			            (
+			                SELECT
+			                    *
+			                FROM
+			                    k_sellingCar
+			                WHERE
+			                	CARMODEL LIKE '%' || #{keyword} || '%' OR
+			                	SUBMODEL LIKE '%' || #{keyword} || '%' OR
+			                	CARNUMBER LIKE '%' || #{keyword} || '%' 
+			                ORDER BY
+			                    serial desc
+			            ) A
+			    )
+			WHERE
+			    RNUM >= #{startIndex} AND RNUM <= #{startIndex}+39
+      	]]>
 	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">

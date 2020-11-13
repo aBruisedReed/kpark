@@ -21,7 +21,7 @@ import com.kgit.kpark.sell.goods.vo.SellVO;
 
 @Controller("sellGoodsController")
 @EnableAspectJAutoProxy
-public class SellGoodsControllerImpl implements SellGoodsController {
+public class SellGoodsControllerImpl implements SellsController {
 	private static final Logger logger = LoggerFactory.getLogger(SellGoodsControllerImpl.class);
 	
 	@Autowired 

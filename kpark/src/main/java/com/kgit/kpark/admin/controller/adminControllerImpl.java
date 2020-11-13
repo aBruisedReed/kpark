@@ -18,8 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kgit.kpark.member.service.MemberService;
 import com.kgit.kpark.member.service.MemberServiceImpl;
 import com.kgit.kpark.member.vo.MemberVO;
-import com.kgit.kpark.sell.goods.service.SellService;
-import com.kgit.kpark.sell.goods.vo.SellVO;
 
 @Controller("adminController")
 @RequestMapping(value="/admin/*")
@@ -27,9 +25,6 @@ public class adminControllerImpl implements adminController {
 	
 	@Autowired
 	private MemberService memberService;
-	
-	@Autowired
-	private SellService sellService;
 
 	@Override
 	@RequestMapping(value = "/admin/adminBuyList.do", method = RequestMethod.POST)
@@ -57,7 +52,6 @@ public class adminControllerImpl implements adminController {
 	@RequestMapping(value = "/admin/adminSelect.do", method = RequestMethod.POST)
 	public ModelAndView adminSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
-		PrintWriter out = response.getWriter();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
@@ -73,12 +67,11 @@ public class adminControllerImpl implements adminController {
 	}
 
 	@Override
-	@RequestMapping(value = "/admin/adminSellList.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/admin/adminSellList.do", method = RequestMethod.POST)
 	public ModelAndView adminSellList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
-		List<SellVO> sellList = sellService.listArticles();
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("sellList", sellList);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
 		return mav;
 	}
 	

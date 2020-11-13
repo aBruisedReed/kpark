@@ -13,9 +13,7 @@ import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.member.vo.MemberVO;
 
 public interface SellingCarService {
-//	 public int addCar(SellingCarVO sellingCarVO) throws DataAccessException;
+	 public int addCar(SellingCarVO sellingCarVO) throws DataAccessException;
 	 public int removeCar(int serial) throws DataAccessException;
 	 public void updateCar(SellingCarVO sellingCarVO, HashMap carMap, HttpServletResponse response) throws Exception;
-	 public int addCar(HashMap sellingCarVO) throws DataAccessException;
-	 public int getSerialMax() throws DataAccessException;
 }

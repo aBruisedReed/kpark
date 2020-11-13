@@ -22,21 +22,28 @@ public class BoardServiceImpl  implements BoardService{
 	BoardDAO boardDAO;
 	
 	public List<ArticleVO> board_listArticles() throws Exception{
-		List<ArticleVO> articlesList = boardDAO.board_selectAllArticlesList();
+		List<ArticleVO> articlesList =  boardDAO.board_selectAllArticlesList();
         return articlesList;
 	}
-	
-	//단일 이미지 추가하기
+
+	 //다중 이미지 추가하기
 	@Override
 	public int board_addNewArticle(Map articleMap) throws Exception{
-		return boardDAO.board_insertNewArticle(articleMap);
+		int articleNO = boardDAO.board_insertNewArticle(articleMap);
+		articleMap.put("articleNO", articleNO);
+		boardDAO.board_insertNewImage(articleMap);
+		return articleNO;
 	}
-	
-	 //단일 파일 보이기
+
+	//다중 파일 보이기
 	@Override
-	public ArticleVO board_viewArticle(int articleNO) throws Exception {
+	public Map board_viewArticle(int articleNO) throws Exception {
+		Map articleMap = new HashMap();
 		ArticleVO articleVO = boardDAO.board_selectArticle(articleNO);
-		return articleVO;
+		List<ImageVO> imageFileList = boardDAO.board_selectImageFileList(articleNO);
+		articleMap.put("article", articleVO);
+		articleMap.put("imageFileList", imageFileList);
+		return articleMap;
 	}
 	
 	@Override

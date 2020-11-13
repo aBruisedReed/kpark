@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    isELIgnored="false"%>
-    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <%
-	request.setCharacterEncoding("utf-8");
-%>
+  request.setCharacterEncoding("UTF-8");
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +18,10 @@
 
 
 	 function backToList(obj){
-	 obj.action="${contextPath}/community/board_listArticles.do";
+	 obj.action="${contextPath}/board/listArticles.do";
 	 obj.submit();
 	 }
+	 
 	 
 	  function readURL(input) {
 	      if (input.files && input.files[0]) {
@@ -39,7 +39,7 @@
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <a href="board_listArticles"><li class='active'>자유게시판</li></a>
+	    <a href="boardList"><li class='active'>자유게시판</li></a>
 	    <a href="newsList"><li>자동차뉴스</li></a>
 	    <a href="reviewList"><li>거래후기</li></a>
 	 </ul>
@@ -53,7 +53,7 @@
     <div class="ttl-sm">게시글의 댓글을 작성하세요.</div><br><br>
 
 	<div class="formboard">
-  	<form name="frmReply" method="post"  action="${contextPath}/community/board_addReply.do"   enctype="multipart/form-data">
+  	<form name="frmReply" method="post"  action="${contextPath}/community/boardAddReply.do"   enctype="multipart/form-data">
     <tr>
 			<td align="right"> 작성자:&nbsp; </td>
 			<td colspan=2  align="left"><input type="text" maxlength="100" maxlength="100"  name="writer"></input> </td>

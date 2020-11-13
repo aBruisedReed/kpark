@@ -271,6 +271,7 @@
 				<textarea id="explanation" name="explanation" rows="20" cols="100"
 					placeholder="상세 설명을 입력해주세요."></textarea>
 				<div id="selectedImg">
+					<div id="selectedImg">
 					<img id="preview" style="display: none;">
 				</div>
 				<div id="imgBtnLine">

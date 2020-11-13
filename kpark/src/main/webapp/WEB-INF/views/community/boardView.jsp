@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    isELIgnored="false"%>
-    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
-
-<c:set var="article"  value="${articleMap.article}"  />
-<c:set var="imageFileList"  value="${articleMap.imageFileList}"  />
-
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <%
-	request.setCharacterEncoding("utf-8");
-%>
+  request.setCharacterEncoding("UTF-8");
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +24,7 @@
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
    <script type="text/javascript" >
      function backToList(obj){
-	    obj.action="${contextPath}/community/board_listArticles.do";
+	    obj.action="${contextPath}/community/boardList.do";
 	    obj.submit();
      }
  
@@ -43,7 +38,7 @@
 	 }
 	 
 	 function fn_modify_article(obj){
-		 obj.action="${contextPath}/community/board_ModArticle.do";
+		 obj.action="${contextPath}/community/boardModArticle.do";
 		 obj.submit();
 	 }
 	 
@@ -91,7 +86,7 @@
 <body>    <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <a href="board_listArticles"><li class='active'>자유게시판</li></a>
+	    <a href="boardList"><li class='active'>자유게시판</li></a>
 	    <a href="newsList"><li>자동차뉴스</li></a>
 	    <a href="reviewList"><li>거래후기</li></a>
 	 </ul>
@@ -136,7 +131,7 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="content" id="i_content" disabled />${article.content }</textarea>
+    <textarea rows="20" cols="60"  name="content"  id="i_content"  disabled />${article.content }</textarea>
    </td>  
   </tr>
  <c:if test="${not empty imageFileList && imageFileList!='null' }">
@@ -147,7 +142,7 @@
 			   </td>
 			   <td>
 			     <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
-			    <img src="${contextPath}/community/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
+			    <img src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
 			   </td>
 			  </tr>  
 			  <tr>
@@ -158,29 +153,31 @@
 		</c:forEach>
  </c:if>
 	    
-<!-- <tr id="tr_btn_modify"  align="center"  >
-	   <td colspan="2"   >
-	       <input type=button value="수정하기"   onClick="fn_modify_article(frmArticle)"  >
-           <input type=button value="취소"  onClick="backToList(frmArticle)">
+  <tr>
+	   <td width="150" align="center">
+	      등록일자
+	   </td>
+	   <td>
+	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
-  </tr> -->  
-    
-  <tr id="tr_btn">
+  </tr>
+      
+  <tr>
    <td id="buttons" colspan="2" align="center">
-       <c:if test="${member.user_id == article.id }">
+       <c:if test="${member.id == article.id }">
 	      <input type=button value="수정하기" id="submit" onClick="fn_enable(this.form)">
-	      <input type=button value="삭제하기" id="submit" onClick="fn_remove_article('${contextPath}/community/board_removeArticle.do', ${article.articleNO})">
+	      <input type=button value="삭제하기" id="submit" onClick="fn_remove_article('${contextPath}/community/boardRemoveArticle.do', ${article.articleNO})">
 	    </c:if>
 	    <input type=button value="목록보기" id="submit" onClick="backToList(this.form)">
-	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})">
+	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/boardRemoveArticle.do', ${article.articleNO})">
    </td>
   </tr>
-  	
-    <div class="a_paging" style="margin-top: 40px"></div>
-    </form>
+  	</form>
 	</div>
 	
 	</table>
+    <div class="a_paging" style="margin-top: 40px"></div>
+    
 	</div>
  
  

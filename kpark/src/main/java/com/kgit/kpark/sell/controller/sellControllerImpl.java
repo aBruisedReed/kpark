@@ -17,8 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kgit.kpark.member.vo.MemberVO;
-
 @Controller("sellController")
 @RequestMapping(value="/sell/*")
 public class sellControllerImpl implements sellController {
@@ -39,10 +37,8 @@ public class sellControllerImpl implements sellController {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 			String viewName = (String)request.getAttribute("viewName"); // 인터셉터를 사용해 요청명에서 뷰 이름 얻음
 			HttpSession session = request.getSession();
-			MemberVO member = (MemberVO)session.getAttribute("member");
 			session.setAttribute("action", action);
 			ModelAndView mav = new ModelAndView();
-			mav.addObject("member", member);
 			mav.addObject("result", result);
 			mav.setViewName(viewName);
 			return mav;

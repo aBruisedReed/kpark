@@ -15,21 +15,11 @@ public class SellingCarServiceImpl implements SellingCarService {
 	@Autowired
 	private SellingCarDAO sellingCarDAO;
 	
-//	@Override
-//	public int addCar(SellingCarVO sellingCarVO) throws DataAccessException {
-//		return sellingCarDAO.insertCar(sellingCarVO);
-//	}
-	
 	@Override
-	public int addCar(HashMap sellingCarVO) throws DataAccessException {
+	public int addCar(SellingCarVO sellingCarVO) throws DataAccessException {
 		return sellingCarDAO.insertCar(sellingCarVO);
 	}
-	
-	@Override
-	public int getSerialMax() throws DataAccessException {
-		return Integer.parseInt(sellingCarDAO.getSerialMax());
-	}
-	
+
 	@Override
 	public int removeCar(int serial) throws DataAccessException {
 		// TODO Auto-generated method stub
