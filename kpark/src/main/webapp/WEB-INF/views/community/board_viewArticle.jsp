@@ -101,7 +101,7 @@
     <table class="common">
     <!-- 자유게시판 -->
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
-    <div class="ttl-sm">게시글을 확인하세요.</div><br><br>
+    <div class="ttl-sm">게시글을 확인하세요.</div>
 
 	<div class="formboard">                                            
     <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">

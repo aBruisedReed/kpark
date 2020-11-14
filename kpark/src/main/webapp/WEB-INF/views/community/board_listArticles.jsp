@@ -100,20 +100,20 @@
 	    </c:forEach>
 	     </c:when>
 	    </c:choose>
+	</table>
 
-    <tr id="listbuttons">
+    <div id="listbuttons">
 		<td align="right" colspan=5>
 		<input type="button" value="글쓰기" id="submit" onclick="fn_needLogin('${isLogOn }','${contextPath }/community/board_articleForm.do','${contextPath}/member/login.do')" />
 		</td>
-    </tr>
+    </divs>
 <!-- 
 	<a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/community/board_articleForm.do', 
 	                                                    '${contextPath}/member/login.do')">
 	                                                    <p class="cls2">글쓰기</p></a><br>
 	                                                     -->
-	</table>
-    <div class="a_paging" style="margin-top: 40px"></div>
-	</div>
+   <!--  <div class="a_paging" style="margin-top: 40px"></div>
+	</div> -->
 	</table>
 	</div>
 	
