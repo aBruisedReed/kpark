@@ -3,6 +3,7 @@ package com.kgit.kpark.admin.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,4 +17,6 @@ public interface adminController {
 	// public void updateMember(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView updateForm(String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public void updateMember(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView adminSellListView(String id, String subModel, HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException;
 }

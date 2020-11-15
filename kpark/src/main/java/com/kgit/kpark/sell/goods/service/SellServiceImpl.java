@@ -2,6 +2,7 @@ package com.kgit.kpark.sell.goods.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,6 +39,12 @@ public class SellServiceImpl implements SellService {
 	public List listArticles() throws DataAccessException {
 		List<SellVO> sellList = sellDAO.selectAllSellList();
 		return sellList;
+	}
+
+	@Override
+	public SellVO sellArticleView(Map paramMap) {
+		SellVO sellVO = sellDAO.selectSellVO(paramMap);
+		return sellVO;
 	}
 	
 }

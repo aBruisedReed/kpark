@@ -32,8 +32,13 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminSellList.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/admin/adminSellListView" extends="baseLayout">
+		<put-attribute name="title" value="관리자 - 판매 상담 상세 페이지"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminSellListView.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="/admin/adminSellForm" extends="baseLayout">
-		<put-attribute name="title" value="관리자 - 판매 상담 목록"></put-attribute>
+		<put-attribute name="title" value="관리자 - 판매글 작성"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminSellForm.jsp"></put-attribute>
 	</definition>
 	
@@ -43,7 +48,7 @@
 	</definition>
 	
 	<definition name="/admin/adminEditForm" extends="baseLayout">
-		<put-attribute name="title" value="관리자 - 회원 정보 목록"></put-attribute>
+		<put-attribute name="title" value="관리자 - 회원 정보 수정"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminEditForm.jsp"></put-attribute>
 	</definition>
 	

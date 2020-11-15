@@ -12,7 +12,71 @@
 		href="${contextPath }/resources/css/adminSellForm.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
-		function readURL(input) {
+	
+		function backToMain() {
+			window.location.href='${contextPath}';
+		}
+		
+		$(document).ready(function(){
+			$("#submit").on("click", function(){
+				if($("#detailModel").val()==""){
+					alert("세부 모델을 입력해주세요.");
+					$("#detailModel").focus();
+					return false;
+				}
+				if($("#price").val()==""){
+					alert("가격을 입력해주세요.");
+					$("#price").focus();
+					return false;
+				}
+				if($("#cc").val()==""){
+					alert("배기량 입력해주세요.");
+					$("#cc").focus();
+					return false;
+				}
+				if($("#carNumber").val()==""){
+					alert("차량 번호를 입력해주세요.");
+					$("#carNumber").focus();
+					return false;
+				}
+				if($("#color").val()==""){
+					alert("색상을 입력해주세요.");
+					$("#color").focus();
+					return false;
+				}
+				if($("#distance").val()==""){
+					alert("주행 거리를 입력해주세요.");
+					$("#distance").focus();
+					return false;
+				}
+				if($("#carRepair").val()==""){
+					alert("단순 수리를 입력해주세요.");
+					$("#carRepair").focus();
+					return false;
+				}
+				if($("#history").val()==""){
+					alert("수리 이력을 입력해주세요.");
+					$("#history").focus();
+					return false;
+				}
+				if($("#dam").val()==""){
+					alert("내차 피해를 입력해주세요.");
+					$("#dam").focus();
+					return false;
+				}
+				if($("#damOther").val()==""){
+					alert("타차 피해를 입력해주세요.");
+					$("#damOther").focus();
+					return false;
+				}
+				if($("#explanation").val()==""){
+					alert("상세 설명을 입력해주세요.");
+					$("#explanation").focus();
+					return false;
+				}
+			});
+		})
+		/* function readURL(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function (e) {
@@ -52,12 +116,7 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-		
-		function backToMain(obj) {
-			obj.action = "${contextPath}/kpark/home.do";
-			obj.submit();
-		}
-		
+		 
 		var cnt=1;
 		function fn_addFile() {
 			if(cnt==4) {
@@ -68,7 +127,7 @@
 			$("#imgBtnLine").append("<input id='inputImg"+cnt+"' type='file' name='file" + cnt + "' accept='image/*' onchange='readURL"+cnt+"(this);' />");
 			$("#selectedImg").append("<img id='preview"+cnt+"' style='display: none;'>");
 			cnt++;
-		}
+		} */
 		
 	</script>
 </head>
@@ -76,8 +135,8 @@
 
 	<div id="all">
 		<div id="title">
-			<h1>차량 판매 글 등록</h1>
-			<p style="color: gray">관리자 페이지</p>
+			<h1>차량 판매 상담 신청</h1>
+			<p style="color: gray">간편하고 빠르게 차량 판매 상담을 신청하세요.</p>
 			<img id="sell_title_img"
 				src="${contextPath }/resources/image/sell_title_img.png">
 		</div>
@@ -162,10 +221,10 @@
 					<tr>
 						<td width="15%" class="formKey">가격</td>
 						<td width="35%" class="formValue"><input type="text"
-							name="price"><span>만원</span></td>
+							name="price" id="price"><span>만원</span></td>
 						<td width="15%" class="formKey">배기량</td>
 						<td width="35%" class="formValue"><input type="text"
-							name="cc"><span>cc</span></td>
+							name="cc" id="cc"><span>cc</span></td>
 					</tr>
 					<tr>
 						<td class="formKey">차량 연식</td>
@@ -175,7 +234,7 @@
 								</c:forEach>
 						</select></td>
 						<td class="formKey">차량 번호</td>
-						<td class="formValue"><input type="text" name="carNumber"></td>
+						<td class="formValue"><input type="text" name="carNumber" id="carNumber"></td>
 					</tr>
 					<tr>
 						<td class="formKey">연료</td>
@@ -190,11 +249,11 @@
 								<option value="기타">기타</option>
 						</select></td>
 						<td class="formKey">색상</td>
-						<td class="formValue"><input type="text" name="color"></td>
+						<td class="formValue"><input type="text" name="color" id="color"></td>
 					</tr>
 					<tr>
 						<td class="formKey">주행 거리</td>
-						<td class="formValue"><input type="text" name="distance"><span>km
+						<td class="formValue"><input type="text" name="distance" id="distance"><span>km
 								이하</span></td>
 						<td class="formKey">변속기</td>
 						<td class="formValue"><select name="gear">
@@ -212,7 +271,7 @@
 								<option value="유">유</option>
 						</select></td>
 						<td class="formKey">단순 수리</td>
-						<td class="formValue"><input type="number" name="carRepair" placeholder="0"><span>회</span></td>
+						<td class="formValue"><input type="number" name="carRepair" id="carRepair" placeholder="0"><span>회</span></td>
 					</tr>
 					<tr>
 						<td class="formKey">침수 여부</td>
@@ -221,13 +280,13 @@
 								<option value="유">유</option>
 						</select></td>
 						<td class="formKey">수리 이력</td>
-						<td class="formValue"><input type="number" name="history" placeholder="0"><span>회</span></td>
+						<td class="formValue"><input type="number" name="history" id="history" placeholder="0"><span>회</span></td>
 					</tr>
 					<tr>
 						<td class="formKey">내차 피해</td>
-						<td class="formValue"><input type="number" name="dam" placeholder="0"><span>회</span></td>
+						<td class="formValue"><input type="number" name="dam" id="dam" placeholder="0"><span>회</span></td>
 						<td class="formKey">타차 피해</td>
-						<td class="formValue"><input type="number" name="damOther" placeholder="0"><span>회</span></td>
+						<td class="formValue"><input type="number" name="damOther" id="damOther" placeholder="0"><span>회</span></td>
 					</tr>
 					<tr>
 						<td class="formKey">압류</td>
@@ -275,16 +334,16 @@
 				<div id="selectedImg">
 					<img id="preview" style="display: none;">
 				</div>
-				<div id="imgBtnLine">
+				<!-- <div id="imgBtnLine">
 					<label for="inputImg">이미지1 선택</label>
 					<input id="inputImg" type="file" name="imageFileName" onchange="readURL(this);" accept="image/*">
 				</div>
 				<div id="fileAddDiv">
 				<input id="addBtn" type="button" value="파일 추가" onclick="fn_addFile()">
-				</div>
+				</div> -->
 				<div id="buttons">
 					<input type="submit" value="등록" id="submit"> 
-					<input type="button" value="취소" onclick="backToMain(this.form);">
+					<input type="button" value="취소" onclick="backToMain();">
 				</div>
 			</form>
 		</div>
