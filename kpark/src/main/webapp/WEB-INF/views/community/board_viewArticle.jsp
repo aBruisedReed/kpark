@@ -150,9 +150,9 @@
 			   </td>
 			  </tr>  
 			  <tr>
-			    <td>
+			    <!-- <td>
 			       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
-			    </td>
+			    </td> -->
 			 </tr>
 		</c:forEach>
  </c:if>

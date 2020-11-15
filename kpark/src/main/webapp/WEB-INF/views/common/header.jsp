@@ -48,7 +48,7 @@
 			</ul>
 		</nav>
 		<nav class="main_nav">
-			<li class="nav1"><a href="buy">차량구매</a>
+			<li class="nav1"><a href="${contextPath }/buy/search.do">차량구매</a>
 				<ul class="nav1_over">
 					<li class="buy_1"><a href="${contextPath}/buy/search.do">전체차량</a></li>
 					<li class="buy_2"><a href="${contextPath}/buy/search.do">조건검색</a></li>
