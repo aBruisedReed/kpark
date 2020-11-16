@@ -58,7 +58,6 @@
 	     form.appendChild(articleNOInput);
 	     document.body.appendChild(form);
 	     form.submit();
-	 
 	 }
 	 
 	 function fn_reply_form(url, parentNO){
@@ -104,68 +103,79 @@
     <div class="ttl-sm">게시글을 확인하세요.</div>
 
 	<div class="formboard">                                            
-    <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">
+   <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">
   <tr>
-   <td width=150 align="center" >
-      글번호
-   </td>
-   <td>
-    <input class="review" type="text"  value="${article.articleNO }"  disabled />
+   <td align="right">글번호</td>
+   <td colspan="4">
+    <input type="text"  value="${article.articleNO }"  disabled />
     <input type="hidden" name="articleNO" value="${article.articleNO}"  />
    </td>
   </tr>
   <tr>
-    <td width="150" align="center">
-      작성자 아이디
-   </td>
-   <td >
-    <input class="review"  type=text value="${article.id }" name="writer"  disabled />
+    <td align="right">작성자</td>
+   	<td colspan="4">
+   		<input type=text value="${article.id }" name="writer"  disabled />
    </td>
   </tr>
   <tr>
-    <td width="150" align="center">
-      제목 
-   </td>
-   <td>
-    <input class="review"  type=text value="${article.title }"  name="title"  id="i_title" disabled />
+    <td align="right">제목 </td>
+   	<td colspan="4">
+    	<input type=text value="${article.title }"  name="title"  id="i_title" disabled />
    </td>   
   </tr>
   <tr>
-    <td width="150" align="center">
-      내용
-   </td>
-   <td>
-    <textarea rows="20" cols="60"  name="content" id="i_content" disabled />${article.content }</textarea>
+   <td align="right">내용</td>
+   <td colspan="4">
+   		<textarea rows="20" cols="60"  name="content"  id="i_content"  disabled />${article.content }</textarea>
    </td>  
   </tr>
- <c:if test="${not empty imageFileList && imageFileList!='null' }">
-	  <c:forEach var="item" items="${imageFileList}" varStatus="status" >
-		    <tr>
-			    <td width="150" align="center"  rowspan="2">
-			      이미지${status.count }
-			   </td>
-			   <td>
-			     <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
-			    <img src="${contextPath}/community/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
-			   </td>
-			  </tr>  
-			  <tr>
-			    <!-- <td>
-			       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
-			    </td> -->
-			 </tr>
-		</c:forEach>
- </c:if>
-	    
-<!-- <tr id="tr_btn_modify"  align="center"  >
-	   <td colspan="2"   >
-	       <input type=button value="수정하기"   onClick="fn_modify_article(frmArticle)"  >
-           <input type=button value="취소"  onClick="backToList(frmArticle)">
+  <c:choose> 
+	  <c:when test="${not empty article.imageFileName && article.imageFileName!='null' }">
+	   	<tr>
+		   <td colspan="1">이미지</td>
+		   <td colspan="4">
+		     <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
+		     <img src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br>
+		   </td>   
+		  </tr>  
+		  <tr>
+		    <td colspan="4">
+		       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+		    </td>
+		  </tr> 
+		 </c:when>
+		 <c:otherwise>
+		    <tr  id="tr_file_upload" >
+				    <td colspan="1"> 이미지</td>
+				    <td colspan="4">
+				      <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" >
+				    </td>
+			    </tr>
+			    <tr>
+				    <td colspan="4">
+				       <img id="preview"  /><br>
+				       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+				    </td>
+			  </tr>
+		 </c:otherwise>
+	 </c:choose>
+  <tr>
+	   <td align="right">등록일자</td>
+	   <td colspan="4"  align="left">
+	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
-  </tr> -->  
+  </tr> 
+   </form>	   
+ 	
+  <tr id="tr_btn_modify" >
+	 <td id="buttons" colspan="5" align="left">>
+	       <input type=button value="수정" id="submit" onClick="fn_modify_article(frmArticle)">
+	       <input type=button value="취소" id="submit" onClick="backToList(frmArticle)">
+	   </td>
+  </tr>
     
   <tr id="tr_btn">
-   <td id="buttons" colspan="2" align="center">
+   <td id="buttons" colspan="5" align="center">
        <c:if test="${member.user_id == article.id }">
 	      <input type=button value="수정하기" id="submit" onClick="fn_enable(this.form)">
 	      <input type=button value="삭제하기" id="submit" onClick="fn_remove_article('${contextPath}/community/board_removeArticle.do', ${article.articleNO})">
@@ -174,14 +184,14 @@
 	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})">
    </td>
   </tr>
-  	
+  
+	</div>  	
     <div class="a_paging" style="margin-top: 40px"></div>
-    </form>
-	</div>
+
 	
 	</table>
 	</div>
- 
+
  
 </body>
 </html>

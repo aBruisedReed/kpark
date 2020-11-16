@@ -32,8 +32,10 @@ public class BoardServiceImpl  implements BoardService{
 		int articleNO = boardDAO.board_insertNewArticle(articleMap);
 		articleMap.put("articleNO", articleNO);
 		System.out.println(articleMap.get("imageFile"));
-		System.out.println("test");
-		boardDAO.board_insertNewImage(articleMap);
+		if(articleMap.get("imageFile") != null) {
+			System.out.println("test");
+			boardDAO.board_insertNewImage(articleMap);
+		}
 		return articleNO;
 	}
 

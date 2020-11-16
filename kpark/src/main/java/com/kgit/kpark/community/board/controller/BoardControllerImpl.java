@@ -33,7 +33,7 @@ import com.kgit.kpark.member.vo.MemberVO;
 
 @Controller("boardController")
 public class BoardControllerImpl implements BoardController{
-	private static final String ARTICLE_IMAGE_REPO = "/Users/younjiwon/Desktop/workspace/image_repo/board_img";
+	private static final String ARTICLE_IMAGE_REPO = "E:\\board\\article_image";
 	@Autowired
 	BoardService boardService;
 	@Autowired
@@ -86,8 +86,8 @@ public class BoardControllerImpl implements BoardController{
 				}
 				articleMap.put("imageFileList", imageFileList);
 			} else {
-				articleMap.put("imageFileList", null);
-				System.out.println("null로 변경됨");
+				articleMap.put("imageFile", null);
+				
 			}
 			String message;
 			ResponseEntity resEnt = null;
@@ -101,8 +101,8 @@ public class BoardControllerImpl implements BoardController{
 					for(ImageVO imageVO : imageFileList) {
 						imageFileName = imageVO.getImageFileName();
 
-						File srcFile = new File(ARTICLE_IMAGE_REPO+"/"+"temp"+"/"+imageFileName);
-						File destDir = new File(ARTICLE_IMAGE_REPO+"/"+articleNO);
+						File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+						File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
 						//destDir.mkdirs();
 						FileUtils.moveFileToDirectory(srcFile, destDir, true);
 						i++;
@@ -118,7 +118,7 @@ public class BoardControllerImpl implements BoardController{
 				if (imageFileList != null && imageFileList.size() != 0) {
 					for(ImageVO imageVO : imageFileList) {
 						imageFileName = imageVO.getImageFileName();
-						File srcFile = new File(ARTICLE_IMAGE_REPO+"/"+"temp"+"/" + imageFileName);
+						File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\" + imageFileName);
 						srcFile.delete();
 					}
 				}
@@ -135,49 +135,27 @@ public class BoardControllerImpl implements BoardController{
 
 
 	// 다중 이미지 업로드
-//	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception{
-//		List<String> fileList= new ArrayList<String>();
-//		Iterator<String> fileNames = multipartRequest.getFileNames();
-//		String originalFileName = null;
-//		while(fileNames.hasNext()){
-//			String fileName = fileNames.next();
-//			MultipartFile mFile = multipartRequest.getFile(fileName);
-//			originalFileName=mFile.getOriginalFilename();
-//			fileList.add(originalFileName);
-//			File file = new File(ARTICLE_IMAGE_REPO +"/"+ fileName);
-//			if(mFile.getSize()!=0){ //File Null Check
-//				if(! file.exists()){ //경로상에 파일이 존재하지 않을 경우
-//					if(file.getParentFile().mkdirs()){ //경로에 해당하는 디렉토리들을 생성
-//							file.createNewFile(); //이후 파일 생성
-//					}
-//				}
-//				mFile.transferTo(new File(ARTICLE_IMAGE_REPO +"/"+"temp"+ "/"+originalFileName)); //임시로 저장된 multipartFile을 실제 파일로 전송
-//			}
-//		}
-//		if (originalFileName == null) {
-//			return fileList = null;
-//		}
-//		return fileList;
-//	}
-	
-	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception {
-		List<String> fileList = new ArrayList<String>();
+	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception{
+		List<String> fileList= new ArrayList<String>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
-		
-		while(fileNames.hasNext()) {
+		String originalFileName = null;
+		while(fileNames.hasNext()){
 			String fileName = fileNames.next();
 			MultipartFile mFile = multipartRequest.getFile(fileName);
-			String originalFileName = mFile.getOriginalFilename();
+			originalFileName=mFile.getOriginalFilename();
 			fileList.add(originalFileName);
-			File file = new File(ARTICLE_IMAGE_REPO + "/" + fileName);
-			if(mFile.getSize() != 0) {
-				if(!file.exists()) {
-					if(file.getParentFile().mkdirs()) {
-						file.createNewFile();
+			File file = new File(ARTICLE_IMAGE_REPO +"\\"+ fileName);
+			if(mFile.getSize()!=0){ //File Null Check
+				if(! file.exists()){ //경로상에 파일이 존재하지 않을 경우
+					if(file.getParentFile().mkdirs()){ //경로에 해당하는 디렉토리들을 생성
+							file.createNewFile(); //이후 파일 생성
 					}
 				}
-				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "/temp/" + originalFileName));
+				mFile.transferTo(new File(ARTICLE_IMAGE_REPO +"\\"+"temp"+ "\\"+originalFileName)); //임시로 저장된 multipartFile을 실제 파일로 전송
 			}
+		}
+		if (originalFileName != null) {
+			return fileList = null;
 		}
 		return fileList;
 	}
@@ -230,12 +208,12 @@ public class BoardControllerImpl implements BoardController{
 	    try {
 	       boardService.board_modArticle(articleMap);
 	       if(imageFileName!=null && ((File) imageFileName).length()!=0) {
-	         File srcFile = new File(ARTICLE_IMAGE_REPO+"/"+"temp"+"/"+imageFileName);
-	         File destDir = new File(ARTICLE_IMAGE_REPO+"/"+articleNO);
+	         File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+	         File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
 	         FileUtils.moveFileToDirectory(srcFile, destDir, true);
 	         
 	         String originalFileName = (String)articleMap.get("originalFileName");
-	         File oldFile = new File(ARTICLE_IMAGE_REPO+"/"+articleNO+"/"+originalFileName);
+	         File oldFile = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO+"\\"+originalFileName);
 	         oldFile.delete();
 	       }	
 	       message = "<script>";
@@ -244,7 +222,7 @@ public class BoardControllerImpl implements BoardController{
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		} catch(Exception e) {
-			File srcFile = new File(ARTICLE_IMAGE_REPO+"/"+"temp"+"/"+imageFileName);
+			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
 			srcFile.delete();
 			message = "<script>";
 			message += " alert('수정이 취소 되었습니다.');";
@@ -269,7 +247,7 @@ public class BoardControllerImpl implements BoardController{
 		responseHeaders.add("Content-Type",	"text/html;charset=utf-8");
 		try {
 			boardService.board_removeArticle(articleNO);
-			File destDir = new File(ARTICLE_IMAGE_REPO+"/"+articleNO);
+			File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
 			FileUtils.deleteDirectory(destDir);
 			
 			message = "<script>";
@@ -296,5 +274,4 @@ public class BoardControllerImpl implements BoardController{
 		mav.setViewName(viewName);
 		return mav;
 	}
-
 }
