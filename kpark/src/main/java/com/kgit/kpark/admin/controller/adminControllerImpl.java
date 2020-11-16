@@ -3,12 +3,14 @@ package com.kgit.kpark.admin.controller;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +81,20 @@ public class adminControllerImpl implements adminController {
 		List<SellVO> sellList = sellService.listArticles();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("sellList", sellList);
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/admin/adminSellListView.do", method = RequestMethod.GET )
+	public ModelAndView adminSellListView(@RequestParam("id") String id, @RequestParam("subModel") String subModel, HttpServletRequest request, HttpServletResponse response) throws DataAccessException {
+		String viewName = (String)request.getAttribute("viewName");
+		Map paramMap = new HashMap();
+		paramMap.put("id", id);
+		paramMap.put("subModel", subModel);
+		SellVO sellVO = sellService.sellArticleView(paramMap);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		mav.addObject("sellVO", sellVO);
 		return mav;
 	}
 	

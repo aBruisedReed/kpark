@@ -2,6 +2,7 @@ package com.kgit.kpark.sell.goods.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,4 +18,5 @@ public interface SellService {
 	 public int removeCar(int serial) throws DataAccessException;
 	 public void updateCar(SellVO sellVO, HashMap carMap, HttpServletResponse response) throws Exception;
 	 public List listArticles() throws DataAccessException;
+	 public SellVO sellArticleView(Map paramMap);
 }

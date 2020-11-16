@@ -85,16 +85,15 @@
  <!--다중 이미지 추가 SQL문 -->   
     <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
-      insert into k_board(articleNO, id, title, content, imageFileName)
-      values(#{articleNO}, #{id}, #{title}, #{content}, 'null')
+      insert into k_board(articleNO, id, title, content)
+      values(#{articleNO}, #{id}, #{title}, #{content})
     ]]>      
   </insert>
  
    <insert id="insertNewImage"  parameterType="java.util.Map">
-    <foreach item="item"  collection="list"   open="INSERT ALL" 
-                  separator=" " close="SELECT * FROM DUAL" >
-      INTO k_imageFile(imageFileNO, imageFileName, regDate articleNO)
-      VALUES (#{item.imageFileNO}, #{item.imageFileName}, sysdate #{item.articleNO})
+    <foreach item="item"  collection="list"   open="INSERT ALL" separator=" " close="SELECT * FROM DUAL">
+      INTO k_imageFile(imageFileNO, imageFileName, regDate, articleNO)
+      VALUES (#{item.imageFileNO}, #{item.imageFileName}, sysdate, #{item.articleNO})
     </foreach>
   </insert>
 

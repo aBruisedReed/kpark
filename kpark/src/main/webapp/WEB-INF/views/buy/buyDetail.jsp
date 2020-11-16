@@ -60,14 +60,27 @@
 			<input type="button" class="photo_left" onclick="plusDivs(-1)" value="&#10094;">
 			<input type="button" class="photo_right" onclick="plusDivs(+1)" value="&#10095;">
 			<!-- 업로드한 이미지의 수 만큼 동적으로 구현 -->
-			<img class="carPhotos" src="<c:url value="/resources/image/1.jpg"/>" />
-			<img class="back" src="<c:url value="/resources/image/1.jpg"/>" />
-			<img class="carPhotos" src="<c:url value="/resources/image/2.jpeg"/>" />
-			<img class="back" src="<c:url value="/resources/image/2.jpeg"/>" />
-			<img class="carPhotos" src="<c:url value="/resources/image/3.jpeg"/>" />
-			<img class="back" src="<c:url value="/resources/image/3.jpeg"/>" />
-			<img class="carPhotos" src="<c:url value="/resources/image/4.jpg"/>" />
-			<img class="back" src="<c:url value="/resources/image/4.jpg"/>" />
+			<c:choose>
+				<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
+					<c:set var="serialImg" property="title" value="${car.serial%40 }" />
+				</c:when>
+				<c:when test="${car.serial lt 490 && car.serial%40 eq 0}">
+					<c:set var="serialImg" property="title" value="40" />
+				</c:when>
+				<c:when test="${car.serial gt 490}">
+					<c:set var="serialImg" property="title" value="${car.serial}" />
+				</c:when>
+			</c:choose>
+			<img class="carPhotos" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/1.jpg"/>" />
+			<img class="back" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/1.jpg"/>" />
+			<img class="carPhotos" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/2.jpg"/>" />
+			<img class="back" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/2.jpg"/>" />
+			<img class="carPhotos" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/3.jpg"/>" />
+			<img class="back" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/3.jpg"/>" />
+			<img class="carPhotos" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/4.jpg"/>" />
+			<img class="back" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/4.jpg"/>" />
+			<img class="carPhotos" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/5.jpg"/>" />
+			<img class="back" src="<c:url value="/resources/image_repo/car_img/${ serialImg}/5.jpg"/>" />
 		<script> 
 			var slideIndex = 1;
 			showDivs(slideIndex);

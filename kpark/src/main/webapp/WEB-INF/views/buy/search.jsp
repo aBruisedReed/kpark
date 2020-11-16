@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -108,9 +108,20 @@
 			<ul>
 				<c:forEach items="${carListPage }" var="car">
 					<li data-serial="${car.serial }">
-						<a href="${contextPath}/buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
+						<a href="buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
-								<img src="/kpark/resources/image/1.jpg">
+								<c:choose> 
+									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
+										<c:set var="serialImg" property="title" value="${car.serial%40 }" />
+									</c:when>
+									<c:when test="${car.serial lt 490 && car.serial%40 eq 0}">
+										<c:set var="serialImg" property="title" value="40" />
+									</c:when>
+									<c:when test="${car.serial gt 490}">
+										<c:set var="serialImg" property="title" value="${car.serial}" />
+									</c:when>
+								</c:choose>
+								<img src="/kpark/resources/image_repo/car_img/${ serialImg}/1.jpg">
 								<div class="info_comp">
 									<p>${car.carYear }년식</p>
 									<p><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
@@ -121,8 +132,10 @@
 								<div class="title">${car.maker } ${car.carModel }</div>
 								<div class="model">${car.subModel }</div>
 								<div class="price_info">
-									<span class="price">${car.price }</span>만원(월<span class="install">7<fmt:formatNumber type="number"  pattern="0" value="${car.price/60}" /></span>만원)
-									<!--  할부=price/60 -->
+									<span class="price">
+									<fmt:formatNumber value="${car.price }" type="number"/>
+									</span>만원(월<span class="install">
+									 <fmt:formatNumber type="number"  pattern="0" value="${car.price/60} " /></span>만원)
 								</div>
 							</div>
 					</a>

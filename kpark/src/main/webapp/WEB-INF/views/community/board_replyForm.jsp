@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>댓글 작성폼</title>
+	<title>boardReplyForm</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
 	 <script src="//code.jquery.com/jquery-3.3.1.js"></script> 
 	<script type="text/javascript">
@@ -39,9 +39,9 @@
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <a href="board_listArticles"><li class='active'>자유게시판</li></a>
-	    <a href="newsList"><li>자동차뉴스</li></a>
-	    <a href="reviewList"><li>거래후기</li></a>
+	    <a href="board_listArticles.do"><li class='active'>자유게시판</li></a>
+	    <a href="newsList.do"><li>자동차뉴스</li></a>
+	    <a href="reviewList.do"><li>거래후기</li></a>
 	 </ul>
 	 </div>
 
@@ -50,18 +50,17 @@
     <table class="common">
     <!-- 자유게시판 -->
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
-    <div class="ttl-sm">게시글의 댓글을 작성하세요.</div><br><br><br><br>
+    <div class="ttl-sm">게시글의 댓글을 작성하세요.</div><br><br>
 
 	<div class="formboard">
-  	<form name="frmReply" method="post"  action="${contextPath}/community/board_addReply.do" enctype="multipart/form-data">
-    <table width="100%" >
+  	<form name="frmReply" method="post"  action="${contextPath}/community/board_addReply.do"   enctype="multipart/form-data">
     <tr>
 			<td align="right"> 작성자:&nbsp; </td>
 			<td colspan=2  align="left"><input type="text" maxlength="100" maxlength="100"  name="writer"></input> </td>
 		</tr>
 		<tr>
 			<td align="right">제목:&nbsp;  </td>
-			<td colspan="2"><input type="text" size="100" maxlength="100" name="title"> </input></td>
+			<td colspan="2"><input type="text" size="100"  maxlength="100" name="title"> </input></td>
 		</tr>
 		<tr>
 			<td align="right" valign="top"><br>내용:&nbsp; </td>
@@ -78,10 +77,9 @@
 	<tr id="listbuttons">
 		<td align="center" colspan=3>
 			<input type="submit" value="답글쓰기" id="submit"/>
-			<input type="button" value="취소" onClick="backToList(this.form)" />
+			<input type=button value="취소"onClick="backToList(this.form)" />
 		</td>
 	</tr>
-	</table>
   </form>
   </div>
     </table>

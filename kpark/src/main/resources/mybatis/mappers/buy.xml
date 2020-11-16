@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.buy">
+<resultMap id="buyResult" type="buyVO">
+    <result property="MemberName" column="MemberName" />
+    <result property="MobileNo1" column="MobileNo1" />
+    <result property="MobileNo2" column="MobileNo2" />
+    <result property="MobileNo3" column="MobileNo3" />
+    <result property="CityCode" column="CityCode" />
+    <result property="Passwd" column="Passwd" />
+    <result property="MakerCode" column="MakerCode" />
+    <result property="CarName" column="CarName" />
+    <result property="YYMM" column="YYMM" />
+     <result property="GasCode" column="GasCode" />
+<result property="Km" column="Km" />
+      <result property="AutoGbnCode" column="AutoGbnCode" />
+       <result property="ColorCode" column="ColorCode" />
+        <result property="DemoAmt" column="DemoAmt" />
+
+           <result property="Contents" column="Contents" />
+      
+        
+  </resultMap> 
+   <insert id="insertValue"  parameterType="buyVO" >
+		<![CDATA[
+		 insert into buy_counsel(MemberName,MobileNo1,MobileNo2,MobileNo3,CityCode,Passwd,MakerCode,CarName,YYMM,GasCode,Km,AutoGbnCode,ColorCode,DemoAmt,Contents) 
+		 values(#{MemberName},#{MobileNo1},#{MobileNo2},#{MobileNo3},#{CityCode},#{Passwd},#{MakerCode},#{CarName},#{YYMM},#{GasCode},#{Km},#{AutoGbnCode},#{ColorCode},#{DemoAmt},#{Contents})
+		]]>      
+	</insert>
+	<select id="buySelect" resultMap="buyResult">
+      <![CDATA[ 
+         select * from buy_counsel 
+      ]]>
+	</select>
+  </mapper>

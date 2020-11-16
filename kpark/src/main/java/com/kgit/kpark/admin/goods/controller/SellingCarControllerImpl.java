@@ -39,7 +39,7 @@ import com.kgit.kpark.member.vo.MemberVO;
 public class SellingCarControllerImpl implements SellingCarController {
 	private static final Logger logger = LoggerFactory.getLogger(SellingCarControllerImpl.class);
 	
-	private static final String ARTICLE_IMAGE_REPO = "/Users/younjiwon/Desktop/workspace/Final/image_repo";
+	private static final String ARTICLE_IMAGE_REPO = "/Users/macbook/Desktop/image_repo/car_img"; //각자 수정해서 사용
 	
 	@Autowired 
 	SellingCarService sellingCarService;
@@ -70,13 +70,13 @@ public class SellingCarControllerImpl implements SellingCarController {
 			String value = multipartRequest.getParameter(name);
 			articleMap.put(name, value);
 		}
-		
+		System.out.println("call upload0");
 		HttpSession session = multipartRequest.getSession();
 //		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //		String id = memberVO.getId();
 //		articleMap.put("id", id);
 		
-		List<String> fileList = upload(multipartRequest);
+		List<String> fileList = upload(multipartRequest, sellingCarService.getSerialMax() + 1);
 		List<ImageVO> imageFileList = new ArrayList<ImageVO>();
 		if(fileList!=null && fileList.size()!=0) {
 			for(String fileName:fileList) {
@@ -86,20 +86,24 @@ public class SellingCarControllerImpl implements SellingCarController {
 			}
 			articleMap.put("imageFileList", imageFileList);
 		}
-
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html;charset=utf-8");
 		int serial = sellingCarService.getSerialMax() + 1;
+		String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
+	    String attach_path = "resources/image_repo/";
+	    String filename = imageFileName;
 		try {
 			int addCar = sellingCarService.addCar((HashMap)articleMap);
 			if(imageFileList!=null && imageFileList.size()!=0) {
 				for(ImageVO imageVO:imageFileList) {
 					imageFileName = imageVO.getImageFileName();
-					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
-					File destDir = new File(ARTICLE_IMAGE_REPO + "/" + serial);
-					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+//					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
+//					File destDir = new File(ARTICLE_IMAGE_REPO + "/" + serial);
+					File srcFile = new File(root_path + attach_path + "/car_img/" + serial + imageFileName);
+//					File destDir = new File(root_path + attach_path + "/car_img/" +serial);
+//					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
 			}
 			message = "<script> alert('새글을 추가했습니다.');"
@@ -110,7 +114,8 @@ public class SellingCarControllerImpl implements SellingCarController {
 			if(imageFileList!=null && imageFileList.size()!=0) {
 				for(ImageVO imageVO:imageFileList) {
 					imageFileName = imageVO.getImageFileName();
-					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
+//					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
+					File srcFile = new File(root_path + attach_path + "/car_img/" +filename);
 					srcFile.delete();
 				}
 			}
@@ -125,23 +130,34 @@ public class SellingCarControllerImpl implements SellingCarController {
 	}
 	
 	// 다중 이미지 업로드
-	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception {
+	private List<String> upload(MultipartHttpServletRequest multipartRequest, int serial) throws Exception {
 		List<String> fileList = new ArrayList<String>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
 		
 		while(fileNames.hasNext()) {
+			System.out.println(1);
 			String fileName = fileNames.next();
 			MultipartFile mFile = multipartRequest.getFile(fileName);
 			String originalFileName = mFile.getOriginalFilename();
 			fileList.add(originalFileName);
-			File file = new File(ARTICLE_IMAGE_REPO + "/" + fileName);
+			System.out.println(2);
+//			File file = new File(ARTICLE_IMAGE_REPO + "/" + fileName);
+			String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
+		    String attach_path = "resources/image_repo/car_img/"+serial+"/";
+		    String filename = originalFileName;
+		    File file = new File(root_path + attach_path + filename);
+		    System.out.println(root_path + attach_path + filename);
 			if(mFile.getSize() != 0) {
 				if(!file.exists()) {
 					if(file.getParentFile().mkdirs()) {
 						file.createNewFile();
 					}
 				}
-				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "/temp/" + originalFileName));
+//				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "/temp/" + originalFileName));
+				System.out.println("before t");
+//				mFile.transferTo(new File(root_path + attach_path + serial + "/" + filename));
+				mFile.transferTo(file);
+				System.out.println("after t ");
 			}
 		}
 		return fileList;

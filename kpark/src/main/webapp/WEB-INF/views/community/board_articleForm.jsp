@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>게시판 작성폼</title>
+	<title>게시판 글쓰기</title>
 	<link rel="stylesheet" href="${contextPath }/resources/css/community.css" />
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
@@ -25,17 +25,18 @@
          reader.readAsDataURL(input.files[0]);
       }
   }  
-	  function backToList(obj){
-	    obj.action="${contextPath}/community/board_listArticles.do";
-	    obj.submit();
-	  }
-	  
-	  var cnt=1;
-	  function fn_addFile(){
-		  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
-		  cnt++;
-	  }  
-	</script>
+  function backToList(obj){
+    obj.action="${contextPath}/community/board_listArticles.do";
+    obj.submit();
+  }
+  
+  var cnt=1;
+  function fn_addFile(){
+	  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
+	  cnt++;
+  }  
+
+</script>
 </head>
 
 <body>
@@ -43,9 +44,9 @@
     <!-- 커뮤니티 탭 -->
     <div class='tabbed skin-turquoise round'>
  	<ul>
-	    <a href="board_listArticles"><li class='active'>자유게시판</li></a>
-	    <a href="newsList"><li>자동차뉴스</li></a>
-	    <a href="reviewList"><li>거래후기</li></a>
+	    <a href="board_listArticles.do"><li class='active'>자유게시판</li></a>
+	    <a href="newsList.do"><li>자동차뉴스</li></a>
+	    <a href="reviewList.do"><li>거래후기</li></a>
 	 </ul>
 	 </div>
 
@@ -54,15 +55,16 @@
     <table class="common">
     <!-- 자유게시판 -->
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
-    <div class="ttl-sm">자유게시판을 작성하세요.</div><br><br><br><br>
+    <div class="ttl-sm">자유게시판을 작성하세요.</div><br><br>
 
 	<div class="formboard">
-    <form name="articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
+    <form name="board_articleForm" method="post" action="${contextPath}/community/board_addNewArticle.do" 
     		enctype="multipart/form-data">
+    		
 
       <tr>
 	<td align="right">작성자 : </td>
-	<td colspan=2  align="left"><input type="text" size="100" maxlength="100"  value="${member.user_id }" readonly/> </td>
+	<td colspan=2  align="left"><input type="text" size="100" maxlength="100" name="id" value="${member.user_id }" readonly/> </td>
       </tr>
       <tr>
 	<td align="right">글제목 : </td>
@@ -75,9 +77,10 @@
      <tr>
 	<td align="left">이미지파일 첨부:  </td>
 	<td>
-		<input type="button" value="파일 추가" onClick="fn_addFile()" value="파일추가"/></td>
-	<td>
+		<!-- <input type="button" value="파일 추가" onClick="fn_addFile()" value="파일추가"/> -->
 		<input type="file" name="imageFileName"  onchange="readURL(this);" /><br>
+	</td>
+	<td>
 		<div id="d_file" colspan="3"></div></td>
      </tr>
 

@@ -27,7 +27,7 @@
 						<h1>SONATA DN8</h1>
 						<h2>일상을 바꾸는 경험</h2>
 					</div>
-					<a href="url to search result of sonata dn8" id="rc_btn1"
+					<a href="buy/search.do?searchType=modelname&keyword=쏘나타" id="rc_btn1"
 						class="rc_btns">찾아보기</a>
 				</div>
 				<div class="rec_2">
@@ -36,7 +36,7 @@
 						<h1>The New BONGO III</h1>
 						<h2>성공을 위한 최고의 파트너</h2>
 					</div>
-					<a href="url to search result of new bongo 3" id="rc_btn1"
+					<a href="buy/search.do?searchType=modelname&keyword=봉고" id="rc_btn1"
 						class="rc_btns">찾아보기</a>
 				</div>
 				<div class="rec_3">
@@ -45,7 +45,7 @@
 						<h1>The all-new GENESIS G80</h1>
 						<h2>특별함을 아는 당신에게</h2>
 					</div>
-					<a href="url to search result of g80" id="rc_btn1" class="rc_btns">찾아보기</a>
+					<a href="buy/search.do?searchType=modelname&keyword=G80" id="rc_btn1" class="rc_btns">찾아보기</a>
 				</div>
 			</div>
 			<div class="ctrl_bar">
@@ -72,7 +72,18 @@
 					<li data-serial="${car.serial }">
 						<!-- 예시, 수정요망 --> <a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
-								<img src="/kpark/resources/image/1.jpg">
+								<c:choose> 
+									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
+										<c:set var="serialImg" property="title" value="${car.serial%40 }" />
+									</c:when>
+									<c:when test="${car.serial lt 490 && car.serial%40 eq 0}">
+										<c:set var="serialImg" property="title" value="40" />
+									</c:when>
+									<c:when test="${car.serial gt 490}">
+										<c:set var="serialImg" property="title" value="${car.serial}" />
+									</c:when>
+								</c:choose>
+								<img src="/kpark/resources/image_repo/car_img/${ serialImg}/1.jpg">
 								<div class="info_comp">
 									<p>${car.carYear }년식</p>
 									<p><fmt:formatNumber value="${car.distance }" type="number"/>km</p>
@@ -99,26 +110,26 @@
 			<div class="news_cont">
 				<a href="#">
 					<div class="left_img_div">
-						<img src="/kpark/resources/image/1.jpg">
+						<img src="/kpark/resources/image/news1.jpeg">
 						<div class="text_comp">
-							<h2>르노삼성, 뉴 QM6 출시... 새로운 그릴 디자인 적용</h2>
-							<h3>글로벌오토뉴스 | 2020.11.06</h3>
+							<h2>기아차, 엠블럼 이어 사명도 변경하나..'자동차' 떼고...</h2>
+							<h3>더드라이프 | 2020.11.13</h3>
 						</div>
 					</div>
 				</a> <a href="#">
 					<div class="center_news">
 						<div class="center_upper">
-							<img src="/kpark/resources/image/2.jpeg">
+							<img src="/kpark/resources/image/news2.jpeg">
 							<div class="text_comp">
-								<h2>르노삼성, 뉴 QM6 출시... 새로운 그릴 디자인 적용</h2>
-								<h3>글로벌오토뉴스 | 2020.11.06</h3>
+								<h2>기어나오는 중국차, 저가 공세 안 먹히자 동남아행?</h2>
+								<h3>머니S리포트 | 2020.11.13</h3>
 							</div>
 						</div>
 						<div class="center_lower">
-							<img src="/kpark/resources/image/3.jpeg">
+							<img src="/kpark/resources/image/news3.jpeg">
 							<div class="text_comp">
-								<h2>르노삼성, 뉴 QM6 출시... 새로운 그릴 디자인 적용</h2>
-								<h3>글로벌오토뉴스 | 2020.11.06</h3>
+								<h2>포르쉐 '비밀의 콘셉트' 마칸 비전 사파리 쿠페 공개</h2>
+								<h3>MOTOGRAPH | 2020.11.12</h3>
 							</div>
 						</div>
 					</div>
@@ -126,17 +137,49 @@
 				<div class="right_titles">
 					<ul>
 						<li><a href="#">
-								<h2>전기차 가격 2024년까지 엔진차 수준으로 떨어진다</h2>
-								<h3>글로벌오토뉴스</h3>
+								<h2>세계 최초 '비대면 무선충전' 내년...</h2>
+								<h3>전자신문</h3>
 						</a></li>
-
-						<c:forEach var="i" begin="1" end="10">
-							<li><a href="#">
-									<h2>전기차 가격 2024년까지 엔진차 수준으로 떨어진다</h2>
-									<h3>글로벌오토뉴스</h3>
-							</a></li>
-						</c:forEach>
-
+						<li><a href="#">
+								<h2>현대차, 7세대 신형 아반떼 신차안전도평가...</h2>
+								<h3>AUTOHERALD</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>차박 위해 탄생한 티볼리 에어..압도적 가성비로 부활</h2>
+								<h3>타봤어요</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>혼다, 자율주행 '레벨 3' 인증.."꽉 막힌 고속도로서 스스로 운전!"</h2>
+								<h3>Dailycar</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>식지 않는 수입차 인기..'1만대 클럽'에 독일차 이어...</h2>
+								<h3>조선비즈</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>내년 초 美서 생산될 현대차 첫 픽업트럭 싼타크루즈...</h2>
+								<h3>MAUTO</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>팰리세이드 냄새 논란 원인 밝혀졌다?</h2>
+								<h3>The Drive</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>BMW iX 공개, 콘셉트카 아닌 양산차</h2>
+								<h3>TOPRIDER</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>현대차 투싼 N 라인 티저 공개 '공격적으로 다듬어진...</h2>
+								<h3>오토헤럴드</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>3년만의 변화, G70 페이스 리프트</h2>
+								<h3>글로벌오토뉴</h3>
+						</a></li>
+						<li><a href="#">
+								<h2>현대자동차, 쏘나타 N 라인 출시</h2>
+								<h3>GLOBALAUTO</h3>
+						</a></li>
 					</ul>
 				</div>
 			</div>

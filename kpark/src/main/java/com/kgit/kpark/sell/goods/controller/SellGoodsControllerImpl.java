@@ -40,7 +40,7 @@ public class SellGoodsControllerImpl implements SellGoodsController {
 		HttpSession session = request.getSession();
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
         String test = memberVO.getUser_id();
-		out.print("<script> alert('판매신청을 완료하었습니다..'); location.href='/kpark/home.do'; </script>");
+		out.print("<script> alert('판매신청을 완료하었습니다.'); location.href='/kpark/home.do'; </script>");
 		out.flush();
 		return null;
 	}
