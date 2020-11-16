@@ -25,6 +25,9 @@
      #tr_btn_modify{
        display:none;
      }
+     #i_imageFileName {
+     display: none;
+     }
    </style>
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
    <script type="text/javascript" >
@@ -36,9 +39,11 @@
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_imageFileName").disabled=false;
-		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_file_upload").style.display="block";
+		 document.getElementById("tr_btn_modify").style.display="inline-block";
+		 document.getElementById("buttons2").style.display="inline-block";
+		 document.getElementById("tr_file_upload").style.display="inline-block";
 		 document.getElementById("tr_btn").style.display="none";
+		 document.getElementById("i_imageFileName").style.display="inline-block";
 	 }
 	 
 	 function fn_modify_article(obj){
@@ -131,8 +136,8 @@
   </tr>
   <c:choose> 
 	  <c:when test="${not empty article.imageFileName && article.imageFileName!='null' }">
-	   	<tr>
-		   <td colspan="1">이미지</td>
+	   	<tr id="test1">
+		   <td>이미지</td>
 		   <td colspan="4">
 		     <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
 		     <img src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br>
@@ -140,19 +145,19 @@
 		  </tr>  
 		  <tr>
 		    <td colspan="4">
-		       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+		       <input  type="file"  name="imageFileName " id="i_imageFileName"  disabled   onchange="readURL(this);"   />
 		    </td>
 		  </tr> 
 		 </c:when>
 		 <c:otherwise>
-		    <tr  id="tr_file_upload" >
-				    <td colspan="1"> 이미지</td>
+		    <tr id="tr_file_upload" >
+				    <td> 이미지</td>
 				    <td colspan="4">
-				      <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" >
+				   	 <input type= "hidden" name="originalFileName" value="${article.imageFileName }" >
 				    </td>
-			    </tr>
-			    <tr>
-				    <td colspan="4">
+			</tr>
+			<tr>
+				    <td colspan="5">
 				       <img id="preview"  /><br>
 				       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
 				    </td>
@@ -165,14 +170,10 @@
 	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
   </tr> 
-   </form>	   
+     
+  </form>	 
  	
-  <tr id="tr_btn_modify" >
-	 <td id="buttons" colspan="5" align="left">>
-	       <input type=button value="수정" id="submit" onClick="fn_modify_article(frmArticle)">
-	       <input type=button value="취소" id="submit" onClick="backToList(frmArticle)">
-	   </td>
-  </tr>
+  
     
   <tr id="tr_btn">
    <td id="buttons" colspan="5" align="center">
@@ -184,12 +185,18 @@
 	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})">
    </td>
   </tr>
+	</table>
+	<div id="tr_btn_modify">
+	 <div id="buttons2">
+	       <input class="inline" type=button value="수정" id="submit" onClick="fn_modify_article(frmArticle)">
+	       <input class="inline" type=button value="취소" id="submit" onClick="backToList(frmArticle)">
+	   </div>
+  </div>
   
 	</div>  	
     <div class="a_paging" style="margin-top: 40px"></div>
 
 	
-	</table>
 	</div>
 
  
