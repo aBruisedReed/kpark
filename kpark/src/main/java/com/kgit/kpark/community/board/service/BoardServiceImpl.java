@@ -39,16 +39,11 @@ public class BoardServiceImpl  implements BoardService{
 		return articleNO;
 	}
 
-	//다중 파일 보이기
+	//단일 파일 보이기
 	@Override
-	public Map board_viewArticle(int articleNO) throws Exception {
-		Map articleMap = new HashMap();
+	public ArticleVO board_viewArticle(int articleNO) throws Exception {
 		ArticleVO articleVO = boardDAO.board_selectArticle(articleNO);
-		System.out.println(articleVO.getTitle());
-		List<ImageVO> imageFileList = boardDAO.board_selectImageFileList(articleNO);
-		articleMap.put("article", articleVO);
-		articleMap.put("imageFileList", imageFileList);
-		return articleMap;
+		return articleVO;
 	}
 	
 	@Override

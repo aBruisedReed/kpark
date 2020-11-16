@@ -6,8 +6,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 
-<c:set var="article"  value="${articleMap.article }"  />
-<c:set var="imageFileList"  value="${articleMap.imageFileList }"  />
+<%-- <c:set var="article"  value="${articleMap.article }"  />
+<c:set var="imageFileList"  value="${articleMap.imageFileList }"  /> --%>
+<%-- <c:set var="article"  value="${articleMap }"  /> --%>
 
 <%
 	request.setCharacterEncoding("utf-8");
@@ -25,6 +26,9 @@
      #tr_btn_modify{
        display:none;
      }
+     #i_imageFileName {
+     display: none;
+     }
    </style>
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
    <script type="text/javascript" >
@@ -35,7 +39,7 @@
 	 function fn_enable(obj){
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
-		 document.getElementById("i_imageFileName").disabled=false;
+		 document.getElementById("i_imageFileName").style.display="block";
 		 document.getElementById("tr_btn_modify").style.display="block";
 		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
@@ -138,23 +142,21 @@
     <textarea rows="20" cols="60"  name="content" id="i_content" disabled />${article.content }</textarea>
    </td>  
   </tr>
-   <c:if test="${not empty imageFile && imageFile != 'null' }">
-	  <c:forEach var="item" items="${imageFileList}" varStatus="status" >
+   <c:if test="${not empty article.imageFileName && article.imageFileName != 'null' }">
 		    <tr>
 			    <td width="150" align="center" rowspan="2">
-			      이미지${status.count }
+			      이미지
 			   </td>
 			   <td>
-			     <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
-			    <img src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
+			     <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
+			    <img src="${contextPath}/community/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br>
 			   </td>   
 			  </tr>  
 			  <tr>
 			    <td>
-			       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+			       <input  type="file"  name="imageFileName " id="i_imageFileName" onchange="readURL(this);"   />
 			    </td>
 			 </tr>
-		</c:forEach>
  </c:if>
 	 <tr>
 	   <td width="150" align="center">
@@ -164,18 +166,9 @@
 	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
   </tr>
-  <tr   id="tr_btn_modify"  align="center"  >
-	   <td colspan="2"   >
-	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  >
-           <input type=button value="취소"  onClick="backToList(frmArticle)">
-	   </td>   
-  </tr>    
-<!-- <tr id="tr_btn_modify"  align="center"  >
-	   <td colspan="2"   >
-	       <input type=button value="수정하기"   onClick="fn_modify_article(frmArticle)"  >
-           <input type=button value="취소"  onClick="backToList(frmArticle)">
-	   </td>   
-  </tr> -->  
+  
+  
+  
     
   <tr id="tr_btn">
    <td id="buttons" colspan="2" align="center">
@@ -187,13 +180,19 @@
 	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})">
    </td>
   </tr>
+	</table>
+    </form>
+    </div>
+
+	<div id="tr_btn_modify">
+   	 <div id="buttons2">
+          <input class="inline" type=button value="수정" id="submit" onClick="fn_modify_article(frmArticle)">
+          <input class="inline" type=button value="취소" id="submit" onClick="backToList(frmArticle)">
+      </div>
+     </div>
   	
     <div class="a_paging" style="margin-top: 40px"></div>
-    </form>
-	</div>
 	
-	</table>
-	</div>
  
  
 </body>
