@@ -2,7 +2,6 @@ package com.kgit.kpark.sell.goods.service;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.kgit.kpark.member.vo.MemberVO;
 import com.kgit.kpark.sell.goods.dao.SellDAO;
 import com.kgit.kpark.sell.goods.vo.SellVO;
 
@@ -42,9 +42,9 @@ public class SellServiceImpl implements SellService {
 	}
 
 	@Override
-	public SellVO sellArticleView(Map paramMap) {
-		SellVO sellVO = sellDAO.selectSellVO(paramMap);
-		return sellVO;
+	public List singlelistArticles(String id) throws DataAccessException {
+		List<SellVO> sellsingleList = sellDAO.selectSingleSellList(id);
+		return sellsingleList;
 	}
 	
 }

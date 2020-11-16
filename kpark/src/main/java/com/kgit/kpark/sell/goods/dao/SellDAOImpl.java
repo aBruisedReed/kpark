@@ -2,13 +2,13 @@ package com.kgit.kpark.sell.goods.dao;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.kgit.kpark.member.vo.MemberVO;
 import com.kgit.kpark.sell.goods.vo.SellVO;
 
 @Repository("SellDAO")
@@ -41,9 +41,9 @@ public class SellDAOImpl implements SellDAO {
 	}
 
 	@Override
-	public SellVO selectSellVO(Map paramMap) {
-		SellVO sellList = sqlSession.selectOne("mapper.sell.selectSellVO", paramMap);
-		return sellList;
+	public List<SellVO> selectSingleSellList(String id) throws DataAccessException {
+		List<SellVO> sellsingleList = sqlSession.selectList("mapper.sell.selectSingleSellList", id);
+		return sellsingleList;
 	}
-	
+
 }

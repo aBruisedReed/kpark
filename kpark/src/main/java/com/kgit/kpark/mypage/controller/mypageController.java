@@ -17,7 +17,7 @@ public interface mypageController {
  public ModelAndView mypage_edit(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public ModelAndView mypage_quit(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public ModelAndView mypage_select(HttpServletRequest request, HttpServletResponse response)throws Exception;
- public ModelAndView mypage_sell(HttpServletRequest request, HttpServletResponse response)throws Exception;
+ public ModelAndView mypage_sell(String id, HttpServletRequest request, HttpServletResponse response)throws Exception;
  public ModelAndView pop_compare(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public ModelAndView recentView(HttpServletRequest request, HttpServletResponse response)throws Exception;
  public void updateMember(String old_pw, HttpServletRequest request, HttpServletResponse response) throws Exception;

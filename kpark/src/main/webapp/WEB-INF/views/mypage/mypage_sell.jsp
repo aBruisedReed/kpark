@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,32 +16,38 @@
 <body>
   <div class="wrap">
     <div class="t-label">  <label>판매 상담 내역</label></div>
-<table class="b-table1">
-    <tr><th>글번호</th>
-        <th>작성자</th>
-        <th>제목</th>
-        <th>작성일</th>
-        <th>답변 여부</th></tr>
+			<table id="sellsingleList">
+				  <tr id="column">
+				    <th id="article_num">글번호</th>
+				    <th id="article_writer">작성자</th>
+				    <th id="article_title">제목</th>
+				    <th id="article_date">작성일</th>
+				    <th id="article_status">답변 여부</th>
+				  </tr>
         
-        <tr><td class="s1">1</td>
-            <td class="s2">홍길동</td>
-            <td class="s3">000차량에 문의 드립니다.</td>
-            <td class="s4">2020.1.1</td>
-            <td>처리전</td>
-        </tr>
-          <!--동적 자료 구현시 아래 내용은 삭제-->
-        <tr><td>1</td>
-            <td>홍길동</td>
-            <td>000차량에 문의 드립니다.</td>
-            <td>2020.1.1</td>
-            <td>처리전</td>
-        </tr>
-        <tr><td>1</td>
-            <td>홍길동</td>
-            <td>000차량에 문의 드립니다.</td>
-            <td>2020.1.1</td>
-            <td>처리전</td>
-        </tr>
+        <c:choose>
+				  <c:when test="${sellsingleList==null }">
+					<tr height="10">
+						<td colspan="5">
+							<p align="center">
+								<b><span style="font-size: 9pt">등록된 글이 없습니다.</span></b>
+							</p>
+						</td>
+					</tr>
+				</c:when>
+				
+				<c:when test="${sellsingleList!=null }">
+				<c:forEach var="sell" items="${sellsingleList }" varStatus="sellNum">
+				  <tr>
+				    <td>${sellNum.count }</td>
+				    <td>${sell.name}</td>
+				    <td>${sell.subModel} 판매 문의를 신청 합니다.</td>
+				    <td>${sell.carYear }</td>
+				    <td>처리전</td>
+				  </tr>
+				</c:forEach>
+				</c:when>
+				</c:choose>
       
 </table>
 <br>

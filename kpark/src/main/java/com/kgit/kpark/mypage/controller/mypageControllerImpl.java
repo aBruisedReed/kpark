@@ -2,6 +2,7 @@ package com.kgit.kpark.mypage.controller;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kgit.kpark.member.controller.MemberController;
 import com.kgit.kpark.member.service.MemberService;
 import com.kgit.kpark.member.vo.MemberVO;
+import com.kgit.kpark.sell.goods.service.SellService;
+import com.kgit.kpark.sell.goods.vo.SellVO;
 
 @Controller("mypageController")
 @RequestMapping(value = "/mypage/*")
@@ -38,6 +41,12 @@ public class mypageControllerImpl implements mypageController {
 	
 	@Autowired
 	MemberVO memberVO;
+	
+	@Autowired
+	SellVO sellVO;
+	
+	@Autowired
+	private SellService sellService;
 
 	@Override
 	@RequestMapping(value ="/buy_counsel.do" ,method = RequestMethod.POST)
@@ -151,18 +160,32 @@ public class mypageControllerImpl implements mypageController {
 	public ModelAndView mypage_select(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
+		response.setContentType("text/html;charset=utf-8");
+		HttpSession session = request.getSession();
+        MemberVO memberVO = (MemberVO) session.getAttribute("member");
+        String id = memberVO.getUser_id();
 		mav.setViewName(viewName);
+		mav.addObject("member", memberVO);
 		return mav;
 	}
 
 	@Override
-	@RequestMapping(value ="/mypage_sell.do" ,method = RequestMethod.POST)
-	public ModelAndView mypage_sell(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value ="/mypage_sell.do" ,method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView mypage_sell(String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		HttpSession session = request.getSession();
+        MemberVO memberVO = (MemberVO) session.getAttribute("member");
+        id = memberVO.getUser_id();
+        System.out.println(id);
 		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
+		List<SellVO> sellsingleList = sellService.singlelistArticles(id);
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("sellsingleList", sellsingleList);
+//		mav.addObject("id", id);
 		return mav;
 	}
+	
+
 
 	@Override
 	@RequestMapping(value ="/pop_compare.do" ,method = RequestMethod.POST)
@@ -181,4 +204,5 @@ public class mypageControllerImpl implements mypageController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+
 }
