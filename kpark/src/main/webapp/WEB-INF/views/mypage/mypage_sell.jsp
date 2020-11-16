@@ -21,8 +21,8 @@
 				    <th id="article_num">글번호</th>
 				    <th id="article_writer">작성자</th>
 				    <th id="article_title">제목</th>
-				    <th id="article_date">작성일</th>
-				    <th id="article_status">답변 여부</th>
+				    <th id="article_date">연식</th>
+				    <th id="article_status">제조사</th>
 				  </tr>
         
         <c:choose>
@@ -38,12 +38,12 @@
 				
 				<c:when test="${sellsingleList!=null }">
 				<c:forEach var="sell" items="${sellsingleList }" varStatus="sellNum">
-				  <tr>
+				  <tr style="cursor: pointer;" onclick="location.href='${contextPath }/admin/adminSellListView.do?id=${sell.id}&subModel=${sell.subModel}'">
 				    <td>${sellNum.count }</td>
 				    <td>${sell.name}</td>
 				    <td>${sell.subModel} 판매 문의를 신청 합니다.</td>
 				    <td>${sell.carYear }</td>
-				    <td>처리전</td>
+				    <td>${sell.maker }</td>
 				  </tr>
 				</c:forEach>
 				</c:when>

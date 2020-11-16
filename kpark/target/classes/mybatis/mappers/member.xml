@@ -133,6 +133,11 @@
 	]]>      
   </delete>
 	
+	<select id="getPwById" resultType="String" parameterType="String">
+		<![CDATA[
+			select pw from k_customers where id=#{user_id} 
+		]]>
+	</select>
 	
 	<select id="loginById" resultMap="memResult" parameterType="memberVO">
 		<![CDATA[select * from k_customers where id=#{user_id} and pw=#{user_pw}]]>

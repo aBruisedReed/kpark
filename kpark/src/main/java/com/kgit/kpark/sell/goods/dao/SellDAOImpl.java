@@ -2,6 +2,7 @@ package com.kgit.kpark.sell.goods.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,12 @@ public class SellDAOImpl implements SellDAO {
 		List<SellVO> sellsingleList = sqlSession.selectList("mapper.sell.selectSingleSellList", id);
 		return sellsingleList;
 	}
+	
+	@Override
+	public SellVO selectSellVO(Map paramMap) {
+		SellVO sellList = sqlSession.selectOne("mapper.sell.selectSellVO", paramMap);
+		return sellList;
+	}
+	
 
 }

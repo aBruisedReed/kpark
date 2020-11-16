@@ -144,6 +144,7 @@
 			<form name="sellForm" method="post" action="${contextPath }/sell/addSell.do"
 				enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${member.user_id}">
+				<input type="hidden" name="name" value="${member.user_name }">
 				<table frame="void" width="70%" height="500">
 					<tr>
 						<td width="15%" class="formKey">차량 선택</td>

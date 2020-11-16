@@ -58,3 +58,30 @@
 .edit_btn input{
 	width:150px;
 }
+
+#column th {
+   color: #401C5A;
+   border-bottom: 3px solid #401C5A;
+   padding-left: 5px;
+   padding-bottom: 5px;
+   font-weight: bold;
+}
+ #sellsingleList{
+      width: 100%;
+    
+    border-collapse: collapse;
+
+}
+#sellsingleList th{
+   color: #5F00CC;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #5F00CC;
+    text-align:left;
+     padding: 13px 10px;
+}
+ 
+#sellsingleList td{
+    border-bottom: 1px solid lightgray;;
+   padding:20px;
+}

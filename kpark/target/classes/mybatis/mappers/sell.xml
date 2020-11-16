@@ -57,6 +57,12 @@
          select * from k_sellingReq
       ]]>
 	</select>
+	
+	<select id="selectSellVO" resultMap="scResult" parameterType="java.util.Map">
+		<![CDATA[
+			select * from k_sellingReq where id=#{id} and subModel=#{subModel}
+		]]>
+	</select>
 </mapper>
 <!-- <mapper namespace="mapper.member">
 	<resultMap id="memResult" type="memberVO">
