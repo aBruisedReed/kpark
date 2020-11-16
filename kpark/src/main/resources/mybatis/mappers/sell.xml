@@ -5,6 +5,7 @@
 <mapper namespace="mapper.sell">
 	<resultMap id="scResult" type="sellVO">
 		<result property="id" column="id" />
+		<result property="name" column="name"/>
 		<result property="maker" column="maker" />
 		<result property="carModel" column="carModel" />
 		<result property="subModel" column="subModel" />
@@ -30,8 +31,8 @@
 	</resultMap>
 	<insert id="insertCar"  parameterType="sellVO">
 		<![CDATA[
-		 insert into k_sellingReq(id, maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, acc, flood, carRepair, history, dam, damOther, carOption, carType,explanation) 
-		 values(#{id}, #{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType},#{explanation})
+		 insert into k_sellingReq(id,name, maker, carModel, subModel, carNumber, price, carYear, distance, fuel, cc, color, gear, seize, mortgage, acc, flood, carRepair, history, dam, damOther, carOption, carType,explanation) 
+		 values(#{id},#{name}, #{maker}, #{carModel}, #{subModel}, #{carNumber}, #{price}, #{carYear}, #{distance}, #{fuel}, #{cc}, #{color}, #{gear}, #{seize}, #{mortgage}, #{acc}, #{flood}, #{carRepair}, #{history}, #{dam}, #{damOther}, #{carOption}, #{carType},#{explanation})
 		]]>      
 	</insert>
 	<select id="selectCarList" resultMap="scResult">
@@ -45,9 +46,15 @@
       ]]>
 	 </select>	
 	 
+	 <select id="selectSingleSellList" resultMap="scResult" parameterType="String">
+      <![CDATA[
+         select * from k_sellingReq where id=#{id}
+      ]]>
+	</select>
+	 
 	 <select id="selectAllSellList" resultMap="scResult">
       <![CDATA[
-         select * from k_sellingReq	
+         select * from k_sellingReq
       ]]>
 	</select>
 </mapper>
