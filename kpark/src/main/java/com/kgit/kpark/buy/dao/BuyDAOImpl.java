@@ -4,13 +4,15 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.util.CarInfoVO;
+import com.kgit.kpark.buy.vo.buyVO;
 import com.kgit.kpark.community.board.vo.ArticleVO;
 
-@Repository
+@Repository("buyDAO")
 public class BuyDAOImpl implements BuyDAO {
 	@Autowired
 	private SqlSession sqlSession;
@@ -55,4 +57,19 @@ public class BuyDAOImpl implements BuyDAO {
 	public List<SellingCarVO> carListPageByName(CarInfoVO carInfoVO) {
 		return sqlSession.selectList("mapper.sellingCar.selectCarListByName", carInfoVO);
 	}
+
+	@Override
+	public int addValue(buyVO buyVO) {
+		
+	int result=	sqlSession.insert("mapper.buy.insertValue",buyVO);
+		return result;
+	}
+
+	@Override
+	public List buySelect() throws DataAccessException{
+		List<buyVO> buyList =null;
+		buyList = sqlSession.selectList("mapper.buy.buySelect");
+		return buyList;
+		
+} 
 }

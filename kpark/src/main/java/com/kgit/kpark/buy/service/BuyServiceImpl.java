@@ -3,12 +3,14 @@ package com.kgit.kpark.buy.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.kgit.kpark.admin.goods.dao.SellingCarDAO;
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.dao.BuyDAO;
 import com.kgit.kpark.buy.util.CarInfoVO;
+import com.kgit.kpark.buy.vo.buyVO;
 import com.kgit.kpark.community.board.vo.ArticleVO;
 import com.kgit.kpark.home.dao.HomeDAO;
 
@@ -48,6 +50,21 @@ public class BuyServiceImpl implements BuyService {
 	@Override
 	public List<SellingCarVO> carListPage(int startIndex) {
 		return buyDAO.carListPage(startIndex);
+	}
+
+	@Override
+	public int addValue(buyVO buyVO) {
+		
+		
+		return  buyDAO.addValue(buyVO);
+	}
+
+	@Override
+	public List buySelect() throws DataAccessException {
+		List  buyList =null;
+		buyList= buyDAO.buySelect( );
+		return buyList;
+		
 	}
 	
 }

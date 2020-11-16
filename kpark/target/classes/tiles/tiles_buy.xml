@@ -14,4 +14,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/buy/buyDetail.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/buy/buyCounsel" extends="baseLayout">
+		<put-attribute name="title" value="차량 상세 정보"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/buy/buyCounsel.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

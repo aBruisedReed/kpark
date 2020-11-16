@@ -11,5 +11,6 @@
 		<typeAlias type="com.kgit.kpark.community.board.vo.ArticleVO"  alias="articleVO" />
 		<typeAlias type="com.kgit.kpark.community.board.vo.ImageVO" alias="imageVO" />
 		<typeAlias type="com.kgit.kpark.buy.util.CarInfoVO" alias="carInfoVO" />
+		<typeAlias type="com.kgit.kpark.buy.vo.buyVO" alias="buyVO" />
 	</typeAliases>
 </configuration>

@@ -2,9 +2,12 @@ package com.kgit.kpark.buy.dao;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.kgit.kpark.admin.goods.vo.SellingCarVO;
 import com.kgit.kpark.buy.util.CarInfoVO;
-import com.kgit.kpark.community.board.vo.ArticleVO;
+import com.kgit.kpark.buy.vo.buyVO;
+
 
 public interface BuyDAO {
 	public SellingCarVO carInfo(String serial);
@@ -14,4 +17,6 @@ public interface BuyDAO {
 	public List<SellingCarVO> carListPageByName(CarInfoVO carInfoVO);
 	public int carListCnt();
 	public int carListCntInfo(CarInfoVO carInfoVO);
+	public int addValue(buyVO buyVO) ; 
+	public List buySelect() throws DataAccessException;
 }
