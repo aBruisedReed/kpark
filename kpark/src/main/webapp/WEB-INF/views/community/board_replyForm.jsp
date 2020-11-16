@@ -18,9 +18,10 @@
 	<script type="text/javascript">
 
 
-	function backToList(obj){
-	    window.location.href="${contextPath}/community/board_listArticles.do";
-     }
+	 function backToList(obj){
+	 obj.action="${contextPath}/community/board_listArticles.do";
+	 obj.submit();
+	 }
 	 
 	  function readURL(input) {
 	      if (input.files && input.files[0]) {
@@ -52,33 +53,31 @@
     <div class="ttl-sm">게시글의 댓글을 작성하세요.</div><br><br>
 
 	<div class="formboard">
-  	<form name="frmReply" method="post"  action="${contextPath}/community/board_addReply.do" 
-  			enctype="multipart/form-data">
+  	<form name="frmReply" method="post"  action="${contextPath}/community/board_addReply.do"   enctype="multipart/form-data">
     <tr>
-		<td align="right">작성자 : </td>
-		<td colspan="4" align="left"><input type="text" size="20" maxlength="100"  name="writer"></input></td>
-    </tr>
+			<td align="right"> 작성자:&nbsp; </td>
+			<td colspan=2  align="left"><input type="text" maxlength="100" maxlength="100"  name="writer"></input> </td>
+		</tr>
 		<tr>
 			<td align="right">제목:&nbsp;  </td>
-			<td colspan="4"><input type="text" size="100"  maxlength="100" name="title"> </input></td>
+			<td colspan="2"><input type="text" size="100"  maxlength="100" name="title"> </input></td>
 		</tr>
 		<tr>
 			<td align="right" valign="top"><br>내용:&nbsp; </td>
-			<td colspan="4"><textarea name="content" rows="10" cols="100" maxlength="4000"> </textarea> </td>
+			<td colspan="2"><textarea name="content" rows="10" cols="100" maxlength="4000"> </textarea> </td>
 		</tr>
-<!-- 		<tr>
+		<tr>
 			<td align="right">비밀번호:&nbsp;  </td>
-			<td colspan="4"><input type="password" size="20" maxlength="12" name="passwd"> </input> </td>
+			<td colspan="2"><input type="password" size="20" maxlength="12" name="passwd"> </input> </td>
 		</tr>
 		<tr>
 			<td align="left">이미지파일 첨부:  </td>
-			<td colspan="4"><input type="file" name="imageFileName"  onchange="readURL(this);" /></td>
-		</tr> -->
-	
+			<td colspan="2"><input type="file" name="imageFileName"  onchange="readURL(this);" /></td>
+		</tr>
 	<tr id="listbuttons">
-		<td align="center" colspan="5">
+		<td align="center" colspan=3>
 			<input type="submit" value="답글쓰기" id="submit"/>
-			<input type=button value="취소" onClick="backToList(this.form)" />
+			<input type=button value="취소"onClick="backToList(this.form)" />
 		</td>
 	</tr>
   </form>

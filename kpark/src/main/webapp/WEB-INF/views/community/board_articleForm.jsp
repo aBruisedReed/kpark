@@ -25,9 +25,10 @@
          reader.readAsDataURL(input.files[0]);
       }
   }  
-	function backToList(obj){
-	    window.location.href="${contextPath}/community/board_listArticles.do";
-     }
+  function backToList(obj){
+    obj.action="${contextPath}/community/board_listArticles.do";
+    obj.submit();
+  }
   
   var cnt=1;
   function fn_addFile(){
@@ -61,36 +62,31 @@
     		enctype="multipart/form-data">
     		
 
-    <tr>
-		<td align="right">작성자 : </td>
-		<td colspan="4" align="left"><input type="text" size="100" maxlength="100" name="id" value="${member.user_id }" readonly/> </td>
-    </tr>
-    <tr>
-		<td align="right">글제목 : </td>
-		<td colspan="4"><input type="text" size="100"  maxlength="100" name="title" /></td>
-    </tr>
-    <tr>
-		<td align="right" valign="top"><br>글내용: </td>
-		<td colspan="4"><textarea name="content" rows="10" cols="100" maxlength="4000"></textarea> </td>
-    </tr>
-    
-    <tr>
-		<td colspan="1" align="left">이미지파일 첨부: <br></td>
-		<td colspan="2"><input type="file" name="imageFileName"  onchange="readURL(this);" /></td>
-		<td colspan="2"><img id="preview" src="#"   width=200 height=200/></td>
-	</tr>
-	
-<!-- <tr>	  
-	    <td align="left"> 
-		<input type="button" value="파일 추가" onClick="fn_addFile()"/></td>
-	    <td colspan="4"><div id="d_file"></div></td>
-	</tr> -->	
-	
+      <tr>
+	<td align="right">작성자 : </td>
+	<td colspan=2  align="left"><input type="text" size="100" maxlength="100" name="id" value="${member.user_id }" readonly/> </td>
+      </tr>
+      <tr>
+	<td align="right">글제목 : </td>
+	<td colspan="2"><input type="text" size="100"  maxlength="100" name="title" /></td>
+      </tr>
+      <tr>
+	<td align="right" valign="top"><br>글내용: </td>
+	<td colspan=2><textarea name="content" rows="10" cols="100" maxlength="4000"></textarea> </td>
+     </tr>
+     <tr>
+	<td align="left">이미지파일 첨부:  </td>
+	<td>
+		<input type="button" value="파일 추가" onClick="fn_addFile()" value="파일추가"/></td>
+	<td>
+		<input type="file" name="imageFileName"  onchange="readURL(this);" /><br>
+		<div id="d_file" colspan="3"></div></td>
+     </tr>
 
      <tr id="listbuttons">
-		<td align="right" colspan="5">
+		<td align="right" colspan=3>
 		<input type="submit" value="글쓰기" id="submit"/>
-		<input type=button value="목록보기" onClick="backToList(this.form)" />
+		<input type="button" value="목록보기" onClick="backToList(this.form)" />
 		</td>
     </tr>
     </form>
