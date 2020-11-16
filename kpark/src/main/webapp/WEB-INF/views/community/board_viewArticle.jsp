@@ -37,12 +37,12 @@
      }
  
 	 function fn_enable(obj){
+		 document.getElementById("tr_btn").style.display="none";
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_imageFileName").style.display="block";
 		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_file_upload").style.display="block";
-		 document.getElementById("tr_btn").style.display="none";
+		 document.getElementById("tr_file_upload").style.display="inline-block";
 	 }
 	 
 	 function fn_modify_article(obj){
@@ -87,7 +87,7 @@
 	         }
 	         reader.readAsDataURL(input.files[0]);
 	     }
-	 }  
+	 }
  </script>
 </head>
 
@@ -102,13 +102,13 @@
 
     <!-- 커뮤니티 공통 테이블 -->
     <div class="common">
-    <table class="common">
     <!-- 자유게시판 -->
     <div class="ttl">커뮤니티 <strong>자유게시판</strong></div>
     <div class="ttl-sm">게시글을 확인하세요.</div><br><br>
 
-	<div class="formboard">                                            
     <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">
+	<div class="formboard">                                         
+    <table class="common">
   <tr>
    <td width=150 align="center" >
       글번호
@@ -139,7 +139,7 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="content" id="i_content" disabled />${article.content }</textarea>
+    <textarea rows="20" cols="60"  name="content" id="i_content" disabled>${article.content }</textarea>
    </td>  
   </tr>
    <c:if test="${not empty article.imageFileName && article.imageFileName != 'null' }">
@@ -147,16 +147,14 @@
 			    <td width="150" align="center" rowspan="2">
 			      이미지
 			   </td>
-			   <td>
+			   <td style="border: none;">
 			     <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
 			    <img src="${contextPath}/community/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br>
 			   </td>   
 			  </tr>  
-			  <tr>
 			    <td>
-			       <input  type="file"  name="imageFileName " id="i_imageFileName" onchange="readURL(this);"   />
+			       <input  type="file"  name="imageFileName" id="i_imageFileName" onchange="readURL(this);"   />
 			    </td>
-			 </tr>
  </c:if>
 	 <tr>
 	   <td width="150" align="center">
@@ -166,23 +164,27 @@
 	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
   </tr>
+	</table>
+  </div> 
   
+    </form>
   
   
     
-  <tr id="tr_btn">
-   <td id="buttons" colspan="2" align="center">
+  <div id="tr_btn">
+   <div id="buttons" align="center">
        <c:if test="${member.user_id == article.id }">
 	      <input type=button value="수정하기" id="submit" onClick="fn_enable(this.form)">
 	      <input type=button value="삭제하기" id="submit" onClick="fn_remove_article('${contextPath}/community/board_removeArticle.do', ${article.articleNO})">
 	    </c:if>
+	    <c:if test="${member.user_id == 'admin' }">
+	    	 <input type=button value="삭제하기" id="submit" onClick="fn_remove_article('${contextPath}/community/board_removeArticle.do', ${article.articleNO})">
+	    </c:if>
 	    <input type=button value="목록보기" id="submit" onClick="backToList(this.form)">
-	     <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})">
-   </td>
-  </tr>
-	</table>
-    </form>
-    </div>
+	     <%-- <input type=button value="답글쓰기" id="submit" onClick="fn_reply_form('${contextPath}/community/board_replyForm.do', ${article.articleNO})"> --%>
+   </div>
+  </div>
+	</div>
 
 	<div id="tr_btn_modify">
    	 <div id="buttons2">

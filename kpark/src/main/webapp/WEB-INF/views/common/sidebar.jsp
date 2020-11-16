@@ -37,19 +37,22 @@
 			</a>
 		</div>
 		<div>
-			<a class="rvBtn" href="${contextPath }/mypage/recentView.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
+			<%-- <a class="rvBtn" href="${contextPath }/mypage/recentView.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;"> --%>
+			<a class="rvBtn" href="#">
 			<div class="rvBtnIcon"></div>
 			<h3>최근본차량</h3>
 			</a>
 		</div>
 		<div>
-			<a class="fcBtn" href="${contextPath }/mypage/favoriteCar.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
+			<%-- <a class="fcBtn" href="${contextPath }/mypage/favoriteCar.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;"> --%>
+			<a href="#">
 			<div class="fcBtnIcon"></div>
 			<h3>관심차량</h3>
 			</a>
 		</div>
 		<div>
-			<a class="ccBtn" href="${contextPath }/mypage/compareCar.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;">
+			<%-- <a class="ccBtn" href="${contextPath }/mypage/compareCar.do" onClick="window.open(this.href, '', 'width=900, height=650'); return false;"> --%>
+			<a href="#">
 			<div class="ccBtnIcon"></div>
 			<h3>차량비교</h3>
 			</a>

@@ -23,7 +23,7 @@
 			<h1>마이페이지</h1>
 		</div>
 		<div id="list">
-			<a href="${contextPath }/mypage/mypage_buy.do"><button id="buyList" class="selectBtn"><img src="${contextPath }/resources/image/admin/list.png" />구매 상담 목록</button></a><br>
+			<a href="#"><button id="buyList" class="selectBtn"><img src="${contextPath }/resources/image/admin/list.png" />구매 상담 목록</button></a><br>
 			<a href="${contextPath }/mypage/mypage_sell.do"><button id="sellList" class="selectBtn"><img src="${contextPath }/resources/image/admin/list.png" />판매 상담 목록</button></a><br>
 			<a href="${contextPath }/mypage/mypage_edit.do"><button id="editInfo" class="selectBtn"><img src="${contextPath }/resources/image/admin/pen.png" />내 정보 수정</button></a><br>
 			<a href="${contextPath }/mypage/mypage_quit.do"><button id="quit" class="selectBtn"><img src="${contextPath }/resources/image/admin/user.png" />회원 탈퇴</button></a><br>
