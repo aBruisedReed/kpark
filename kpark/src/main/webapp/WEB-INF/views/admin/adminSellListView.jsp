@@ -17,6 +17,10 @@
 			window.location.href="${contextPath}/admin/adminSellList.do";
 		}
 		
+		function backToMainMember() {
+			window.location.href="${contextPath}/mypage/mypage_sell.do?id=${member.user_id}";
+		}
+		
 	</script>
 </head>
 <body>
@@ -256,7 +260,12 @@
 				</div> -->
 				<div id="buttons">
 					<!-- <input type="submit" value="등록" id="submit"> --> 
+					<c:if test="${member.user_id == 'admin' }">
 					<input type="button" value="목록" onclick="backToMain();">
+					</c:if>
+					<c:if test="${member.user_id != 'admin' }">
+					<input type="button" value="목록" onclick="backToMainMember();">
+					</c:if>
 				</div>
 			</form>
 		</div>
