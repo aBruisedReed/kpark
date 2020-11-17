@@ -22,8 +22,8 @@
 		<section class="recommand">
 			<div class="cover">
 				<div class="rec_1">
-					<img src="/kpark/resources/image/sample1.png">
-					<div class="text_comp">
+					<img src="/kpark/resources/image/sample1.jpg">
+					<div class="text_comp" id="r1">
 						<h1>SONATA DN8</h1>
 						<h2>일상을 바꾸는 경험</h2>
 					</div>
@@ -31,17 +31,17 @@
 						class="rc_btns">찾아보기</a>
 				</div>
 				<div class="rec_2">
-					<img src="/kpark/resources/image/sample2.png">
-					<div class="text_comp">
-						<h1>The New BONGO III</h1>
-						<h2>성공을 위한 최고의 파트너</h2>
+					<img src="/kpark/resources/image/sample2.jpg">
+					<div class="text_comp" id="r2">
+						<h1>SELTOS</h1>
+						<h2>어드밴스드 드라이빙</h2>
 					</div>
-					<a href="buy/search.do?searchType=modelname&keyword=봉고" id="rc_btn1"
+					<a href="buy/search.do?searchType=modelname&keyword=셀토스" id="rc_btn1"
 						class="rc_btns">찾아보기</a>
 				</div>
 				<div class="rec_3">
 					<img src="/kpark/resources/image/sample3.png">
-					<div class="text_comp">
+					<div class="text_comp" id="r3">
 						<h1>The all-new GENESIS G80</h1>
 						<h2>특별함을 아는 당신에게</h2>
 					</div>
@@ -55,8 +55,8 @@
 					<div class="bar"></div>
 				</div>
 				<div id="bar2" class="bar2_containter">
-					<p>[BONGO III]</p>
-					<p>성공을 위한 최고의 파트너</p>
+					<p>[SELTOS]</p>
+					<p>어드밴스드 드라이빙</p>
 					<div class="bar"></div>
 				</div>
 				<div id="bar3" class="bar3_containter">
