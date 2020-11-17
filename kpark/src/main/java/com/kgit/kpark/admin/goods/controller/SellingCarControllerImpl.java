@@ -39,7 +39,7 @@ import com.kgit.kpark.member.vo.MemberVO;
 public class SellingCarControllerImpl implements SellingCarController {
 	private static final Logger logger = LoggerFactory.getLogger(SellingCarControllerImpl.class);
 	
-	private static final String ARTICLE_IMAGE_REPO = "/Users/macbook/Desktop/image_repo/car_img"; //각자 수정해서 사용
+	private static final String ARTICLE_IMAGE_REPO = "C:/resources/image_repo/car_img/"; //각자 수정해서 사용
 	
 	@Autowired 
 	SellingCarService sellingCarService;
@@ -91,8 +91,8 @@ public class SellingCarControllerImpl implements SellingCarController {
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html;charset=utf-8");
 		int serial = sellingCarService.getSerialMax() + 1;
-		String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
-	    String attach_path = "resources/image_repo/";
+//		String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
+//	    String attach_path = "resources/image_repo/";
 	    String filename = imageFileName;
 		try {
 			int addCar = sellingCarService.addCar((HashMap)articleMap);
@@ -101,7 +101,7 @@ public class SellingCarControllerImpl implements SellingCarController {
 					imageFileName = imageVO.getImageFileName();
 //					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
 //					File destDir = new File(ARTICLE_IMAGE_REPO + "/" + serial);
-					File srcFile = new File(root_path + attach_path + "/car_img/" + serial + imageFileName);
+					File srcFile = new File(ARTICLE_IMAGE_REPO + serial + "/" + imageFileName);
 //					File destDir = new File(root_path + attach_path + "/car_img/" +serial);
 //					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
@@ -115,7 +115,7 @@ public class SellingCarControllerImpl implements SellingCarController {
 				for(ImageVO imageVO:imageFileList) {
 					imageFileName = imageVO.getImageFileName();
 //					File srcFile = new File(ARTICLE_IMAGE_REPO + "/temp/" + imageFileName);
-					File srcFile = new File(root_path + attach_path + "/car_img/" +filename);
+					File srcFile = new File(ARTICLE_IMAGE_REPO + serial + "/" + filename);
 					srcFile.delete();
 				}
 			}
@@ -142,11 +142,12 @@ public class SellingCarControllerImpl implements SellingCarController {
 			fileList.add(originalFileName);
 			System.out.println(2);
 //			File file = new File(ARTICLE_IMAGE_REPO + "/" + fileName);
-			String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
-		    String attach_path = "resources/image_repo/car_img/"+serial+"/";
+//			String root_path = multipartRequest.getSession().getServletContext().getRealPath("/");  
+//		    String attach_path = "resources/image_repo/car_img/"+serial+"/";
+			String rsrc_path = ARTICLE_IMAGE_REPO + serial + "/";
 		    String filename = originalFileName;
-		    File file = new File(root_path + attach_path + filename);
-		    System.out.println(root_path + attach_path + filename);
+		    File file = new File(rsrc_path + filename);
+		    System.out.println(rsrc_path + filename);
 			if(mFile.getSize() != 0) {
 				if(!file.exists()) {
 					if(file.getParentFile().mkdirs()) {
