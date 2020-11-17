@@ -51,7 +51,7 @@
   <select id="selectArticle" resultType="articleVO"   parameterType="int">
     <![CDATA[
       SELECT * from k_board
-      where articleNO = #{articleNO}		
+      where articleNO = #{articleNO}
     ]]>
   </select>
   
@@ -82,11 +82,11 @@
     ]]>      
   </delete>
 
- <!--다중 이미지 추가 SQL문 -->   
+ <!--단일 이미지 추가 SQL문 -->   
     <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
-      insert into k_board(articleNO, id, title, content)
-      values(#{articleNO}, #{id}, #{title}, #{content})
+      insert into k_board(articleNO, title, content, imageFileName, id) 
+	values(#{articleNO}, #{title}, #{content}, #{imageFileName}, #{id})
     ]]>      
   </insert>
  

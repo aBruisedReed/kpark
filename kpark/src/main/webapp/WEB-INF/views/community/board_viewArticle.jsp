@@ -38,10 +38,10 @@
  
 	 function fn_enable(obj){
 		 document.getElementById("tr_btn").style.display="none";
+		 document.getElementById("tr_btn_modify").style.display="block";
+		 document.getElementById("i_imageFileName").style.display="block";
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
-		 document.getElementById("i_imageFileName").style.display="block";
-		 document.getElementById("tr_btn_modify").style.display="block";
 		 document.getElementById("tr_file_upload").style.display="inline-block";
 	 }
 	 
