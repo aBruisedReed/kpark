@@ -73,13 +73,13 @@
 						<!-- 예시, 수정요망 --> <a href="buy/buyDetail.do?serial=<fmt:formatNumber value='${car.serial }' pattern='000000' />">
 							<div class="car_img">
 								<c:choose> 
-									<c:when test="${car.serial lt 490 && car.serial%40 ne 0}">
+									<c:when test="${car.serial lt 441 && car.serial%40 ne 0}">
 										<c:set var="serialImg" property="title" value="${car.serial%40 }" />
 									</c:when>
-									<c:when test="${car.serial lt 490 && car.serial%40 eq 0}">
+									<c:when test="${car.serial lt 441 && car.serial%40 eq 0}">
 										<c:set var="serialImg" property="title" value="40" />
 									</c:when>
-									<c:when test="${car.serial gt 490}">
+									<c:when test="${car.serial gt 441}">
 										<c:set var="serialImg" property="title" value="${car.serial}" />
 									</c:when>
 								</c:choose>
