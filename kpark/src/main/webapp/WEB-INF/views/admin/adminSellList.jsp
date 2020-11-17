@@ -43,14 +43,14 @@
 				
 				<c:when test="${sellList!=null }">
 				<c:forEach var="sell" items="${sellList }" varStatus="sellNum">
-				  <tr>
-				    <td>${sellNum.count }</td>
-				    <td>${sell.id }</td>
-				    <td>${sell.maker }</td>
-				    <td>${sell.subModel }</td>
-				    <td>${sell.price }</td>
-				    <td>${sell.carYear }</td>
-				  </tr>
+					  <tr style="cursor: pointer;" onclick="location.href='${contextPath }/admin/adminSellListView.do?id=${sell.id}&subModel=${sell.subModel}'">
+					    <td>${sellNum.count }</td>
+					    <td>${sell.name }</td>
+					    <td>${sell.maker }</td>
+					    <td>${sell.subModel }</td>
+					    <td>${sell.price }</td>
+					    <td>${sell.carYear }</td>
+					  </tr>
 				</c:forEach>
 				</c:when>
 				</c:choose>
