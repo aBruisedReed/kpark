@@ -33,7 +33,7 @@ import com.kgit.kpark.member.vo.MemberVO;
 
 @Controller("boardController")
 public class BoardControllerImpl implements BoardController{
-	private static final String ARTICLE_IMAGE_REPO = "/Users/younjiwon/Desktop/workspace/image_repo/board_img";
+	private static final String ARTICLE_IMAGE_REPO = "C:/resources/image_repo";
 	@Autowired
 	BoardService boardService;
 	@Autowired

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FileDownloadController {
-	private static final String ARTICLE_IMAGE_REPO = "/Users/younjiwon/Desktop/workspace/image_repo";
+	private static final String ARTICLE_IMAGE_REPO = "C:/resources/image_repo";
 													// 경로 각자 본인 걸로 수정
 	
 	@RequestMapping("/community/download.do")
 	protected void download(@RequestParam("imageFileName") String imageFileName, 
 			@RequestParam("articleNO") String articleNO, HttpServletResponse response) throws Exception {
 		OutputStream out = response.getOutputStream();
-		String downFile = ARTICLE_IMAGE_REPO + "/board_img/" + articleNO + "/" + imageFileName;
+		String downFile = ARTICLE_IMAGE_REPO + "/" + articleNO + "/" + imageFileName;
 		File file = new File(downFile);
 		
 		response.setHeader("Cache-control", "no-cache");
